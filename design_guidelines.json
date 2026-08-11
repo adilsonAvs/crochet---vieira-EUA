@@ -1,0 +1,57 @@
+{
+  "app_name": "Cozy Loop Crochet",
+  "app_type": "hybrid_fullstack",
+  "target_audience": "US crochet enthusiasts, DIY makers, crafters seeking modern patterns, grannycore & slow-fashion inspiration",
+  "emotional_tone": "Warm, tactile, inviting, cozy, artisanal, reliable, and premium editorial",
+  "design_archetype": "ORGANIC & EARTHY (Archetype 1)",
+  "color_palette": {
+    "primary": "#C47A5A",
+    "secondary": "#5E715B",
+    "accent": "#D8A47F",
+    "background": "#FAF7F2",
+    "surface": "#FFFFFF",
+    "text_main": "#2C2624",
+    "text_muted": "#6E6460",
+    "border": "#E8E2D9"
+  },
+  "typography": {
+    "heading_font": "Playfair Display, serif",
+    "body_font": "Plus Jakarta Sans, sans-serif",
+    "mono_font": "JetBrains Mono, monospace"
+  },
+  "image_urls": [
+    {
+      "category": "yarn_flatlay",
+      "url": "https://images.unsplash.com/photo-1668072587859-f0f30c8fa938?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAxODF8MHwxfHNlYXJjaHwxfHxjcm9jaGV0JTIweWFybiUyMGFlc3RoZXRpYyUyMGZsYXRsYXl8ZW58MHx8fHwxNzg0MTk5NjM3fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Cozy yarn balls and hooks flatlay"
+    },
+    {
+      "category": "blanket_craft",
+      "url": "https://images.pexels.com/photos/6216236/pexels-photo-6216236.jpeg",
+      "description": "Close-up of a folded handmade crocheted blanket"
+    },
+    {
+      "category": "amigurumi",
+      "url": "https://images.unsplash.com/photo-1559996279-1e9d0d508b74?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxhbWlndXJ1bWklMjBkb2xsJTIwY3JvY2hldHxlbnwwfHx8fDE3ODM1NzI3ODJ8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Adorable handmade amigurumi crochet doll"
+    }
+  ],
+  "key_features": [
+    "Responsive editorial content hub and homepage",
+    "Blog listing with live category filters and pagination",
+    "10 fully written long-form crochet articles (1,200-1,800 words each)",
+    "Individual article reading view with table of contents and internal linking",
+    "Interactive Contact form with local storage persistence and support email visibility",
+    "Legal & compliance pages (Privacy Policy, Terms of Service)",
+    "GDPR/CCPA Cookie Consent banner with Accept, Reject, and Manage Preferences",
+    "Technical SEO metadata, Open Graph / Twitter cards, Schema JSON-LD",
+    "Non-intrusive Google AdSense ad placeholder slots",
+    "Full accessibility with data-testid attributes on all interactive elements"
+  ],
+  "universal_guidelines": {
+    "no_transparent_headers": true,
+    "interactive_state_contrast": true,
+    "generous_spacing": true,
+    "data_testid_mandatory": true
+  }
+}
