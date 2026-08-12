@@ -60,6 +60,11 @@ class ArticleUpdate(BaseModel):
 class RotateTokenIn(BaseModel):
     new_token: str = Field(min_length=8, max_length=200)
 
+class CommentIn(BaseModel):
+    author_name: str = Field(min_length=2, max_length=60)
+    body: str = Field(min_length=5, max_length=2000)
+    website: Optional[str] = Field(default="", max_length=200)  # honeypot; real users leave empty
+
 def _hash_token(token: str) -> str:
     return hashlib.sha256(token.strip().encode("utf-8")).hexdigest()
 
@@ -165,7 +170,58 @@ async def admin_delete(slug: str, x_admin_token: Optional[str] = Header(default=
     result = await db.articles.delete_one({"slug": slug})
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Article not found")
+    await db.comments.delete_many({"article_slug": slug})
     return {"deleted": slug}
+
+@api_router.get("/articles/{slug}/comments")
+async def list_comments(slug: str):
+    docs = await db.comments.find({"article_slug": slug, "approved": True}, {"_id": 0, "id": 1, "author_name": 1, "body": 1, "created_at": 1}).sort("created_at", 1).to_list(length=500)
+    return {"comments": docs}
+
+@api_router.post("/articles/{slug}/comments")
+async def create_comment(slug: str, payload: CommentIn):
+    if payload.website:  # honeypot triggered - silently accept but never store
+        return {"message": "Thanks! Your comment is awaiting moderation.", "approved": False}
+    article = await db.articles.find_one({"slug": slug, "draft": {"$ne": True}}, {"_id": 0, "slug": 1})
+    if not article:
+        raise HTTPException(status_code=404, detail="Article not found")
+    doc = {
+        "id": str(uuid.uuid4()),
+        "article_slug": slug,
+        "author_name": payload.author_name.strip(),
+        "body": payload.body.strip(),
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "approved": False,
+    }
+    await db.comments.insert_one(doc)
+    return {"message": "Thanks! Your comment is awaiting moderation.", "approved": False}
+
+@api_router.get("/admin/comments")
+async def admin_list_comments(status: str = "all", x_admin_token: Optional[str] = Header(default=None)):
+    await _require_admin(x_admin_token)
+    query: Dict[str, Any] = {}
+    if status == "pending":
+        query["approved"] = False
+    elif status == "approved":
+        query["approved"] = True
+    docs = await db.comments.find(query, {"_id": 0}).sort("created_at", -1).to_list(length=1000)
+    return {"comments": docs}
+
+@api_router.post("/admin/comments/{comment_id}/approve")
+async def admin_approve_comment(comment_id: str, x_admin_token: Optional[str] = Header(default=None)):
+    await _require_admin(x_admin_token)
+    result = await db.comments.update_one({"id": comment_id}, {"$set": {"approved": True, "approved_at": datetime.now(timezone.utc).isoformat()}})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Comment not found")
+    return {"approved": comment_id}
+
+@api_router.delete("/admin/comments/{comment_id}")
+async def admin_delete_comment(comment_id: str, x_admin_token: Optional[str] = Header(default=None)):
+    await _require_admin(x_admin_token)
+    result = await db.comments.delete_one({"id": comment_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Comment not found")
+    return {"deleted": comment_id}
 
 def _fmt_lastmod(iso_or_pretty: str) -> str:
     """Best-effort ISO date for <lastmod>. Falls back to today."""

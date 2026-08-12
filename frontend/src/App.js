@@ -5,6 +5,7 @@ import { ArrowRight, Menu, X, Mail, Instagram, Check, Cookie } from "lucide-reac
 import axios from "axios";
 import "./App.css";
 import AdminPage from "./AdminPage";
+import CommentSection from "./CommentSection";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const ADSENSE_CLIENT = process.env.REACT_APP_ADSENSE_CLIENT || "";
@@ -189,6 +190,11 @@ function Home() {
           <div className="hero-note"><span>01 / 10</span><p>"The best projects are the ones that teach you something about yourself."</p></div>
         </div>
       </section>
+      <Link data-testid="start-here-cta-banner" className="start-cta-banner" to="/start-here">
+        <span className="eyebrow light">New here?</span>
+        <strong>Follow the 6-step Start Here path — from first stitch to studio habits.</strong>
+        <ArrowRight size={16} />
+      </Link>
       <section className="section intro">
         <div><span className="eyebrow">Welcome in</span><h2>For the curious,<br />not the perfect.</h2></div>
         <div className="intro-text">
@@ -379,6 +385,7 @@ function Article() {
           )}
         </div>
         <div className="section related-wrap"><RelatedReads current={article} articles={articles} /></div>
+        <div className="section"><CommentSection slug={article.slug} /></div>
       </article>
     </>
   );

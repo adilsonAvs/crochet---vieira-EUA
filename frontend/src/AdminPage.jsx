@@ -2,7 +2,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { ArrowRight, Plus, Trash2, Edit3, X, Save, LogOut, Key, Check } from "lucide-react";
+import { ArrowRight, Plus, Trash2, Edit3, X, Save, LogOut, Key, Check, MessageCircle } from "lucide-react";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const TOKEN_KEY = "clc-admin-token";
@@ -158,6 +158,74 @@ function ArticleEditor({ token, initial, onSaved, onCancel }) {
   );
 }
 
+function CommentModeration({ token }) {
+  const [comments, setComments] = useState([]);
+  const [filter, setFilter] = useState("pending");
+  const [busy, setBusy] = useState("");
+
+  const load = useCallback(async () => {
+    const res = await axios.get(`${API}/admin/comments?status=${filter}`, authHeaders(token));
+    setComments(res.data.comments || []);
+  }, [filter, token]);
+
+  useEffect(() => { load(); }, [load]);
+
+  const approve = async (id) => {
+    setBusy(id);
+    try {
+      await axios.post(`${API}/admin/comments/${id}/approve`, {}, authHeaders(token));
+      await load();
+    } finally { setBusy(""); }
+  };
+  const remove = async (id) => {
+    if (!window.confirm("Delete this comment?")) return;
+    setBusy(id);
+    try {
+      await axios.delete(`${API}/admin/comments/${id}`, authHeaders(token));
+      await load();
+    } finally { setBusy(""); }
+  };
+
+  const pendingCount = comments.filter(c => !c.approved).length;
+
+  return (
+    <div className="mod-section" data-testid="comment-moderation-section">
+      <h3><MessageCircle size={16} style={{ verticalAlign: "middle", marginRight: 6 }} /> Comment moderation
+        {pendingCount > 0 && filter === "pending" && <span className="mod-pending-badge" style={{ marginLeft: 10 }}>{pendingCount} pending</span>}
+      </h3>
+      <p>Approve friendly comments, delete spam. Only approved comments appear under articles.</p>
+      <div className="filter-row" style={{ marginBottom: 20 }}>
+        {["pending", "approved", "all"].map(f => (
+          <button data-testid={`mod-filter-${f}`} key={f}
+            className={filter === f ? "filter active" : "filter"}
+            onClick={() => setFilter(f)}>{f[0].toUpperCase() + f.slice(1)}</button>
+        ))}
+      </div>
+      {comments.length === 0 && <p className="admin-hint" data-testid="mod-empty">No comments in this view.</p>}
+      {comments.map(c => (
+        <div key={c.id} className="mod-item" data-testid={`mod-item-${c.id}`}>
+          <div className="mod-item-body">
+            <span className={c.approved ? "mod-approved-badge" : "mod-pending-badge"}>{c.approved ? "Approved" : "Pending"}</span>
+            <strong>{c.author_name}</strong> · <Link to={`/article/${c.article_slug}`} target="_blank" rel="noreferrer">{c.article_slug}</Link>
+            <p>{c.body}</p>
+            <div className="mod-item-meta">{new Date(c.created_at).toLocaleString("en-US")}</div>
+          </div>
+          <div className="mod-actions">
+            {!c.approved && (
+              <button className="text-button" onClick={() => approve(c.id)} disabled={busy === c.id} data-testid={`mod-approve-${c.id}`}>
+                <Check size={13} /> Approve
+              </button>
+            )}
+            <button className="text-button danger" onClick={() => remove(c.id)} disabled={busy === c.id} data-testid={`mod-delete-${c.id}`}>
+              <Trash2 size={13} /> Delete
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function RotateTokenForm({ token, onRotated }) {
   const [newToken, setNewToken] = useState("");
   const [confirm, setConfirm] = useState("");
@@ -239,6 +307,7 @@ function AdminList({ token, articles, onEdit, onDelete, onNew, onLogout, onRotat
         ))}
       </div>
       <RotateTokenForm token={token} onRotated={onRotated} />
+      <CommentModeration token={token} />
     </>
   );
 }
