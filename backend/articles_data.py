@@ -461,6 +461,90 @@ DENIM_UPCYCLE_BODY = [
 ]
 
 
+GRANNY_SQUARE_FASHION_BODY = [
+    {
+        "id": "intro",
+        "heading": "The granny square, all grown up",
+        "paragraphs": [
+            "The granny square has spent decades tucked into afghans and pot holders, but the last few years have quietly transformed it into one of the most exciting shapes in modern crochet fashion. A granny square skirt or vest built from asymmetric, boldly colored motifs reads as contemporary streetwear on the runway and as thrift-store cool on the sidewalk. The stitch is a hundred years old. The styling is completely new.",
+            "This guide walks through the design decisions that turn a traditional granny square into a wearable, editorial-looking garment: choosing a scale of square, planning an asymmetric layout, mixing colors like a designer instead of a beginner, and joining panels so the finished piece drapes on a real body. Whether you want a knee-length skirt for spring or a cropped vest for summer, the same design principles apply.",
+            "This is a modern granny square fashion guide written for makers who want their finished garment to look intentional rather than crafty.",
+        ],
+    },
+    {
+        "id": "why-modern",
+        "heading": "What makes a granny square garment feel modern",
+        "paragraphs": [
+            "Three design choices separate contemporary granny square fashion from the retro version your grandmother made. First: scale. Old-school garments used tiny two-inch squares by the dozen. Modern versions use larger squares—four to six inches—joined in fewer, bolder pieces. Bigger squares read as intentional; small squares read as busy.",
+            "Second: asymmetry. A traditional granny cardigan uses identical squares in a grid. A modern granny vest breaks that rule—one large square on the front, two medium squares in a diagonal on the back, an unexpected color in a single corner. Asymmetry is what makes the garment feel designed.",
+            "Third: color restraint. Vintage grannies used every color in the bin. Modern designs use a palette of four to six colors, one of which is a strong accent (rust, cobalt, chartreuse) surrounded by neutrals (cream, oat, black). Palette discipline is the whole game.",
+        ],
+    },
+    {
+        "id": "yarn",
+        "heading": "Yarn choices for wearable squares",
+        "paragraphs": [
+            "For a garment that will actually be worn, choose DK-weight or worsted-weight cotton, or a cotton-linen blend. Wool works for winter vests but pills quickly under a coat. Acrylic is affordable but does not breathe—not ideal against skin for a skirt or vest worn all day.",
+            "A mercerized cotton with a slight sheen photographs beautifully and holds stitch definition. Buy one full skein of your accent color and half a skein of each supporting color. For a knee-length skirt, plan on 900–1,100 yards total. For a cropped vest, 500–700 yards is plenty.",
+            "If you have a bag of scraps in coordinating colors, granny square garments are the perfect way to use them—see our [[scrap-yarn-projects|leftover yarn ideas guide]] for how to sort and pair scraps before starting a wearable project. Our [[best-yarn-for-crochet|full yarn buyer's guide]] compares blends and washability side by side.",
+        ],
+    },
+    {
+        "id": "square",
+        "heading": "The classic granny square, resized",
+        "paragraphs": [
+            "The standard granny square is worked in the round using clusters of double crochet separated by chain-1 or chain-2 corners. Here is the four-inch version we use as the base unit for most modern garments.",
+            "Round 1: Magic ring. Ch 3 (counts as first dc), 2 dc into the ring. Ch 2 (corner). Then work three more clusters separated by ch 2: (3 dc, ch 2) three times. Sl st to the top of the ch-3 to close.",
+            "Round 2: Sl st across to the first ch-2 corner space. Ch 3, work (2 dc, ch 2, 3 dc) in the same corner space. Then in each remaining corner space work (3 dc, ch 2, 3 dc). Between corners, work ch 1. Sl st to close.",
+            "Round 3: Sl st into the next ch-1 space. Ch 3, 2 dc in the same space. Ch 1. In the corner space work (3 dc, ch 2, 3 dc). Ch 1. Continue around, working 3 dc in each ch-1 space and (3 dc, ch 2, 3 dc) in each corner. Sl st to close.",
+            "That is your base square. Adjust the number of rounds up or down to change size—each additional round adds roughly one inch to the finished square. For a six-inch square, add one more round following the same pattern.",
+        ],
+    },
+    {
+        "id": "layout",
+        "heading": "Designing an asymmetric layout",
+        "paragraphs": [
+            "Before you make a single square, sketch your garment on paper as a flat pattern. For a skirt, draw two rectangles (front and back panel) and divide each into a grid of squares. For a vest, draw two shorter rectangles for front and back with armhole cutouts. Then break the grid intentionally—remove one square from the corner, replace one square with two half-squares, place your accent color in an off-center spot rather than the middle.",
+            "A reliable formula for modern asymmetry: use your accent color exactly three times in each panel, and place those three squares in a diagonal rather than a straight line or a symmetric cluster. Diagonal placement pulls the eye across the garment and looks unmistakably designed.",
+            "Sketch first, count squares needed, then start crocheting. A skirt typically uses 24–36 squares depending on hip size. A cropped vest uses 12–18 squares. Adjust up or down based on your measurements—the same shaping ideas from [[crochet-tops-for-every-body|our guide on crochet tops for every body]] translate directly to granny square garments.",
+        ],
+    },
+    {
+        "id": "joining",
+        "heading": "Joining squares so the garment drapes on a real body",
+        "paragraphs": [
+            "The join method changes the entire feel of the finished piece. Whip-stitching with matching yarn creates almost invisible seams and keeps the garment supple. Slip-stitching creates a visible ridge that can be a design feature if worked in a contrast color. Join-as-you-go crochet builds the seam into the final round of each square and is the neatest but slowest option.",
+            "For a first modern granny garment, use whip-stitching in the same color as the outermost round of your squares. The seam disappears; the fabric drapes. Skip crocheted-together joins on skirts—they can create rigid seams that fight the natural fall of the fabric.",
+            "When joining a skirt panel, stitch top-to-top with the right sides facing so seams sit inside the garment. When joining a vest, keep shoulder seams on the outside slightly for a small design detail, and hide side seams inside.",
+        ],
+    },
+    {
+        "id": "finish",
+        "heading": "Finishing edges and adding a waistband",
+        "paragraphs": [
+            "Raw square edges look unfinished on a garment. After joining, work a round of single crochet around every finished edge—hem of the skirt, armholes and neckline of the vest, and top edge of the skirt. This one round transforms the piece from \"in progress\" to \"finished.\"",
+            "For a skirt waistband, work three to four rounds of half double crochet in a solid color at the top, then thread a fabric elastic through the last round. This gives you a comfortable, adjustable waist that fits real bodies through weight fluctuations and different tops.",
+            "For a vest, add a single-crochet border in a contrast color around the entire outline—armholes, neckline, and bottom edge. The contrast border reads as intentional trim and pulls the whole design together visually.",
+        ],
+    },
+    {
+        "id": "styling",
+        "heading": "Styling your finished granny piece",
+        "paragraphs": [
+            "A modern granny square skirt looks striking with a plain white tee tucked in and simple sandals or boots. Keep the top half simple—the skirt is the focal point. For evening, style it with a black tank and heeled sandals for a look that reads as intentional couture rather than costume.",
+            "A cropped granny vest works over a plain long-sleeved shirt in fall or a simple silk cami in warmer weather. Layer it under a denim jacket for a texture story. Both pieces travel well because they fold flat and shake out wrinkle-free—rare qualities in handmade garments.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "A modern granny square garment is proof that the oldest patterns can still surprise you. The stitch is simple. The math is honest. The design choices you make about scale, asymmetry, and color are what turn a familiar shape into something that reads as unmistakably now. Start with a small vest to test your palette. Move up to a skirt when your confidence catches up. And save one square from every wearable project you make—stitched together over the years, they will become the memory blanket you never planned to knit but always wanted.",
+        ],
+    },
+]
+
+
 JAPANESE_KNOT_BAG_BODY = [
     {
         "id": "intro",
@@ -745,6 +829,18 @@ ARTICLES_SEED = [
         "date": "March 1, 2026",
         "sections": None,
         "body": JAPANESE_KNOT_BAG_BODY,
+        "draft": False,
+    },
+    {
+        "slug": "modern-granny-square-skirt-vest",
+        "title": "Modern Granny Square Fashion: How to Design Asymmetric Skirts and Vests",
+        "category": "Clothing",
+        "excerpt": "A designer-minded guide to turning classic granny squares into modern, asymmetric skirts and cropped vests—scale, palette, layout, joining, and finishing choices that make handmade look editorial.",
+        "image": IMAGES["tops"],
+        "read_time": "11 min read",
+        "date": "March 5, 2026",
+        "sections": None,
+        "body": GRANNY_SQUARE_FASHION_BODY,
         "draft": False,
     },
 ]
