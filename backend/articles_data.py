@@ -11,6 +11,7 @@ IMAGES = {
     "blanket": "https://images.pexels.com/photos/6216236/pexels-photo-6216236.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "amigurumi": "https://images.unsplash.com/photo-1559996279-1e9d0d508b74?auto=format&fit=crop&w=1200&q=80",
     "tops": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1200&q=80",
+    "denim": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1200&q=80",
 }
 
 CATEGORY_PARAGRAPHS = {
@@ -200,6 +201,87 @@ SCRAP_YARN_BODY = [
 ]
 
 
+DENIM_UPCYCLE_BODY = [
+    {
+        "id": "why-upcycle",
+        "heading": "Why upcycle denim with crochet",
+        "paragraphs": [
+            "There is a growing gap between how quickly clothing lands in landfills and how slowly it degrades. A pair of jeans takes decades to break down, and the average American throws away roughly seventy pounds of textiles every year. Meanwhile, thrift stores overflow with sturdy, honest denim that just needs a little imagination.",
+            "Crochet is one of the most forgiving crafts for rescuing worn clothes because it does not require pattern-perfect precision. A hook, a length of yarn, and a bit of intuition can turn a stiff, forgotten jean jacket into something you actually reach for. Freeform crochet edges add texture, softness, and personality to fabric that otherwise reads as flat and rigid.",
+            "Better still, working with what already exists costs less than buying yarn for a full sweater, and every finished piece is genuinely one of a kind. This guide walks through sourcing, prepping, and adding freeform edges to thrifted denim—plus the care instructions that keep your work looking beautiful long after the first wash.",
+        ],
+    },
+    {
+        "id": "source",
+        "heading": "Sourcing the right thrifted denim",
+        "paragraphs": [
+            "Not every jean jacket at Goodwill is worth the effort. Read the label first: aim for at least ninety-eight percent cotton with less than two percent elastane. Fabrics with high polyester content pill quickly, resist dye, and do not accept stitches cleanly. Feel the weight next—heavier denim (twelve ounces or more) holds a crochet border without sagging over time.",
+            "Look at the seams carefully. A jacket with reinforced double stitching will survive the extra tension your crochet edge adds. Check zippers, buttons, and pockets; you want a garment that functions well even before your improvements. Finally, sit with the color. Faded indigo pairs beautifully with almost any yarn shade, while crisp raw denim looks stunning against pastels and cream tones. Choose one intentional focal point—a collar, a cuff, or a hemline—before you commit. Deciding where the crochet will live saves hours of second-guessing at the table.",
+        ],
+    },
+    {
+        "id": "yarn",
+        "heading": "Choosing yarn that survives denim's daily life",
+        "paragraphs": [
+            "Denim is heavier and rougher than most crocheted fabric, so match the yarn to the job. Sport-weight or DK-weight mercerized cotton is the sweet spot: strong enough to hold shape, soft enough not to scratch, and machine-washable with the garment. Avoid anything wool-heavy—it will felt over time when washed with cotton denim.",
+            "Acrylic works if you want vivid color and low cost, but expect a slightly less refined finish. If you want a linen texture that ages with the jacket, look for cotton-linen blends. Choose colors that either echo something already in the garment (a wash tone, a stitching color) or contrast intentionally—cream against dark indigo, for example, makes the border pop.",
+            "As a rough estimate, buy about forty yards for a cuff edge, one hundred yards for a full collar, and a full skein for a jean hem. Our full breakdown of fibers, weights, and washability lives in [[best-yarn-for-crochet|our yarn buyer's guide]] if you want to dig deeper before spending.",
+        ],
+    },
+    {
+        "id": "prep",
+        "heading": "Prepare the garment before you touch a hook",
+        "paragraphs": [
+            "Wash the thrifted piece twice before you begin. Thrifted denim often carries residual detergent, dye, or fragrance that shifts after a single home wash, and waiting a second cycle prevents color surprises later. Let it dry fully, then iron every seam flat and snip any loose threads with sharp scissors.",
+            "Decide where your crochet edge will attach and mark the line with tailor's chalk. If you are adding a border to a raw edge (like a chopped hem), fold the raw edge under half an inch and topstitch with a sewing machine to prevent fraying under crochet tension. For attaching along an existing seam—say, a jacket cuff—you will pierce through denim with a large-eye tapestry needle, no pre-holes required. Test tension on a scrap of the same denim before you commit. Wristband denim behaves very differently from stiff yoke denim.",
+        ],
+    },
+    {
+        "id": "attach",
+        "heading": "Attaching crochet to denim",
+        "paragraphs": [
+            "Two methods work reliably. Method A—single-crochet foundation row—starts with an embroidery needle pre-piercing evenly spaced holes (about every quarter inch) along your chalk line. Skip the pre-piercing if your denim is soft enough for a size G or H hook to pass through directly. Insert your hook through each hole, pull up a loop, and single crochet along the entire edge to establish a base. This foundation row is the anchor for everything that follows.",
+            "Method B—blanket-stitch foundation—is better for thicker or older denim. Hand-sew a blanket stitch in matching thread first, then work your first crochet row into each blanket stitch loop rather than through the denim itself. This method is gentler on delicate garments and gives you a cleaner attachment.",
+            "Whichever method you choose, keep your tension consistent. Pulled tight, the crochet warps the denim; too loose, and the edge gapes. Consistency is the whole game, and the same principles from [[even-crochet-stitches|perfectly even stitches]] apply here too.",
+        ],
+    },
+    {
+        "id": "freeform",
+        "heading": "Freeform crochet—no pattern needed",
+        "paragraphs": [
+            "Once your foundation row is done, the fun part begins. Freeform means no pattern, no counted repeats, no gauge stress—just improvised stitches that respond to the shape you are decorating. Combine chain spaces with shell stitches. Add a picot every three stitches. Work three double crochets into one stitch to create a scallop. Vary the height of stitches within a single row so the edge grows organically instead of in a rigid line.",
+            "If you get stuck, alternate between one row of single crochet and one row of half doubles until inspiration returns. The beauty of freeform is that mistakes quickly become design choices—a taller stitch here, a cluster there, and suddenly you have a signature detail.",
+            "Take photos of your progress every ten minutes so you can retrace your steps if a section goes sideways. Working in short bursts also lets you see how the border sits on the garment as it grows, which is impossible to picture from a flat swatch alone.",
+        ],
+    },
+    {
+        "id": "design",
+        "heading": "Design ideas by garment type",
+        "paragraphs": [
+            "For a jacket collar, a wide shell-stitch panel in cream cotton transforms a classic denim jacket into something that reads bespoke. Work outward from the neckline for three to five inches, then finish with a picot row.",
+            "For jacket cuffs, small ruffled cuffs in a contrast color are the fastest upcycle possible—under two hours per cuff. For jean hems, fold the hem inward twice, crochet a soft one-inch scalloped border in colored cotton, and let it peek out from under a fold. For front pockets, trace the pocket opening and add a slim quarter-inch crochet edge in metallic thread for evening styling.",
+            "For advanced makers, work a freeform crochet panel that sits below the collar and above the chest, echoing the shape of a Victorian yoke. These are starting points, not rules. The most memorable upcycles usually mix two techniques—a subtle pocket edge with a bold hem, or matched cuff and collar in the same yarn. If sizing is a concern (denim runs strict), the fit adjustments in [[crochet-tops-for-every-body|our guide on crochet tops for every body]] translate directly to jacket alterations.",
+        ],
+    },
+    {
+        "id": "finishing",
+        "heading": "Finishing and long-term care",
+        "paragraphs": [
+            "Weave in every yarn tail with a large tapestry needle, running the tail through at least four stitches in one direction and then reversing back through two more. This prevents the ends from working loose during washing.",
+            "Machine wash your finished piece on cold, inside out, inside a mesh laundry bag to protect the crochet from snagging on zippers. Skip the dryer entirely for the first three washes—lay the garment flat to dry so the border sets into the shape you want. After the third wash, the yarn and denim have essentially learned each other, and normal drying is fine.",
+            "Store the garment hanging when possible, and spot-clean rather than washing the whole piece if you can. A well-finished upcycled jacket will still look intentional five years from now—that is the whole point.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Upcycled fashion is not a compromise. It is a slower, kinder, more creative version of shopping—and crochet is the perfect tool for the job. Start with one small edge: a single cuff, a pocket outline, a hem detail. Wear it for a week. Notice how differently you feel about a garment you helped shape. Then find the next thrifted piece waiting for a hook and a length of yarn. The best wardrobe is the one you keep saving.",
+        ],
+    },
+]
+
+
 def _short(slug, title, category, excerpt, image_key, read_time):
     return {
         "slug": slug,
@@ -246,6 +328,18 @@ ARTICLES_SEED = [
         "date": "February 12, 2026",
         "sections": None,
         "body": SCRAP_YARN_BODY,
+        "draft": False,
+    },
+    {
+        "slug": "upcycle-thrifted-denim-crochet",
+        "title": "From Trash to Trend: Upcycling Thrifted Denim with Freeform Crochet Edges",
+        "category": "Clothing",
+        "excerpt": "A step-by-step, sustainability-first guide to sourcing thrifted denim, choosing durable yarn, and adding freeform crochet edges that make forgotten jackets and jeans wearable again.",
+        "image": IMAGES["denim"],
+        "read_time": "10 min read",
+        "date": "February 15, 2026",
+        "sections": None,
+        "body": DENIM_UPCYCLE_BODY,
         "draft": False,
     },
 ]
