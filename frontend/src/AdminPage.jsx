@@ -2,7 +2,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { ArrowRight, Plus, Trash2, Edit3, X, Save, LogOut } from "lucide-react";
+import { ArrowRight, Plus, Trash2, Edit3, X, Save, LogOut, Key, Check } from "lucide-react";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const TOKEN_KEY = "clc-admin-token";
@@ -17,6 +17,7 @@ const EMPTY_ARTICLE = {
   date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
   body: [{ id: "intro", heading: "Introduction", paragraphs: ["Write your first paragraph here."] }],
   sections: null,
+  draft: true,
 };
 
 function authHeaders(token) {
@@ -144,6 +145,11 @@ function ArticleEditor({ token, initial, onSaved, onCancel }) {
         <textarea data-testid="admin-field-sections" rows="4" value={sectionsText}
           onChange={e => setSectionsText(e.target.value)} spellCheck="false" />
       </label>
+      <label className="admin-checkbox">
+        <input data-testid="admin-field-draft" type="checkbox" checked={!!form.draft}
+          onChange={e => update("draft", e.target.checked)} />
+        Save as draft (hidden from the public blog and sitemap until unchecked)
+      </label>
       <p className="admin-hint">Use <code>[[slug|anchor text]]</code> inside any paragraph to create an internal link to another article.</p>
       <button type="submit" className="button" disabled={busy} data-testid="admin-editor-save">
         {busy ? "Saving…" : <><Save size={14} /> Save article</>}
@@ -152,7 +158,54 @@ function ArticleEditor({ token, initial, onSaved, onCancel }) {
   );
 }
 
-function AdminList({ token, articles, onEdit, onDelete, onNew, onLogout }) {
+function RotateTokenForm({ token, onRotated }) {
+  const [newToken, setNewToken] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [busy, setBusy] = useState(false);
+  const submit = async (e) => {
+    e.preventDefault();
+    setError(""); setSuccess("");
+    if (newToken !== confirm) { setError("New tokens do not match."); return; }
+    if (newToken.length < 8) { setError("New token must be at least 8 characters."); return; }
+    setBusy(true);
+    try {
+      await axios.post(`${API}/admin/rotate-token`, { new_token: newToken }, authHeaders(token));
+      localStorage.setItem(TOKEN_KEY, newToken);
+      setSuccess("Token rotated. It is already active for this session.");
+      setNewToken(""); setConfirm("");
+      onRotated(newToken);
+    } catch (err) {
+      setError(err.response?.data?.detail || "Could not rotate token.");
+    } finally { setBusy(false); }
+  };
+  return (
+    <div className="rotate-section" data-testid="rotate-token-section">
+      <h3><Key size={16} style={{ verticalAlign: "middle", marginRight: 6 }} /> Rotate admin token</h3>
+      <p>Pick a long, random secret you actually remember. The new token replaces the current one immediately for every browser except this one, which is refreshed automatically.</p>
+      <form className="contact-form" onSubmit={submit} data-testid="rotate-token-form">
+        {error && <div className="error" data-testid="rotate-token-error">{error}</div>}
+        {success && <div className="success" data-testid="rotate-token-success"><Check size={16} /> {success}</div>}
+        <div className="admin-grid">
+          <label>New token
+            <input data-testid="rotate-token-new" type="password" required minLength="8" value={newToken}
+              onChange={e => setNewToken(e.target.value)} />
+          </label>
+          <label>Confirm new token
+            <input data-testid="rotate-token-confirm" type="password" required minLength="8" value={confirm}
+              onChange={e => setConfirm(e.target.value)} />
+          </label>
+        </div>
+        <button type="submit" className="button" disabled={busy} data-testid="rotate-token-submit">
+          {busy ? "Rotating…" : <>Rotate now <ArrowRight size={14} /></>}
+        </button>
+      </form>
+    </div>
+  );
+}
+
+function AdminList({ token, articles, onEdit, onDelete, onNew, onLogout, onRotated }) {
   return (
     <>
       <div className="admin-toolbar">
@@ -167,11 +220,14 @@ function AdminList({ token, articles, onEdit, onDelete, onNew, onLogout }) {
       </div>
       <div className="admin-table" data-testid="admin-article-table">
         {articles.map(a => (
-          <div className="admin-row" data-testid={`admin-row-${a.slug}`} key={a.slug}>
+          <div className={a.draft ? "admin-row admin-row-draft" : "admin-row"} data-testid={`admin-row-${a.slug}`} key={a.slug}>
             <div className="admin-row-main">
               <span className="image-tag">{a.category}</span>
               <div>
-                <Link to={`/article/${a.slug}`} target="_blank" rel="noreferrer">{a.title}</Link>
+                <Link to={`/article/${a.slug}`} target="_blank" rel="noreferrer">
+                  {a.draft && <span data-testid={`admin-draft-flag-${a.slug}`} style={{color:"#a86f10",fontWeight:700,marginRight:8}}>[DRAFT]</span>}
+                  {a.title}
+                </Link>
                 <small>{a.slug} · {a.date} · {a.read_time}</small>
               </div>
             </div>
@@ -182,6 +238,7 @@ function AdminList({ token, articles, onEdit, onDelete, onNew, onLogout }) {
           </div>
         ))}
       </div>
+      <RotateTokenForm token={token} onRotated={onRotated} />
     </>
   );
 }
@@ -194,7 +251,8 @@ export default function AdminPage() {
   const [flash, setFlash] = useState("");
 
   const load = useCallback(async () => {
-    const res = await axios.get(`${API}/articles`);
+    const t = localStorage.getItem(TOKEN_KEY) || "";
+    const res = await axios.get(`${API}/articles`, t ? authHeaders(t) : {});
     setArticles(res.data.articles || []);
   }, []);
 
@@ -245,7 +303,8 @@ export default function AdminPage() {
             onEdit={(a) => setEditing({ article: a })}
             onDelete={doDelete}
             onNew={() => setEditing({ article: null })}
-            onLogout={() => { localStorage.removeItem(TOKEN_KEY); setToken(""); }} />
+            onLogout={() => { localStorage.removeItem(TOKEN_KEY); setToken(""); }}
+            onRotated={(t) => setToken(t)} />
         )}
       </section>
     </>

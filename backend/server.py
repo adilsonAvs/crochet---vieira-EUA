@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field, EmailStr
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Optional, List, Dict, Any
-import os, uuid, logging, xml.sax.saxutils as _xml
+import os, uuid, logging, hashlib, hmac, xml.sax.saxutils as _xml
 
 from articles_data import ARTICLES_SEED, CATEGORIES
 
@@ -44,6 +44,7 @@ class ArticleIn(BaseModel):
     date: str = Field(min_length=4, max_length=40)
     body: Optional[List[ArticleBodySection]] = None
     sections: Optional[List[str]] = None
+    draft: bool = False
 
 class ArticleUpdate(BaseModel):
     title: Optional[str] = Field(default=None, min_length=3, max_length=240)
@@ -54,12 +55,32 @@ class ArticleUpdate(BaseModel):
     date: Optional[str] = Field(default=None, min_length=4, max_length=40)
     body: Optional[List[ArticleBodySection]] = None
     sections: Optional[List[str]] = None
+    draft: Optional[bool] = None
 
-def _require_admin(x_admin_token: Optional[str]):
-    expected = os.environ.get('ADMIN_TOKEN', '').strip()
-    if not expected:
-        raise HTTPException(status_code=503, detail="Admin dashboard is not configured. Set ADMIN_TOKEN in backend/.env.")
-    if not x_admin_token or x_admin_token.strip() != expected:
+class RotateTokenIn(BaseModel):
+    new_token: str = Field(min_length=8, max_length=200)
+
+def _hash_token(token: str) -> str:
+    return hashlib.sha256(token.strip().encode("utf-8")).hexdigest()
+
+async def _get_stored_hash() -> Optional[str]:
+    doc = await db.admin_config.find_one({"key": "admin_token"})
+    return doc.get("hash") if doc else None
+
+async def _is_admin(x_admin_token: Optional[str]) -> bool:
+    if not x_admin_token:
+        return False
+    stored = await _get_stored_hash()
+    if stored:
+        return hmac.compare_digest(_hash_token(x_admin_token), stored)
+    env_token = os.environ.get('ADMIN_TOKEN', '').strip()
+    return bool(env_token) and hmac.compare_digest(x_admin_token.strip(), env_token)
+
+async def _require_admin(x_admin_token: Optional[str]):
+    if not await _is_admin(x_admin_token):
+        env_token = os.environ.get('ADMIN_TOKEN', '').strip()
+        if not env_token and not await _get_stored_hash():
+            raise HTTPException(status_code=503, detail="Admin dashboard is not configured. Set ADMIN_TOKEN in backend/.env.")
         raise HTTPException(status_code=401, detail="Invalid admin token.")
 
 @api_router.get("/")
@@ -74,25 +95,43 @@ async def create_contact(payload: ContactMessage):
     return ContactResponse(id=doc["id"], message="Thanks for reaching out! We'll be in touch soon.")
 
 @api_router.get("/articles")
-async def list_articles():
-    docs = await db.articles.find({}, {"_id": 0}).sort("order", 1).to_list(length=200)
-    return {"articles": docs, "categories": CATEGORIES}
+async def list_articles(x_admin_token: Optional[str] = Header(default=None)):
+    is_admin = await _is_admin(x_admin_token)
+    query = {} if is_admin else {"draft": {"$ne": True}}
+    docs = await db.articles.find(query, {"_id": 0}).sort("order", 1).to_list(length=200)
+    return {"articles": docs, "categories": CATEGORIES, "admin": is_admin}
 
 @api_router.get("/articles/{slug}")
-async def get_article(slug: str):
-    doc = await db.articles.find_one({"slug": slug}, {"_id": 0})
+async def get_article(slug: str, x_admin_token: Optional[str] = Header(default=None)):
+    is_admin = await _is_admin(x_admin_token)
+    query: Dict[str, Any] = {"slug": slug}
+    if not is_admin:
+        query["draft"] = {"$ne": True}
+    doc = await db.articles.find_one(query, {"_id": 0})
     if not doc:
         raise HTTPException(status_code=404, detail="Article not found")
     return doc
 
 @api_router.post("/admin/verify")
 async def admin_verify(x_admin_token: Optional[str] = Header(default=None)):
-    _require_admin(x_admin_token)
+    await _require_admin(x_admin_token)
     return {"ok": True}
+
+@api_router.post("/admin/rotate-token")
+async def admin_rotate_token(payload: RotateTokenIn, x_admin_token: Optional[str] = Header(default=None)):
+    await _require_admin(x_admin_token)
+    if _hash_token(payload.new_token) == _hash_token(x_admin_token or ""):
+        raise HTTPException(status_code=400, detail="New token must be different from the current one.")
+    await db.admin_config.update_one(
+        {"key": "admin_token"},
+        {"$set": {"hash": _hash_token(payload.new_token), "updated_at": datetime.now(timezone.utc).isoformat()}},
+        upsert=True,
+    )
+    return {"ok": True, "message": "Admin token rotated. Sign in again with the new token."}
 
 @api_router.post("/admin/articles")
 async def admin_create(payload: ArticleIn, x_admin_token: Optional[str] = Header(default=None)):
-    _require_admin(x_admin_token)
+    await _require_admin(x_admin_token)
     if await db.articles.find_one({"slug": payload.slug}):
         raise HTTPException(status_code=409, detail="An article with this slug already exists.")
     last = await db.articles.find({}, {"order": 1}).sort("order", -1).limit(1).to_list(length=1)
@@ -109,7 +148,7 @@ async def admin_create(payload: ArticleIn, x_admin_token: Optional[str] = Header
 
 @api_router.put("/admin/articles/{slug}")
 async def admin_update(slug: str, payload: ArticleUpdate, x_admin_token: Optional[str] = Header(default=None)):
-    _require_admin(x_admin_token)
+    await _require_admin(x_admin_token)
     updates = {k: v for k, v in payload.model_dump(exclude_unset=True).items()}
     if not updates:
         raise HTTPException(status_code=400, detail="No fields to update.")
@@ -122,7 +161,7 @@ async def admin_update(slug: str, payload: ArticleUpdate, x_admin_token: Optiona
 
 @api_router.delete("/admin/articles/{slug}")
 async def admin_delete(slug: str, x_admin_token: Optional[str] = Header(default=None)):
-    _require_admin(x_admin_token)
+    await _require_admin(x_admin_token)
     result = await db.articles.delete_one({"slug": slug})
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Article not found")
@@ -139,7 +178,7 @@ def _fmt_lastmod(iso_or_pretty: str) -> str:
 
 @api_router.get("/sitemap.xml")
 async def dynamic_sitemap():
-    docs = await db.articles.find({}, {"_id": 0, "slug": 1, "date": 1, "updated_at": 1}).sort("order", 1).to_list(length=500)
+    docs = await db.articles.find({"draft": {"$ne": True}}, {"_id": 0, "slug": 1, "date": 1, "updated_at": 1}).sort("order", 1).to_list(length=500)
     today = datetime.now(timezone.utc).date().isoformat()
     static_pages = [
         ("", "1.0", "weekly"),
@@ -165,6 +204,20 @@ async def dynamic_sitemap():
 app.include_router(api_router)
 app.add_middleware(CORSMiddleware, allow_credentials=True, allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','), allow_methods=["*"], allow_headers=["*"])
 logging.basicConfig(level=logging.INFO)
+
+@app.on_event("startup")
+async def seed_admin_token():
+    """Populate admin_config with a hashed copy of ADMIN_TOKEN env var on first
+    boot so the token can be rotated at runtime without editing .env."""
+    if await db.admin_config.count_documents({"key": "admin_token"}) == 0:
+        env_token = os.environ.get('ADMIN_TOKEN', '').strip()
+        if env_token:
+            await db.admin_config.insert_one({
+                "key": "admin_token",
+                "hash": _hash_token(env_token),
+                "created_at": datetime.now(timezone.utc).isoformat(),
+            })
+            logging.info("Admin token seeded from ADMIN_TOKEN env var")
 
 @app.on_event("startup")
 async def seed_articles():

@@ -143,6 +143,7 @@ function ArticleCard({ article, featured = false }) {
       <div className="article-image">
         <img src={article.image} alt={`Crochet project inspiration for ${article.title}`} />
         <span className="image-tag">{article.category}</span>
+        {article.draft && <span className="draft-badge" data-testid={`draft-badge-${article.slug}`}>Draft</span>}
       </div>
       <div className="article-info">
         <span className="eyebrow">{article.read_time} · {article.date}</span>
@@ -494,7 +495,9 @@ function DataProvider({ children }) {
   const [state, setState] = useState({ articles: [], categories: ["All"], loading: true });
   useEffect(() => {
     let cancelled = false;
-    axios.get(`${API}/articles`).then(res => {
+    const token = localStorage.getItem("clc-admin-token");
+    const config = token ? { headers: { "X-Admin-Token": token } } : {};
+    axios.get(`${API}/articles`, config).then(res => {
       if (cancelled) return;
       setState({
         articles: res.data.articles || [],
