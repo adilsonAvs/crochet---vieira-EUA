@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link, useParams } from "react-router-dom"
 import { ArrowRight, Menu, X, Mail, Instagram, Check, Cookie } from "lucide-react";
 import axios from "axios";
 import "./App.css";
+import AdminPage from "./AdminPage";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const ADSENSE_CLIENT = process.env.REACT_APP_ADSENSE_CLIENT || "";
@@ -523,6 +524,7 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<InfoPage type="privacy" />} />
             <Route path="/terms" element={<InfoPage type="terms" />} />
+            <Route path="/admin" element={<AdminPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

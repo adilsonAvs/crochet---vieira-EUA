@@ -1,11 +1,12 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException, Header, Response
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, Field, EmailStr
 from pathlib import Path
 from datetime import datetime, timezone
-import os, uuid, logging
+from typing import Optional, List, Dict, Any
+import os, uuid, logging, xml.sax.saxutils as _xml
 
 from articles_data import ARTICLES_SEED, CATEGORIES
 
@@ -14,6 +15,7 @@ load_dotenv(ROOT_DIR / '.env')
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
+SITE_ORIGIN = os.environ.get('SITE_ORIGIN', 'https://cozyloopcrochet.com')
 app = FastAPI(title="Cozy Loop Crochet API")
 api_router = APIRouter(prefix="/api")
 
@@ -26,6 +28,39 @@ class ContactMessage(BaseModel):
 class ContactResponse(BaseModel):
     id: str
     message: str
+
+class ArticleBodySection(BaseModel):
+    id: str = Field(min_length=1, max_length=80)
+    heading: str = Field(min_length=1, max_length=200)
+    paragraphs: List[str] = Field(min_length=1)
+
+class ArticleIn(BaseModel):
+    slug: str = Field(min_length=2, max_length=120, pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+    title: str = Field(min_length=3, max_length=240)
+    category: str = Field(min_length=2, max_length=60)
+    excerpt: str = Field(min_length=10, max_length=400)
+    image: str = Field(min_length=6, max_length=1000)
+    read_time: str = Field(min_length=2, max_length=40)
+    date: str = Field(min_length=4, max_length=40)
+    body: Optional[List[ArticleBodySection]] = None
+    sections: Optional[List[str]] = None
+
+class ArticleUpdate(BaseModel):
+    title: Optional[str] = Field(default=None, min_length=3, max_length=240)
+    category: Optional[str] = Field(default=None, min_length=2, max_length=60)
+    excerpt: Optional[str] = Field(default=None, min_length=10, max_length=400)
+    image: Optional[str] = Field(default=None, min_length=6, max_length=1000)
+    read_time: Optional[str] = Field(default=None, min_length=2, max_length=40)
+    date: Optional[str] = Field(default=None, min_length=4, max_length=40)
+    body: Optional[List[ArticleBodySection]] = None
+    sections: Optional[List[str]] = None
+
+def _require_admin(x_admin_token: Optional[str]):
+    expected = os.environ.get('ADMIN_TOKEN', '').strip()
+    if not expected:
+        raise HTTPException(status_code=503, detail="Admin dashboard is not configured. Set ADMIN_TOKEN in backend/.env.")
+    if not x_admin_token or x_admin_token.strip() != expected:
+        raise HTTPException(status_code=401, detail="Invalid admin token.")
 
 @api_router.get("/")
 async def root():
@@ -49,6 +84,83 @@ async def get_article(slug: str):
     if not doc:
         raise HTTPException(status_code=404, detail="Article not found")
     return doc
+
+@api_router.post("/admin/verify")
+async def admin_verify(x_admin_token: Optional[str] = Header(default=None)):
+    _require_admin(x_admin_token)
+    return {"ok": True}
+
+@api_router.post("/admin/articles")
+async def admin_create(payload: ArticleIn, x_admin_token: Optional[str] = Header(default=None)):
+    _require_admin(x_admin_token)
+    if await db.articles.find_one({"slug": payload.slug}):
+        raise HTTPException(status_code=409, detail="An article with this slug already exists.")
+    last = await db.articles.find({}, {"order": 1}).sort("order", -1).limit(1).to_list(length=1)
+    order = (last[0]["order"] + 1) if last else 0
+    doc: Dict[str, Any] = payload.model_dump()
+    doc.update({
+        "id": str(uuid.uuid4()),
+        "order": order,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+    })
+    await db.articles.insert_one(doc)
+    doc.pop("_id", None)
+    return doc
+
+@api_router.put("/admin/articles/{slug}")
+async def admin_update(slug: str, payload: ArticleUpdate, x_admin_token: Optional[str] = Header(default=None)):
+    _require_admin(x_admin_token)
+    updates = {k: v for k, v in payload.model_dump(exclude_unset=True).items()}
+    if not updates:
+        raise HTTPException(status_code=400, detail="No fields to update.")
+    updates["updated_at"] = datetime.now(timezone.utc).isoformat()
+    result = await db.articles.update_one({"slug": slug}, {"$set": updates})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Article not found")
+    doc = await db.articles.find_one({"slug": slug}, {"_id": 0})
+    return doc
+
+@api_router.delete("/admin/articles/{slug}")
+async def admin_delete(slug: str, x_admin_token: Optional[str] = Header(default=None)):
+    _require_admin(x_admin_token)
+    result = await db.articles.delete_one({"slug": slug})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Article not found")
+    return {"deleted": slug}
+
+def _fmt_lastmod(iso_or_pretty: str) -> str:
+    """Best-effort ISO date for <lastmod>. Falls back to today."""
+    for fmt in ("%B %d, %Y", "%b %d, %Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(iso_or_pretty, fmt).date().isoformat()
+        except (ValueError, TypeError):
+            continue
+    return datetime.now(timezone.utc).date().isoformat()
+
+@api_router.get("/sitemap.xml")
+async def dynamic_sitemap():
+    docs = await db.articles.find({}, {"_id": 0, "slug": 1, "date": 1, "updated_at": 1}).sort("order", 1).to_list(length=500)
+    today = datetime.now(timezone.utc).date().isoformat()
+    static_pages = [
+        ("", "1.0", "weekly"),
+        ("blog", "0.9", "weekly"),
+        ("about", "0.5", "monthly"),
+        ("contact", "0.5", "monthly"),
+        ("privacy", "0.3", "yearly"),
+        ("terms", "0.3", "yearly"),
+    ]
+    parts = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for path, priority, freq in static_pages:
+        loc = f"{SITE_ORIGIN}/{path}" if path else f"{SITE_ORIGIN}/"
+        parts.append(f"<url><loc>{_xml.escape(loc)}</loc><lastmod>{today}</lastmod><changefreq>{freq}</changefreq><priority>{priority}</priority></url>")
+    for d in docs:
+        lastmod = _fmt_lastmod(d.get("updated_at") or d.get("date") or "")
+        loc = f"{SITE_ORIGIN}/article/{d['slug']}"
+        parts.append(f"<url><loc>{_xml.escape(loc)}</loc><lastmod>{lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>")
+    parts.append("</urlset>")
+    xml_body = "".join(parts)
+    return Response(content=xml_body, media_type="application/xml")
 
 app.include_router(api_router)
 app.add_middleware(CORSMiddleware, allow_credentials=True, allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','), allow_methods=["*"], allow_headers=["*"])
