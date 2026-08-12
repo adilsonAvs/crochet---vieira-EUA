@@ -232,7 +232,6 @@ MICRO_CROCHET_JEWELRY_BODY = [
             "• Tiny sharp scissors—embroidery snips work perfectly.",
             "• Straight pins and a piece of stiff foam or corkboard for blocking.",
             "• Optional but life-changing: a lighted magnifying visor if you are over forty or working in dim light.",
-            "📸 PHOTO 1 — Suggested shot: a close-up of the six-strand embroidery floss laid flat with three strands separated to one side, next to your 0.6 mm steel hook and embroidery snips. Natural side light on a linen or unbleached cotton surface reads as \"editorial handmade\" and pins beautifully on Pinterest.",
         ],
     },
     {
@@ -274,7 +273,6 @@ MICRO_CROCHET_JEWELRY_BODY = [
         "paragraphs": [
             "Once your medallion is stiffened and dry, attach a small jump ring through the top picot. Open the jump ring by twisting sideways (never pulling straight apart), thread it through the top picot, then through the loop of a hypoallergenic ear wire, and twist closed. Repeat for the second earring.",
             "If you plan to sell your work, invest in surgical stainless steel or sterling silver wires—the small price difference prevents allergic reactions and keeps your reviews at five stars.",
-            "📸 PHOTO 2 — Suggested shot: the finished pair of earrings styled on a small wooden ring dish or a marble jewelry holder, with a sprig of dried lavender or a pressed flower for scale. Shoot in soft window light for a Pinterest-ready hero.",
         ],
     },
     {
@@ -545,7 +543,7 @@ ARTICLES_SEED = [
         "date": "February 22, 2026",
         "sections": None,
         "body": MICRO_CROCHET_JEWELRY_BODY,
-        "draft": True,
+        "draft": False,
     },
 ]
 
