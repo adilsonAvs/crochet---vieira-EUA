@@ -201,6 +201,100 @@ SCRAP_YARN_BODY = [
 ]
 
 
+MICRO_CROCHET_JEWELRY_BODY = [
+    {
+        "id": "intro",
+        "heading": "Where fiber art meets fine jewelry",
+        "paragraphs": [
+            "Micro-crochet jewelry is where fiber art meets fine jewelry—and it happens to be one of the most satisfying rabbit holes a hook can lead you down. If you have ever admired a delicate pair of crochet lace earrings and wondered how anyone could possibly make something so small by hand, the honest answer is: with six-strand embroidery floss, a steel hook the size of a sewing needle, and a very quiet afternoon.",
+            "This guide walks through everything I wish someone had told me the first time I tried micro-crochet jewelry—from separating embroidery floss down to the exact number of strands that hold their shape, to choosing an ultra-fine steel hook that will not fight your hands, to stiffening a finished piece so it hangs like an heirloom instead of a curl of thread. Ten years of embroidery floss crochet have taught me that the difference between messy and magical is almost always tension and blocking, and both are learnable in one weekend.",
+        ],
+    },
+    {
+        "id": "why-patience",
+        "heading": "Why micro-crochet jewelry is worth the patience",
+        "paragraphs": [
+            "Working small requires slower hands, brighter light, and a willingness to redo a row when your tension drifts. In return, you get pieces that photograph beautifully, cost pennies in materials, and read as far more valuable than they are. A single skein of embroidery floss makes ten to fifteen pairs of earrings; a spool of DMC pearl cotton makes fifty. That kind of yield is impossible with any other fiber craft.",
+            "Micro-crochet also travels well. A finished pair fits in a business-card holder. A work-in-progress fits in a coat pocket. If you sell at craft fairs, jewelry can be your entry-level price point—the ten- to twenty-dollar impulse buy that pays for the whole table before lunch.",
+        ],
+    },
+    {
+        "id": "supplies",
+        "heading": "Your exact supply list",
+        "paragraphs": [
+            "Everything below is exactly what I keep in my micro-crochet kit. If a supply is missing, the project is harder than it needs to be; if you have all of them, you can start today.",
+            "• Six-strand embroidery floss in one to three colors (DMC, Anchor, or CosmoLecien). One skein makes ten to fifteen pairs.",
+            "• Ultra-fine steel crochet hook, size 0.6 mm (US 14) for beginners, or 0.4 mm (US 16) for advanced makers who want ultra-fine lace.",
+            "• Fabric stiffener OR a homemade blocker of 50/50 white glue and water in a small dish.",
+            "• Hypoallergenic ear wires (surgical stainless steel, sterling silver, or gold-fill). Fifty pairs cost about eight dollars online.",
+            "• Small jump rings (3–4 mm).",
+            "• Two pairs of jewelry pliers (chain-nose and flat-nose).",
+            "• Tiny sharp scissors—embroidery snips work perfectly.",
+            "• Straight pins and a piece of stiff foam or corkboard for blocking.",
+            "• Optional but life-changing: a lighted magnifying visor if you are over forty or working in dim light.",
+            "📸 PHOTO 1 — Suggested shot: a close-up of the six-strand embroidery floss laid flat with three strands separated to one side, next to your 0.6 mm steel hook and embroidery snips. Natural side light on a linen or unbleached cotton surface reads as \"editorial handmade\" and pins beautifully on Pinterest.",
+        ],
+    },
+    {
+        "id": "floss",
+        "heading": "Choosing embroidery floss and hook sizes",
+        "paragraphs": [
+            "Not all six-strand floss is equal. DMC, Anchor, and CosmoLecien are the standards for a reason—the fibers are combed evenly, colors are consistent across dye lots, and strands separate cleanly. Avoid unbranded bulk floss from craft-store multipacks; the fibers pill and colors sometimes bleed when you stiffen the finished piece.",
+            "For heirloom-quality crochet lace earrings, work with three strands separated from the six-strand skein. Three strands is the sweet spot—enough body for the stitches to show, thin enough to work a 0.6 mm hook comfortably. Reserve two-strand work for advanced makers with 0.4 mm hooks.",
+            "If you have never worked with anything finer than sport-weight yarn, spend an evening practicing basic stitches with three-strand floss on a 0.6 mm hook before you try a jewelry pattern. It builds the same muscle memory that [[crochet-for-absolute-beginners|our absolute beginners guide]] builds for standard yarn—just in miniature.",
+        ],
+    },
+    {
+        "id": "pattern",
+        "heading": "The magic ring earring pattern (step-by-step)",
+        "paragraphs": [
+            "This pattern makes a pair of small lace medallions about three-quarters of an inch across—perfect for everyday wear. It uses only chain, single crochet, and double crochet. All abbreviations are US crochet terms.",
+            "1. Start with a magic ring. Wrap the floss around your fingertip twice, insert the hook under both loops, and pull up a working loop. Chain 1 to secure. The magic ring gives you a closed, invisible center.",
+            "2. Round 1: Work 8 single crochet (sc) into the ring. Pull the tail tight to close the center. Do not join yet—we work continuously.",
+            "3. Round 2: Chain 3 (counts as first double crochet). Work 2 double crochet (dc) into the same stitch as the chain. Chain 1. Skip the next stitch. In the following stitch, work 3 dc, then chain 1. Repeat around: (3 dc, ch 1, skip 1) three more times. You will have four \"shells\" separated by chain-1 spaces. Slip stitch to the top of the beginning chain-3 to join.",
+            "4. Round 3: Chain 5 (counts as first dc + chain 2). In the chain-1 space between shells, work 1 double crochet, chain 2. In the next chain-1 space, work 1 double crochet, chain 2. Repeat around: (dc in ch-sp, ch 2) three more times. Slip stitch to the third chain of the beginning chain-5 to close.",
+            "5. Round 4 (picot border): Chain 1. In each chain-2 space around, work: 3 single crochet, chain 3, slip stitch to the top of the last sc (that's your picot), then 3 more single crochet. Slip stitch to the first sc to close.",
+            "6. Fasten off. Cut the floss, leaving a six-inch tail. Weave the tail through three or four stitches on the wrong side using a fine tapestry or sharp sewing needle, then trim.",
+            "7. Repeat the entire pattern for the second earring. Making two matching pieces in one sitting is the easiest way to keep tension consistent.",
+        ],
+    },
+    {
+        "id": "pro-tips",
+        "heading": "Pro tips: tension, blocking, and stiffening",
+        "paragraphs": [
+            "Tension is the whole game in micro-crochet. Because the stitches are so small, any looseness reads as chaos. Hold the floss taut against your index finger; a relaxed grip on standard yarn becomes a firm grip on floss. If your stitches drift in size across a piece, revisit the fundamentals in [[even-crochet-stitches|our guide on perfectly even stitches]] and practice with two-inch swatches until your rhythm returns.",
+            "Blocking: Pin the finished piece to a corkboard or foam block using straight pins, gently stretching each picot into a rounded point. Spritz with water until saturated. Let it dry completely—twelve hours minimum. Blocking transforms an okay-looking medallion into something that reads as intentional.",
+            "Stiffening: For jewelry that keeps its shape through years of wear, brush the blocked piece with commercial fabric stiffener or a homemade 50/50 mix of white glue and water. Let it dry pinned to the block for another twelve hours. The finished piece will hold its shape like a tiny sculpture. Reapply every year or so if the piece softens with heavy wear.",
+            "This same slow-then-fast studio habit is what separates casual makers from professionals—see the small workflow tricks in [[crochet-hacks|our crochet hacks guide]] for more time-saving habits at the table.",
+        ],
+    },
+    {
+        "id": "attach",
+        "heading": "Attaching to hypoallergenic ear wires",
+        "paragraphs": [
+            "Once your medallion is stiffened and dry, attach a small jump ring through the top picot. Open the jump ring by twisting sideways (never pulling straight apart), thread it through the top picot, then through the loop of a hypoallergenic ear wire, and twist closed. Repeat for the second earring.",
+            "If you plan to sell your work, invest in surgical stainless steel or sterling silver wires—the small price difference prevents allergic reactions and keeps your reviews at five stars.",
+            "📸 PHOTO 2 — Suggested shot: the finished pair of earrings styled on a small wooden ring dish or a marble jewelry holder, with a sprig of dried lavender or a pressed flower for scale. Shoot in soft window light for a Pinterest-ready hero.",
+        ],
+    },
+    {
+        "id": "care",
+        "heading": "Care and heirloom keeping",
+        "paragraphs": [
+            "Micro-crochet earrings are delicate but not fragile. Store them flat in a small compartmented jewelry box, or hang them on a fabric-covered card. Avoid direct contact with perfume and body lotion—oils slowly dissolve the stiffener. To clean, brush gently with a soft dry paintbrush.",
+            "If a piece loses shape after months of wear, re-block and re-stiffen in about twenty minutes. With basic care, a pair of well-made micro-crochet earrings will still look intentional a decade from now—which is exactly the definition of an heirloom.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "A pair of micro-crochet jewelry pieces is one of the most rewarding weekend projects in the entire fiber-art world. The techniques are simple; the payoff is disproportionate. Start with one pair. Wear them for a week. Notice how often someone asks where they came from. Then pick a friend, choose a color that matches her wardrobe, and make her a pair too. The best gifts weigh almost nothing.",
+        ],
+    },
+]
+
+
 PLACEMAT_BODY = [
     {
         "id": "why-placemat",
@@ -440,6 +534,18 @@ ARTICLES_SEED = [
         "sections": None,
         "body": PLACEMAT_BODY,
         "draft": False,
+    },
+    {
+        "slug": "micro-crochet-jewelry-embroidery-floss-earrings",
+        "title": "Micro-Crochet Jewelry: Turning Embroidery Floss into Heirloom Earrings",
+        "category": "Patterns",
+        "excerpt": "A practical, tension-first guide to making delicate micro-crochet jewelry with six-strand embroidery floss, ultra-fine steel hooks, and a magic-ring lace earring pattern you can finish this weekend.",
+        "image": IMAGES["yarn"],
+        "read_time": "11 min read",
+        "date": "February 22, 2026",
+        "sections": None,
+        "body": MICRO_CROCHET_JEWELRY_BODY,
+        "draft": True,
     },
 ]
 
