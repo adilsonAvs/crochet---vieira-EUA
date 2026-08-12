@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState, createContext, useContext, useRef, useMemo } from "react";
-import { BrowserRouter, Routes, Route, Link, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useParams, useLocation } from "react-router-dom";
 import { ArrowRight, Menu, X, Mail, Instagram, Check, Cookie } from "lucide-react";
 import axios from "axios";
 import "./App.css";
@@ -10,17 +10,40 @@ import CommentSection from "./CommentSection";
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const ADSENSE_CLIENT = process.env.REACT_APP_ADSENSE_CLIENT || "";
 const GSC_VERIFICATION = process.env.REACT_APP_GOOGLE_SITE_VERIFICATION || "";
+const GA4_ID = process.env.REACT_APP_GA4_MEASUREMENT_ID || "";
 const AUTHOR = "Claire Lawson";
 const SITE = "Cozy Loop Crochet";
+const DEFAULT_OG_IMAGE = "https://images.unsplash.com/photo-1668072587859-f0f30c8fa938?auto=format&fit=crop&w=1200&q=80";
 
 const DataContext = createContext({ articles: [], categories: ["All"], loading: true });
 const useData = () => useContext(DataContext);
 
-function Meta({ title, description }) {
+function Meta({ title, description, image, type = "website" }) {
   useEffect(() => {
     document.title = title;
-    document.querySelector('meta[name="description"]')?.setAttribute("content", description);
-  }, [title, description]);
+    const setMeta = (key, content, attr = "name") => {
+      let m = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!m) {
+        m = document.createElement("meta");
+        m.setAttribute(attr, key);
+        document.head.appendChild(m);
+      }
+      m.setAttribute("content", content);
+    };
+    const img = image || DEFAULT_OG_IMAGE;
+    const url = typeof window !== "undefined" ? window.location.href : "";
+    setMeta("description", description);
+    setMeta("og:title", title, "property");
+    setMeta("og:description", description, "property");
+    setMeta("og:type", type, "property");
+    setMeta("og:site_name", SITE, "property");
+    setMeta("og:image", img, "property");
+    if (url) setMeta("og:url", url, "property");
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
+    setMeta("twitter:image", img);
+  }, [title, description, image, type]);
   return null;
 }
 
@@ -45,6 +68,35 @@ function SearchConsoleVerification() {
     m.content = GSC_VERIFICATION;
     document.head.appendChild(m);
   }, []);
+  return null;
+}
+
+function GA4Loader() {
+  useEffect(() => {
+    if (!GA4_ID || document.getElementById("ga4-script")) return;
+    const s = document.createElement("script");
+    s.async = true;
+    s.id = "ga4-script";
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", GA4_ID, { send_page_view: false });
+  }, []);
+  return null;
+}
+
+function GA4PageView() {
+  const location = useLocation();
+  useEffect(() => {
+    if (!GA4_ID || !window.gtag) return;
+    window.gtag("event", "page_view", {
+      page_path: location.pathname + location.search,
+      page_title: document.title,
+      page_location: window.location.href,
+    });
+  }, [location]);
   return null;
 }
 
@@ -150,7 +202,7 @@ function CookieBanner() {
 }
 
 function Layout({ children }) {
-  return (<><Header /><main>{children}</main><Footer /><CookieBanner /><AdSenseLoader /><SearchConsoleVerification /></>);
+  return (<><Header /><main>{children}</main><Footer /><CookieBanner /><AdSenseLoader /><SearchConsoleVerification /><GA4Loader /><GA4PageView /></>);
 }
 
 function ArticleCard({ article, featured = false }) {
@@ -187,7 +239,19 @@ function LoadingState({ label = "Loading stories…" }) {
 function Home() {
   const { articles } = useData();
   const [joined, setJoined] = useState(false);
-  const submitNewsletter = (e) => { e.preventDefault(); setJoined(true); };
+  const [nlError, setNlError] = useState("");
+  const [nlBusy, setNlBusy] = useState(false);
+  const submitNewsletter = async (e) => {
+    e.preventDefault();
+    setNlError(""); setNlBusy(true);
+    const email = e.target.elements.email.value;
+    try {
+      await axios.post(`${API}/newsletter/subscribe`, { email, source: "home" });
+      setJoined(true);
+    } catch (err) {
+      setNlError(err.response?.data?.detail?.[0]?.msg || err.response?.data?.detail || "Please double-check your email and try again.");
+    } finally { setNlBusy(false); }
+  };
   return (
     <>
       <Meta title={`${SITE} | Thoughtful crochet for everyday makers`} description="Crochet guides, stitch wisdom, yarn advice, and cozy patterns for curious makers." />
@@ -231,10 +295,11 @@ function Home() {
             <p data-testid="newsletter-success-message" className="newsletter-success"><Check size={16} /> You're on the list—watch your inbox.</p>
           ) : (
             <form data-testid="newsletter-form" className="fake-form" onSubmit={submitNewsletter}>
-              <input data-testid="newsletter-email-input" type="email" required placeholder="Your email address" aria-label="Your email address" />
-              <button data-testid="newsletter-submit-button" className="button" type="submit">Join the list <ArrowRight size={15} /></button>
+              <input data-testid="newsletter-email-input" name="email" type="email" required placeholder="Your email address" aria-label="Your email address" />
+              <button data-testid="newsletter-submit-button" className="button" type="submit" disabled={nlBusy}>{nlBusy ? "Joining…" : <>Join the list <ArrowRight size={15} /></>}</button>
             </form>
           )}
+          {nlError && <p data-testid="newsletter-error-message" className="newsletter-error" style={{color:"#8c3e2a",fontSize:12,marginTop:8}}>{nlError}</p>}
           <small>No spam. Just thoughtful stitches.</small>
         </div>
       </section>
@@ -334,7 +399,7 @@ function Article() {
   const hasBody = Array.isArray(article.body) && article.body.length > 0;
   return (
     <>
-      <Meta title={`${article.title} | ${SITE}`} description={article.excerpt} />
+      <Meta title={`${article.title} | ${SITE}`} description={article.excerpt} image={article.image} type="article" />
       <ArticleSchema article={article} />
       <article className="article-page">
         <div className="article-top">

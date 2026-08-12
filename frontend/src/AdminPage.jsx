@@ -2,7 +2,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { ArrowRight, Plus, Trash2, Edit3, X, Save, LogOut, Key, Check, MessageCircle } from "lucide-react";
+import { ArrowRight, Plus, Trash2, Edit3, X, Save, LogOut, Key, Check, MessageCircle, Mail, Download } from "lucide-react";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const TOKEN_KEY = "clc-admin-token";
@@ -158,6 +158,74 @@ function ArticleEditor({ token, initial, onSaved, onCancel }) {
   );
 }
 
+function NewsletterList({ token }) {
+  const [subs, setSubs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [busy, setBusy] = useState("");
+
+  const load = useCallback(async () => {
+    setLoading(true);
+    try {
+      const res = await axios.get(`${API}/admin/newsletter`, authHeaders(token));
+      setSubs(res.data.subscribers || []);
+    } finally { setLoading(false); }
+  }, [token]);
+  useEffect(() => { load(); }, [load]);
+
+  const remove = async (id) => {
+    if (!window.confirm("Remove this subscriber?")) return;
+    setBusy(id);
+    try {
+      await axios.delete(`${API}/admin/newsletter/${id}`, authHeaders(token));
+      await load();
+    } finally { setBusy(""); }
+  };
+
+  const exportCsv = () => {
+    const header = "email,source,subscribed_at\n";
+    const rows = subs.map(s => `${s.email},${s.source || ""},${s.created_at}`).join("\n");
+    const blob = new Blob([header + rows], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `cozy-loop-subscribers-${new Date().toISOString().slice(0, 10)}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  return (
+    <div className="mod-section" data-testid="newsletter-section">
+      <h3>
+        <Mail size={16} style={{ verticalAlign: "middle", marginRight: 6 }} /> Newsletter subscribers
+        <span className="mod-approved-badge" style={{ marginLeft: 10 }}>{subs.length}</span>
+      </h3>
+      <p>Every email that opts in on the Home page lands here. Export the list any time you're ready to send a broadcast from your favorite email tool.</p>
+      <button type="button" className="button small" onClick={exportCsv} disabled={subs.length === 0} data-testid="newsletter-export-csv">
+        <Download size={13} /> Export CSV
+      </button>
+      {loading && <p className="admin-hint" style={{ marginTop: 15 }}>Loading subscribers…</p>}
+      {!loading && subs.length === 0 && <p className="admin-hint" data-testid="newsletter-empty" style={{ marginTop: 15 }}>No subscribers yet. Once someone signs up on the Home page they'll show up here.</p>}
+      <div style={{ marginTop: 15 }}>
+        {subs.map(s => (
+          <div key={s.id} className="mod-item" data-testid={`newsletter-item-${s.id}`}>
+            <div className="mod-item-body">
+              <strong>{s.email}</strong>
+              <div className="mod-item-meta">Source: {s.source || "unknown"} · {new Date(s.created_at).toLocaleString("en-US")}</div>
+            </div>
+            <div className="mod-actions">
+              <button className="text-button danger" onClick={() => remove(s.id)} disabled={busy === s.id} data-testid={`newsletter-delete-${s.id}`}>
+                <Trash2 size={13} /> Remove
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CommentModeration({ token }) {
   const [comments, setComments] = useState([]);
   const [filter, setFilter] = useState("pending");
@@ -307,6 +375,7 @@ function AdminList({ token, articles, onEdit, onDelete, onNew, onLogout, onRotat
         ))}
       </div>
       <RotateTokenForm token={token} onRotated={onRotated} />
+      <NewsletterList token={token} />
       <CommentModeration token={token} />
     </>
   );

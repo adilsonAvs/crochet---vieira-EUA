@@ -65,6 +65,10 @@ class CommentIn(BaseModel):
     body: str = Field(min_length=5, max_length=2000)
     website: Optional[str] = Field(default="", max_length=200)  # honeypot; real users leave empty
 
+class NewsletterSubscribe(BaseModel):
+    email: EmailStr
+    source: Optional[str] = Field(default="home", max_length=40)
+
 def _hash_token(token: str) -> str:
     return hashlib.sha256(token.strip().encode("utf-8")).hexdigest()
 
@@ -222,6 +226,35 @@ async def admin_delete_comment(comment_id: str, x_admin_token: Optional[str] = H
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Comment not found")
     return {"deleted": comment_id}
+
+@api_router.post("/newsletter/subscribe")
+async def newsletter_subscribe(payload: NewsletterSubscribe):
+    email = payload.email.lower().strip()
+    existing = await db.newsletter_subscribers.find_one({"email": email})
+    if existing:
+        return {"message": "You're already on the list—thanks for the reminder!", "already_subscribed": True}
+    doc = {
+        "id": str(uuid.uuid4()),
+        "email": email,
+        "source": payload.source or "home",
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    await db.newsletter_subscribers.insert_one(doc)
+    return {"message": "You're on the list—watch your inbox.", "already_subscribed": False}
+
+@api_router.get("/admin/newsletter")
+async def admin_list_subscribers(x_admin_token: Optional[str] = Header(default=None)):
+    await _require_admin(x_admin_token)
+    docs = await db.newsletter_subscribers.find({}, {"_id": 0}).sort("created_at", -1).to_list(length=5000)
+    return {"subscribers": docs, "count": len(docs)}
+
+@api_router.delete("/admin/newsletter/{sub_id}")
+async def admin_delete_subscriber(sub_id: str, x_admin_token: Optional[str] = Header(default=None)):
+    await _require_admin(x_admin_token)
+    result = await db.newsletter_subscribers.delete_one({"id": sub_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Subscriber not found")
+    return {"deleted": sub_id}
 
 def _fmt_lastmod(iso_or_pretty: str) -> str:
     """Best-effort ISO date for <lastmod>. Falls back to today."""
