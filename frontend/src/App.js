@@ -11,6 +11,7 @@ const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const ADSENSE_CLIENT = process.env.REACT_APP_ADSENSE_CLIENT || "";
 const GSC_VERIFICATION = process.env.REACT_APP_GOOGLE_SITE_VERIFICATION || "";
 const GA4_ID = process.env.REACT_APP_GA4_MEASUREMENT_ID || "";
+const PINTEREST_VERIFY = process.env.REACT_APP_PINTEREST_VERIFY || "";
 const AUTHOR = "Claire Lawson";
 const SITE = "Cozy Loop Crochet";
 const DEFAULT_OG_IMAGE = "https://images.unsplash.com/photo-1668072587859-f0f30c8fa938?auto=format&fit=crop&w=1200&q=80";
@@ -43,6 +44,16 @@ function Meta({ title, description, image, type = "website" }) {
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
     setMeta("twitter:image", img);
+    // Canonical link — helps Google pick the preferred URL
+    if (url) {
+      let canonical = document.querySelector('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.setAttribute("rel", "canonical");
+        document.head.appendChild(canonical);
+      }
+      canonical.setAttribute("href", url.split("#")[0].split("?")[0]);
+    }
   }, [title, description, image, type]);
   return null;
 }
@@ -62,11 +73,18 @@ function AdSenseLoader() {
 
 function SearchConsoleVerification() {
   useEffect(() => {
-    if (!GSC_VERIFICATION || document.querySelector('meta[name="google-site-verification"]')) return;
-    const m = document.createElement("meta");
-    m.name = "google-site-verification";
-    m.content = GSC_VERIFICATION;
-    document.head.appendChild(m);
+    if (GSC_VERIFICATION && !document.querySelector('meta[name="google-site-verification"]')) {
+      const m = document.createElement("meta");
+      m.name = "google-site-verification";
+      m.content = GSC_VERIFICATION;
+      document.head.appendChild(m);
+    }
+    if (PINTEREST_VERIFY && !document.querySelector('meta[name="p:domain_verify"]')) {
+      const m = document.createElement("meta");
+      m.name = "p:domain_verify";
+      m.content = PINTEREST_VERIFY;
+      document.head.appendChild(m);
+    }
   }, []);
   return null;
 }
