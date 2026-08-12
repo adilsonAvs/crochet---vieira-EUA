@@ -284,6 +284,11 @@ async def dynamic_sitemap():
     for path, priority, freq in static_pages:
         loc = f"{SITE_ORIGIN}/{path}" if path else f"{SITE_ORIGIN}/"
         parts.append(f"<url><loc>{_xml.escape(loc)}</loc><lastmod>{today}</lastmod><changefreq>{freq}</changefreq><priority>{priority}</priority></url>")
+    # Category landing pages — one per non-"All" category
+    for cat in [c for c in CATEGORIES if c != "All"]:
+        cat_slug = cat.lower().replace(" ", "-")
+        loc = f"{SITE_ORIGIN}/category/{cat_slug}"
+        parts.append(f"<url><loc>{_xml.escape(loc)}</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>")
     for d in docs:
         lastmod = _fmt_lastmod(d.get("updated_at") or d.get("date") or "")
         loc = f"{SITE_ORIGIN}/article/{d['slug']}"

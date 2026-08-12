@@ -16,6 +16,18 @@ const AUTHOR = "Claire Lawson";
 const SITE = "Cozy Loop Crochet";
 const DEFAULT_OG_IMAGE = "https://images.unsplash.com/photo-1668072587859-f0f30c8fa938?auto=format&fit=crop&w=1200&q=80";
 
+const CATEGORY_DESCRIPTIONS = {
+  "Beginners": "Your first stitches, first patterns, and the calm foundations every new crocheter deserves.",
+  "Stitch School": "Tension, tidy edges, and consistent stitches—the small habits that make finished pieces feel intentional.",
+  "Amigurumi": "Tiny, expressive crochet animals that live on shelves, in gift bags, and in your favorite people's pockets.",
+  "Yarn Guide": "Fibers, weights, washability, and buying advice from someone who has spent too much on the wrong skein.",
+  "Patterns": "Blanket, throw, and cozy home patterns for weekend afternoons and slower seasons.",
+  "Clothing": "Wearable crochet—tops, sweaters, and refashioned pieces that fit your body and your style.",
+  "Crochet Life": "The habits, tools, side hustles, and everyday choices that make a hook feel like a lifelong friend.",
+};
+const categorySlug = (name) => name.toLowerCase().replace(/ /g, "-");
+const categoryFromSlug = (slug, cats) => cats.find(c => categorySlug(c) === slug);
+
 const DataContext = createContext({ articles: [], categories: ["All"], loading: true });
 const useData = () => useContext(DataContext);
 
@@ -225,19 +237,83 @@ function Layout({ children }) {
 
 function ArticleCard({ article, featured = false }) {
   return (
-    <Link data-testid={`article-card-${article.slug}`} className={featured ? "article-card featured" : "article-card"} to={`/article/${article.slug}`}>
-      <div className="article-image">
-        <img src={article.image} alt={`Crochet project inspiration for ${article.title}`} />
-        <span className="image-tag">{article.category}</span>
-        {article.draft && <span className="draft-badge" data-testid={`draft-badge-${article.slug}`}>Draft</span>}
-      </div>
-      <div className="article-info">
-        <span className="eyebrow">{article.read_time} · {article.date}</span>
-        <h3>{article.title}</h3>
-        <p>{article.excerpt}</p>
-        <span className="read-link">Keep reading <ArrowRight size={15} /></span>
-      </div>
-    </Link>
+    <div className={featured ? "article-card featured" : "article-card"} data-testid={`article-card-${article.slug}`}>
+      <Link className="article-card-link" to={`/article/${article.slug}`}>
+        <div className="article-image">
+          <img src={article.image} alt={`Crochet project inspiration for ${article.title}`} />
+          {article.draft && <span className="draft-badge" data-testid={`draft-badge-${article.slug}`}>Draft</span>}
+        </div>
+      </Link>
+      <Link className="image-tag image-tag-link"
+        data-testid={`article-card-category-${article.slug}`}
+        to={`/category/${categorySlug(article.category)}`}>{article.category}</Link>
+      <Link className="article-card-link article-info-link" to={`/article/${article.slug}`}>
+        <div className="article-info">
+          <span className="eyebrow">{article.read_time} · {article.date}</span>
+          <h3>{article.title}</h3>
+          <p>{article.excerpt}</p>
+          <span className="read-link">Keep reading <ArrowRight size={15} /></span>
+        </div>
+      </Link>
+    </div>
+  );
+}
+
+function CategoryPage() {
+  const { slug } = useParams();
+  const { articles, categories, loading } = useData();
+  if (loading) return <LoadingState />;
+  const name = categoryFromSlug(slug, categories.filter(c => c !== "All"));
+  if (!name) return <NotFound />;
+  const inCategory = articles.filter(a => a.category === name);
+  const description = CATEGORY_DESCRIPTIONS[name] || `Crochet articles about ${name}.`;
+  const heroImage = inCategory[0]?.image || DEFAULT_OG_IMAGE;
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": `${name} · ${SITE}`,
+    "description": description,
+    "url": `${origin}/category/${slug}`,
+    "isPartOf": { "@type": "WebSite", "name": SITE, "url": `${origin}/` },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": inCategory.length,
+      "itemListElement": inCategory.map((a, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "url": `${origin}/article/${a.slug}`,
+        "name": a.title,
+      })),
+    },
+  };
+  return (
+    <>
+      <Meta title={`${name} | ${SITE}`} description={description} image={heroImage} />
+      <JsonLd id="category-schema" data={collectionSchema} />
+      <section className="page-head">
+        <span className="eyebrow">The journal · {name}</span>
+        <h1>All our {name}<br /><em>stories.</em></h1>
+        <p>{description}</p>
+      </section>
+      <section className="section blog-section">
+        <div className="filter-row" data-testid="category-nav">
+          {categories.filter(c => c !== "All").map(c => (
+            <Link key={c} to={`/category/${categorySlug(c)}`}
+              data-testid={`category-nav-${categorySlug(c)}`}
+              className={c === name ? "filter active" : "filter"}>{c}</Link>
+          ))}
+          <Link data-testid="category-nav-all" to="/blog" className="filter">All articles</Link>
+        </div>
+        {inCategory.length === 0 ? (
+          <p className="admin-hint" data-testid="category-empty" style={{ padding: "40px 0" }}>No articles in this category yet—check back soon.</p>
+        ) : (
+          <div className="article-grid blog-grid" data-testid="category-article-grid">
+            {inCategory.map(a => <ArticleCard key={a.slug} article={a} />)}
+          </div>
+        )}
+      </section>
+    </>
   );
 }
 
@@ -422,7 +498,7 @@ function Article() {
       <article className="article-page">
         <div className="article-top">
           <Link data-testid="article-back-link" className="back-link" to="/blog">← Back to journal</Link>
-          <span className="eyebrow">{article.category} · {article.read_time}</span>
+          <span className="eyebrow"><Link data-testid="article-category-link" to={`/category/${categorySlug(article.category)}`}>{article.category}</Link> · {article.read_time}</span>
           <h1>{article.title}</h1>
           <p className="article-dek">{article.excerpt}</p>
           <div className="byline">
@@ -782,6 +858,7 @@ export default function App() {
             <Route path="/privacy" element={<InfoPage type="privacy" />} />
             <Route path="/terms" element={<InfoPage type="terms" />} />
             <Route path="/start-here" element={<StartHere />} />
+            <Route path="/category/:slug" element={<CategoryPage />} />
             <Route path="/author/claire" element={<AuthorPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="*" element={<NotFound />} />
