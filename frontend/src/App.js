@@ -604,39 +604,170 @@ function Contact() {
   );
 }
 
+const PRIVACY_SECTIONS = [
+  {
+    heading: "Information we collect",
+    paragraphs: [
+      "We collect only the information you choose to give us. When you submit the contact form, we store the name, email address, subject, and message you type. When you subscribe to the newsletter, we store your email address and the page you signed up from. When you leave a comment on an article, we store your chosen display name and the comment body so we can moderate and publish it.",
+      "We do not sell, rent, or trade personal information to third parties. We do not use fingerprinting or profile-building trackers.",
+    ],
+  },
+  {
+    heading: "How we use your information",
+    paragraphs: [
+      "Contact submissions are used only to respond to you. Newsletter subscriptions are used to send you occasional emails you asked to receive; you can unsubscribe from any email or by writing to hello@cozyloopcrochet.com. Comments are shown publicly under the article they were posted on, alongside the name you provided.",
+    ],
+  },
+  {
+    heading: "Cookies and tracking technologies",
+    paragraphs: [
+      "This site uses two categories of cookies. Essential cookies keep the website functional and remember your cookie-consent choice. Optional analytics cookies (see the next section) only load if you accept them in the cookie banner.",
+      "You can change your consent at any time by clearing your browser's site data for this domain and reloading the site. Most modern browsers also let you block all cookies through their settings, though doing so may affect functionality across the web.",
+    ],
+  },
+  {
+    heading: "Google Analytics",
+    paragraphs: [
+      "When you accept optional cookies, this site loads Google Analytics 4 to understand aggregate reading trends — which articles get read most, how long visitors stay, and which countries readers come from. Google Analytics 4 collects information such as your IP address (anonymized), device type, browser, referring page, and pages viewed. Google is the data controller for this data under its own privacy policy at policies.google.com/privacy.",
+      "You can opt out of Google Analytics site-wide by installing the official Google Analytics Opt-out Browser Add-on at tools.google.com/dlpage/gaoptout, or by rejecting optional cookies in our banner.",
+    ],
+  },
+  {
+    heading: "Google AdSense and third-party advertising",
+    paragraphs: [
+      "We plan to display advertising served by Google AdSense on this site. Google, as a third-party vendor, uses cookies (including the DoubleClick DART cookie) to serve ads based on your prior visits to this and other websites. These ads may be targeted to your interests based on general demographic information Google infers, not on personally identifiable data supplied by us.",
+      "You may opt out of personalized advertising by visiting Google's Ads Settings at adssettings.google.com. To opt out of many other third-party vendors' use of cookies for personalized ads, visit aboutads.info/choices (US) or youronlinechoices.eu (EU).",
+      "We never ask readers to click ads, and we do not place ads in a way that could cause accidental clicks. Advertising revenue helps us keep publishing free crochet guides.",
+    ],
+  },
+  {
+    heading: "Third-party links and embeds",
+    paragraphs: [
+      "Articles may link to third-party websites for further reading, materials, or references. We are not responsible for the privacy practices of those sites; please review their own policies before providing information.",
+    ],
+  },
+  {
+    heading: "Your California privacy rights (CCPA/CPRA)",
+    paragraphs: [
+      "If you are a California resident, the California Consumer Privacy Act (as amended by the CPRA) gives you the right to (1) know what personal information we hold about you, (2) request deletion of your personal information, (3) request correction of inaccurate personal information, and (4) opt out of the sale or sharing of personal information.",
+      "We do not sell or share personal information for cross-context behavioral advertising. To exercise any right, email hello@cozyloopcrochet.com from the address associated with your account, and we will respond within 45 days.",
+    ],
+  },
+  {
+    heading: "Data retention and security",
+    paragraphs: [
+      "Contact form submissions and newsletter subscriptions are retained until you ask us to delete them or until we determine they are no longer needed for the purpose they were collected. Comments are retained as long as the article they belong to remains published. We use industry-standard security controls, but no method of transmission over the internet is 100% secure.",
+    ],
+  },
+  {
+    heading: "Children's privacy",
+    paragraphs: [
+      "This site is intended for a general audience and is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided personal information to us, please contact hello@cozyloopcrochet.com and we will delete it promptly.",
+    ],
+  },
+  {
+    heading: "Changes to this policy",
+    paragraphs: [
+      "We may update this Privacy Policy from time to time. When we make changes, we update the \"last updated\" date at the top of this page. For material changes we will publish a note on the home page for at least seven days.",
+    ],
+  },
+  {
+    heading: "Contact us",
+    paragraphs: [
+      "Questions, requests, or corrections about this policy can be sent to hello@cozyloopcrochet.com. We read every note and respond personally.",
+    ],
+  },
+];
+
+const TERMS_SECTIONS = [
+  {
+    heading: "Using our content",
+    paragraphs: [
+      "Our tutorials, guides, and articles are provided for personal education and inspiration. You are welcome to print articles for personal reference, share links to any page on your social channels, and use the techniques you learn to make items for yourself or as personal gifts.",
+      "You may not republish our text, images, or patterns on your own website or in a commercial publication without prior written permission. To request permission, email hello@cozyloopcrochet.com with the specific piece you want to use.",
+    ],
+  },
+  {
+    heading: "Intellectual property",
+    paragraphs: [
+      "All original words, photographs, illustrations, and patterns on Cozy Loop Crochet are the copyrighted work of Cozy Loop Crochet unless otherwise credited. The Cozy Loop Crochet name, logo, and brand marks are trademarks of the site owner.",
+    ],
+  },
+  {
+    heading: "Reader comments and submissions",
+    paragraphs: [
+      "By posting a comment or emailing us a note, you grant Cozy Loop Crochet a non-exclusive license to display and moderate your submission on the site. Only submit content you have the right to share. We moderate every comment before it appears; we may remove comments that are spam, defamatory, off-topic, promotional, or otherwise inappropriate at our discretion.",
+    ],
+  },
+  {
+    heading: "Advertising disclosure",
+    paragraphs: [
+      "This site displays advertising served by third parties (including Google AdSense). We may also participate in affiliate programs in the future, in which case we will clearly disclose any affiliate links inside the relevant article. Recommendations are always based on our honest opinion.",
+    ],
+  },
+  {
+    heading: "No professional advice; no warranties",
+    paragraphs: [
+      "Our content is educational in nature and is not professional advice. Crochet, sewing, and upcycling involve tools, fibers, and personal skill; results vary by individual. We provide our content \"as is\" without warranties of any kind, express or implied, including warranties of merchantability or fitness for a particular purpose.",
+    ],
+  },
+  {
+    heading: "Limitation of liability",
+    paragraphs: [
+      "To the maximum extent permitted by law, Cozy Loop Crochet and its team are not liable for any direct, indirect, incidental, or consequential damages arising from your use of the site, the techniques described, or any materials you purchase based on our recommendations.",
+    ],
+  },
+  {
+    heading: "External links",
+    paragraphs: [
+      "Our articles may link to external websites for reference or shopping. We are not responsible for the content, accuracy, or practices of any third-party site.",
+    ],
+  },
+  {
+    heading: "Changes to these terms",
+    paragraphs: [
+      "We may update these Terms of Use from time to time. Continued use of the site after changes are posted constitutes acceptance of the updated terms.",
+    ],
+  },
+  {
+    heading: "Governing law",
+    paragraphs: [
+      "These terms are governed by the laws of the State of Oregon, United States, without regard to its conflict of laws principles. Any dispute arising from these terms will be resolved in the state or federal courts located in Multnomah County, Oregon.",
+    ],
+  },
+  {
+    heading: "Contact us",
+    paragraphs: [
+      "Questions about these terms can be sent to hello@cozyloopcrochet.com.",
+    ],
+  },
+];
+
 function InfoPage({ type }) {
   const privacy = type === "privacy";
-  const headings = privacy
-    ? ["Information we collect", "Cookies and analytics", "Advertising", "Your US privacy rights", "Contact us"]
-    : ["Using our content", "Intellectual property", "Reader contributions", "Limitation of liability", "Contact us"];
-  const bodies = privacy
-    ? [
-      "When you submit our contact form, we collect the name, email address, subject, and message you choose to provide. We use it only to respond and retain it for reasonable business records.",
-      "Essential cookies help the site function. If you choose to accept optional cookies, we may use analytics to understand broad, anonymous reading trends. You can change your choice by clearing site data.",
-      "We may display Google AdSense advertising in the future. Advertising partners may use cookies as described in their own policies; we never ask readers to click ads.",
-      "Depending on your state, you may request access, correction, deletion, or information about sharing. Email hello@cozyloopcrochet.com and we will verify and respond to your request.",
-      "Questions about this policy can be sent to hello@cozyloopcrochet.com."
-    ]
-    : [
-      "Our tutorials and articles are for education and inspiration. Please use good judgment when selecting materials and techniques.",
-      "Cozy Loop Crochet content, words, and original photography belong to Cozy Loop Crochet unless otherwise noted.",
-      "Only submit material you have permission to share. By sending a note, you allow us to use it to respond, not to publish it without asking.",
-      "We work to keep information useful and accurate, but projects involve materials and personal skill levels. You are responsible for your choices.",
-      "Questions can be sent to hello@cozyloopcrochet.com."
-    ];
+  const sections = privacy ? PRIVACY_SECTIONS : TERMS_SECTIONS;
   return (
     <>
       <Meta title={`${privacy ? "Privacy Policy" : "Terms of Use"} | ${SITE}`}
-        description={privacy ? "How Cozy Loop Crochet handles information, cookies, and privacy." : "Simple, clear terms for using Cozy Loop Crochet."} />
+        description={privacy
+          ? "How Cozy Loop Crochet handles your information, cookies, Google Analytics, Google AdSense, and your privacy rights."
+          : "Simple, clear terms for using Cozy Loop Crochet articles, patterns, and community features."} />
       <section className="page-head compact">
         <span className="eyebrow">Good to know</span>
         <h1>{privacy ? <>Privacy<br /><em>policy.</em></> : <>Terms of<br /><em>use.</em></>}</h1>
       </section>
       <section className="legal section">
-        <p className="lead">Last updated: June 12, 2026</p>
+        <p className="lead">Last updated: February 18, 2026</p>
         <h2>{privacy ? "Your privacy matters" : "Welcome to Cozy Loop"}</h2>
-        <p>{privacy ? "Cozy Loop Crochet respects your privacy. This page explains what information we collect, why we use it, and the choices available to you." : "These terms keep Cozy Loop Crochet useful, respectful, and clear for everyone who visits."}</p>
-        {headings.map((h, i) => (<div key={h}><h2>{i + 1}. {h}</h2><p>{bodies[i]}</p></div>))}
+        <p>{privacy
+          ? "Cozy Loop Crochet respects your privacy. This page explains what information we collect, why we use it, the third parties involved (including Google Analytics and Google AdSense), and the choices available to you."
+          : "These terms keep Cozy Loop Crochet useful, respectful, and clear for everyone who visits. By using this site you agree to the terms below."}</p>
+        {sections.map((s, i) => (
+          <div key={s.heading} data-testid={`legal-section-${i + 1}`}>
+            <h2>{i + 1}. {s.heading}</h2>
+            {s.paragraphs.map((p, pi) => <p key={pi}>{p}</p>)}
+          </div>
+        ))}
       </section>
     </>
   );
