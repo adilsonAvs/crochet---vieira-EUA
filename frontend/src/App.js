@@ -78,6 +78,7 @@ function Header() {
         </button>
         <nav data-testid="main-navigation" className={open ? "nav-links open" : "nav-links"}>
           <Link data-testid="nav-home-link" to="/">Home</Link>
+          <Link data-testid="nav-start-here-link" to="/start-here">Start Here</Link>
           <Link data-testid="nav-blog-link" to="/blog">Read &amp; Learn</Link>
           <Link data-testid="nav-about-link" to="/about">Our Story</Link>
           <Link data-testid="nav-contact-link" className="nav-cta" to="/contact">Say hello <ArrowRight size={15} /></Link>
@@ -97,7 +98,9 @@ function Footer() {
         </div>
         <div>
           <p className="footer-label">Explore</p>
+          <Link data-testid="footer-start-link" to="/start-here">Start here</Link>
           <Link data-testid="footer-blog-link" to="/blog">All articles</Link>
+          <Link data-testid="footer-author-link" to="/author/claire">Meet Claire</Link>
           <Link data-testid="footer-about-link" to="/about">About us</Link>
           <Link data-testid="footer-contact-link" to="/contact">Contact</Link>
         </div>
@@ -323,7 +326,7 @@ function Article() {
           <p className="article-dek">{article.excerpt}</p>
           <div className="byline">
             <span className="avatar">CL</span>
-            <span>Written by <strong>{AUTHOR}</strong><br /><small>{article.date} · {SITE}</small></span>
+            <span>Written by <Link data-testid="byline-author-link" to="/author/claire"><strong>{AUTHOR}</strong></Link><br /><small>{article.date} · {SITE}</small></span>
           </div>
         </div>
         <img data-testid="article-hero-image" className="article-hero" src={article.image} alt={`Detailed crochet inspiration for ${article.title}`} />
@@ -474,6 +477,7 @@ function About() {
           <p>Cozy Loop Crochet grew out of a little kitchen table in Portland, Oregon, and a belief that craft should feel welcoming. I started this journal to share the practical things I wish someone had told me sooner: how to read a pattern, rescue a wonky edge, and choose yarn without second-guessing every skein.</p>
           <p>Today, it is a growing collection of honest guides for makers across the US. Come as you are, make at your own pace, and know that the occasional tangled stitch is part of the story.</p>
           <Link data-testid="about-blog-link" className="button" to="/blog">Read the journal <ArrowRight size={16} /></Link>
+          <Link data-testid="about-author-link" className="underlined-link" style={{ marginLeft: 20 }} to="/author/claire">Read Claire's full bio <ArrowRight size={15} /></Link>
         </div>
       </section>
     </>
@@ -488,6 +492,154 @@ function NotFound() {
       <p>We couldn't find that page, but there's plenty more to make.</p>
       <Link data-testid="404-home-link" className="button" to="/">Back to the beginning <ArrowRight size={16} /></Link>
     </section>
+  );
+}
+
+const START_HERE_STEPS = [
+  {
+    number: "01",
+    id: "foundations",
+    title: "Start with the very first stitch",
+    copy: "If you have never picked up a hook, begin here. This guide walks through slip knots, chains, and the first rows in plain language.",
+    slugs: ["crochet-for-absolute-beginners"],
+  },
+  {
+    number: "02",
+    id: "practice",
+    title: "Build tidy, even stitches",
+    copy: "Once you can make a chain, focus on tension and consistency. A relaxed rhythm is what separates messy fabric from work you want to wear.",
+    slugs: ["even-crochet-stitches", "common-crochet-mistakes"],
+  },
+  {
+    number: "03",
+    id: "patterns",
+    title: "Learn to read a pattern",
+    copy: "Abbreviations, repeats, and charts stop feeling like a foreign language after one careful walk-through. Read this before your next pattern.",
+    slugs: ["read-crochet-pattern"],
+  },
+  {
+    number: "04",
+    id: "yarn",
+    title: "Choose the right yarn for your project",
+    copy: "Yarn choice changes drape, warmth, and how much your hands enjoy each session. Match fiber and weight to the job before you spend anything.",
+    slugs: ["best-yarn-for-crochet"],
+  },
+  {
+    number: "05",
+    id: "rescue",
+    title: "Rescue your work without starting over",
+    copy: "Every crocheter drops a stitch. Learn to unfasten calmly, tink back to the mistake, and re-hook the loop so your project survives.",
+    slugs: ["fix-dropped-stitch"],
+  },
+  {
+    number: "06",
+    id: "shortcuts",
+    title: "Adopt studio habits that save hours",
+    copy: "Five small routines—stitch markers, project bags, note-keeping—that turn crochet from occasional hobby into a calm daily practice.",
+    slugs: ["crochet-hacks"],
+  },
+];
+
+function StartHere() {
+  const { articles, loading } = useData();
+  if (loading) return <LoadingState />;
+  const resolve = (slugs) => slugs.map(s => articles.find(a => a.slug === s)).filter(Boolean);
+  return (
+    <>
+      <Meta title={`Start Here | ${SITE}`} description="A step-by-step crochet learning path for absolute beginners—hooks, stitches, patterns, yarn, and studio habits, in the right order." />
+      <section className="page-head">
+        <span className="eyebrow">Beginner bundle</span>
+        <h1>Start here—<br /><em>you've got this.</em></h1>
+        <p>A calm reading path from your very first slip knot to the studio habits that make crochet feel effortless.</p>
+      </section>
+      <section className="section start-here-intro">
+        <div>
+          <span className="eyebrow">How this works</span>
+          <h2>Six short reads,<br />in the order that helps most.</h2>
+        </div>
+        <div className="intro-text">
+          <p>Every guide below builds on the one before it. Save this page, come back between projects, and treat it like a table of contents for the first weeks of your practice.</p>
+          <Link data-testid="start-here-blog-link" className="underlined-link" to="/blog">Or browse every article <ArrowRight size={15} /></Link>
+        </div>
+      </section>
+      {START_HERE_STEPS.map(step => {
+        const items = resolve(step.slugs);
+        if (items.length === 0) return null;
+        return (
+          <section key={step.id} id={step.id} className="section start-here-step" data-testid={`start-here-step-${step.id}`}>
+            <div className="step-heading">
+              <span className="step-number">{step.number}</span>
+              <div>
+                <h2>{step.title}</h2>
+                <p>{step.copy}</p>
+              </div>
+            </div>
+            <div className="article-grid blog-grid">{items.map(a => <ArticleCard key={a.slug} article={a} />)}</div>
+          </section>
+        );
+      })}
+      <section className="section start-here-cta">
+        <span className="eyebrow">Ready for more?</span>
+        <h2>Keep the momentum going.</h2>
+        <p>When these six feel familiar, the full journal has amigurumi, blanket patterns, top adjustments, and more.</p>
+        <Link data-testid="start-here-cta-link" className="button" to="/blog">Explore the journal <ArrowRight size={16} /></Link>
+      </section>
+    </>
+  );
+}
+
+function AuthorPage() {
+  const { articles, loading } = useData();
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
+  const url = `${origin}/author/claire`;
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": AUTHOR,
+    "url": url,
+    "jobTitle": "Editor and Founder",
+    "worksFor": { "@type": "Organization", "name": SITE, "url": `${origin}/` },
+    "description": "Self-taught crocheter and educator based in Portland, Oregon, writing practical guides for makers across the United States.",
+    "image": "https://images.pexels.com/photos/6217617/pexels-photo-6217617.jpeg?auto=compress&cs=tinysrgb&w=1000",
+    "sameAs": ["https://instagram.com/cozyloopcrochet"],
+    "email": "hello@cozyloopcrochet.com",
+    "knowsAbout": ["Crochet", "Amigurumi", "Yarn selection", "Crochet pattern reading", "Handmade garments"],
+  };
+  return (
+    <>
+      <Meta title={`Meet Claire Lawson | ${SITE}`} description="Meet Claire Lawson—self-taught crocheter, educator, and founder of Cozy Loop Crochet. Read every article she has written, from beginner basics to plus-size top adjustments." />
+      <JsonLd id="author-schema" data={personSchema} />
+      <section className="page-head compact">
+        <span className="eyebrow">About the author</span>
+        <h1>Claire Lawson,<br /><em>your crochet friend.</em></h1>
+      </section>
+      <section className="section author-hero">
+        <img data-testid="author-avatar" src={personSchema.image} alt="Claire Lawson working at a wooden table with a crochet hook and yarn" />
+        <div>
+          <span className="eyebrow">Editor · Cozy Loop Crochet</span>
+          <h2>A decade of quiet<br />practice, shared openly.</h2>
+          <p>I taught myself crochet at a kitchen table in Portland, Oregon after a friend handed me a hook and a leftover ball of cotton. Ten years later, that same table is where I write, swatch, and photograph everything you read on Cozy Loop Crochet.</p>
+          <p>I believe good craft writing does two things: it removes the mystery and it keeps the joy. Every guide on this site is tested by me first, rewritten in plain English, and reviewed for accuracy before it ever goes live. If something on the site is wrong, I want to hear about it—email me directly and I will fix it.</p>
+          <p>Outside of the site, I teach small-group crochet workshops at community centers around the Pacific Northwest, mentor a handful of new fiber-business owners each year, and hoard cotton scraps like they are currency.</p>
+          <div className="author-meta">
+            <div><span className="eyebrow">Based in</span><strong>Portland, Oregon</strong></div>
+            <div><span className="eyebrow">Teaching since</span><strong>2018</strong></div>
+            <div><span className="eyebrow">Reach me</span><a data-testid="author-email-link" href="mailto:hello@cozyloopcrochet.com">hello@cozyloopcrochet.com</a></div>
+          </div>
+        </div>
+      </section>
+      <section className="section author-articles">
+        <div className="section-heading">
+          <div><span className="eyebrow">By this author</span><h2>Everything Claire has written.</h2></div>
+          <Link data-testid="author-blog-link" className="underlined-link" to="/blog">Full journal <ArrowRight size={15} /></Link>
+        </div>
+        {loading ? <p>Loading articles…</p> : (
+          <div className="article-grid blog-grid" data-testid="author-article-list">
+            {articles.map(a => <ArticleCard key={a.slug} article={a} />)}
+          </div>
+        )}
+      </section>
+    </>
   );
 }
 
@@ -527,6 +679,8 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<InfoPage type="privacy" />} />
             <Route path="/terms" element={<InfoPage type="terms" />} />
+            <Route path="/start-here" element={<StartHere />} />
+            <Route path="/author/claire" element={<AuthorPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

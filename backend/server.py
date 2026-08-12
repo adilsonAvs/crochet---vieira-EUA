@@ -183,7 +183,9 @@ async def dynamic_sitemap():
     static_pages = [
         ("", "1.0", "weekly"),
         ("blog", "0.9", "weekly"),
+        ("start-here", "0.9", "monthly"),
         ("about", "0.5", "monthly"),
+        ("author/claire", "0.6", "monthly"),
         ("contact", "0.5", "monthly"),
         ("privacy", "0.3", "yearly"),
         ("terms", "0.3", "yearly"),
