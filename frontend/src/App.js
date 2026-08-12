@@ -9,6 +9,7 @@ import CommentSection from "./CommentSection";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 const ADSENSE_CLIENT = process.env.REACT_APP_ADSENSE_CLIENT || "";
+const GSC_VERIFICATION = process.env.REACT_APP_GOOGLE_SITE_VERIFICATION || "";
 const AUTHOR = "Claire Lawson";
 const SITE = "Cozy Loop Crochet";
 
@@ -32,6 +33,17 @@ function AdSenseLoader() {
     s.crossOrigin = "anonymous";
     s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
     document.head.appendChild(s);
+  }, []);
+  return null;
+}
+
+function SearchConsoleVerification() {
+  useEffect(() => {
+    if (!GSC_VERIFICATION || document.querySelector('meta[name="google-site-verification"]')) return;
+    const m = document.createElement("meta");
+    m.name = "google-site-verification";
+    m.content = GSC_VERIFICATION;
+    document.head.appendChild(m);
   }, []);
   return null;
 }
@@ -138,7 +150,7 @@ function CookieBanner() {
 }
 
 function Layout({ children }) {
-  return (<><Header /><main>{children}</main><Footer /><CookieBanner /><AdSenseLoader /></>);
+  return (<><Header /><main>{children}</main><Footer /><CookieBanner /><AdSenseLoader /><SearchConsoleVerification /></>);
 }
 
 function ArticleCard({ article, featured = false }) {
