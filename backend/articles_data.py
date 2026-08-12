@@ -461,6 +461,96 @@ DENIM_UPCYCLE_BODY = [
 ]
 
 
+JAPANESE_KNOT_BAG_BODY = [
+    {
+        "id": "intro",
+        "heading": "Practical geometry, made by hand",
+        "paragraphs": [
+            "A Japanese knot bag is one of those quiet designs that looks effortlessly modern and turns out to be surprisingly practical. Two asymmetrical handles—one short, one long—slip through each other to close the bag without a zipper, a snap, or a single piece of hardware. The whole thing folds flat when empty, holds an entire trip to the farmers' market when full, and photographs like a piece of wearable sculpture.",
+            "The best part is that a crochet knot bag comes together in under three hours from first stitch to finished handle. It uses only single crochet and half double crochet. It costs about six dollars in cotton. And once you understand the geometry, you can scale it up for a beach tote or down for an evening bag without changing a thing about the technique. This is a beginner-friendly Japanese knot bag crochet pattern that behaves like a real bag on a real day out—not a decorative one that stays on the coffee table.",
+            "In this guide we walk through the exact materials, the shaping, the step-by-step pattern, and the small studio choices that make the difference between \"cute\" and \"I get asked where I bought this every time I use it.\"",
+        ],
+    },
+    {
+        "id": "why-knot",
+        "heading": "What makes a Japanese knot bag special",
+        "paragraphs": [
+            "Traditional Japanese knot bags (musubi bags) trace back to obi sashes and simple wrapped textiles. The genius of the design is the closure: the longer handle threads through the shorter one, and the weight of whatever you carry inside keeps the bag firmly closed. No buttons to fumble, no zipper to break, no clasp to lose. It is the kind of quiet solution that only shows up in cultures that have been refining textile design for centuries.",
+            "For a crocheter, this design is a gift because the shaping is almost entirely rectangular. If you can crochet a flat panel, you can crochet a knot bag. The handles are the only sculptural part, and even those are just simple loops. This is the ideal first bag project for a beginner who is ready for something more useful than a coaster but not yet ready for a fully lined, hardware-heavy purse.",
+        ],
+    },
+    {
+        "id": "materials",
+        "heading": "Materials and hook size",
+        "paragraphs": [
+            "For one medium-sized bag (finished dimensions about 11 inches wide by 10 inches tall, plus handles) you will need:",
+            "• Worsted-weight cotton yarn, about 220 yards. Cotton is essential here because it does not stretch when carrying weight. Wool blends sag under a full grocery load; acrylic pills after a few weeks of daily use.",
+            "• 4.0 mm (US G-6) or 4.5 mm (US 7) crochet hook. The larger hook creates a slightly softer fabric that folds more easily.",
+            "• Tapestry needle for weaving in ends.",
+            "• Sharp scissors.",
+            "• Optional: a piece of cotton or linen fabric cut to size for a simple lining if you plan to carry small objects that could slip through stitches (keys, coins, hair pins).",
+            "Choose a solid or subtly heathered color for your first bag. Variegated yarns hide stitch definition and make the handle geometry look muddy. If you are torn on which yarn to pick, our [[best-yarn-for-crochet|full yarn buyer's guide]] compares brands, blends, and washability for exactly this kind of everyday project.",
+        ],
+    },
+    {
+        "id": "shape",
+        "heading": "Understanding the shape before you begin",
+        "paragraphs": [
+            "A Japanese knot bag is essentially two identical panels sewn together at the bottom and up both sides, with two asymmetrical handles worked into the top edge. The short handle is roughly six inches long. The long handle is roughly twelve inches long. When you close the bag, the long handle passes through the loop of the short handle and drapes over your wrist or shoulder.",
+            "The shaping trick most crocheters miss on their first try: the handles are worked continuously off the top edge of each panel, not sewn on afterward. This gives the bag a clean, seamless silhouette and prevents the handles from ever separating from the body under weight. We work each panel from the bottom edge up, transition into the handle, and fasten off at the top of the handle. Then we seam the two panels together. That is the whole architecture.",
+        ],
+    },
+    {
+        "id": "pattern",
+        "heading": "The pattern, step by step",
+        "paragraphs": [
+            "This pattern uses US crochet terms. Abbreviations: ch (chain), sc (single crochet), hdc (half double crochet), sl st (slip stitch), st (stitch).",
+            "Make two identical panels—one becomes the front, one the back.",
+            "Foundation: Ch 42. Turn.",
+            "Rows 1–3: Sc in the second chain from hook and in each stitch across. Ch 1, turn. (41 sc across each row.)",
+            "Rows 4–24: Hdc in each stitch across. Ch 2 (counts as first hdc of the next row), turn. This creates the body of the bag—a soft, sturdy panel about ten inches tall.",
+            "Row 25 (top edge): Sc in each stitch across to firm the top. Ch 1, turn.",
+            "Row 26 (start of the short handle on this panel): Sc in the first 8 stitches. Chain 25 (this forms the short handle loop). Skip the middle 25 stitches of the top edge, sc in the last 8 stitches. Fasten off, leaving a 10-inch tail for seaming.",
+            "Repeat the entire pattern for the second panel, but on row 26 chain 45 instead of 25. This makes the second handle noticeably longer than the first—exactly the asymmetry the knot bag needs to close properly.",
+            "Now hold the two panels together with right sides facing out. Using the tapestry needle and a long tail of matching yarn, whip-stitch or slip-stitch along both sides and the bottom edge, leaving the top open. Weave in every remaining tail. Turn the bag right-side out if you seamed it inside-out (either method works; each gives a slightly different edge finish).",
+            "That is the whole bag. Consistent hdc rows are the entire game here—if your rows drift in size, revisit the tension fundamentals in [[even-crochet-stitches|our guide to perfectly even stitches]] before starting the second panel.",
+        ],
+    },
+    {
+        "id": "handles",
+        "heading": "Reinforcing the handles",
+        "paragraphs": [
+            "Chain-only handles look pretty but stretch over time. To reinforce, work back along each chain handle with a row of single crochet. Start where you finished the chain, sc in each chain across, and slip stitch to the top of the panel at the other end. This adds body and prevents the handle from thinning out where it takes the most weight—right at the top of your wrist.",
+            "For an even sturdier finish, work two rows of sc along the handle. Two rows create a small tube-like handle that feels professional and holds shape after months of daily use. This step adds about ten minutes per handle and is the single biggest quality upgrade you can make.",
+        ],
+    },
+    {
+        "id": "variations",
+        "heading": "Design variations for every use case",
+        "paragraphs": [
+            "Once you have made one knot bag, the design invites experimentation. For a beach tote, start with ch 60 instead of 42 and work 35 rows tall—the bigger panel holds a towel, sunscreen, and a book. For an evening clutch, scale down to ch 30 and 15 rows tall, and use fingering-weight cotton with a 3.5 mm hook for a delicate finish.",
+            "For color-block versions, work rows 1–12 in one color and rows 13–25 in another. The horizontal stripe is subtle but instantly modernizes the design. For an embroidered version, leave the bag plain and add a small flower motif in cross-stitch or French knots after finishing—cotton takes embroidery beautifully.",
+            "If you sell your work at craft fairs, knot bags in three sizes (mini, everyday, tote) make a compelling display and price ladder. Our [[sell-crochet-online|guide to selling crochet online]] has more on pricing and photography if you are considering this route.",
+        ],
+    },
+    {
+        "id": "care",
+        "heading": "Care and everyday use",
+        "paragraphs": [
+            "Machine wash on cold, inside out, in a mesh laundry bag. Skip the dryer for the first three washes so the shape sets—lay flat to dry. After that, a low-heat tumble is fine. Do not carry more than about six pounds in a medium-sized knot bag; cotton has beautiful drape but limited structural strength. For heavier hauls, either add a fabric lining or step up to the tote version.",
+            "Spot-clean small marks with a damp cloth and a drop of mild soap. Store folded flat rather than hanging—hanging by the handles for months can permanently elongate them.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "A Japanese knot bag is proof that beautifully designed objects do not need hardware, lining, or pattern complexity. Two panels, two asymmetric handles, and a simple hdc body add up to something you will genuinely reach for on real Tuesdays and real Saturday errands. Make one in a solid neutral for daily use. Make another in an accent color for weekends. And when you feel confident, scale up to the tote version and treat yourself to a bag that fits everything you actually want to carry.",
+        ],
+    },
+]
+
+
 LAMPSHADE_BODY = [
     {
         "id": "intro",
@@ -643,6 +733,18 @@ ARTICLES_SEED = [
         "date": "February 25, 2026",
         "sections": None,
         "body": LAMPSHADE_BODY,
+        "draft": False,
+    },
+    {
+        "slug": "japanese-knot-bag-crochet-pattern",
+        "title": "The Japanese Knot Bag: A Beginner Crochet Pattern With Real-Life Geometry",
+        "category": "Patterns",
+        "excerpt": "A modern, hardware-free Japanese knot bag crochet pattern with asymmetric handles, sturdy cotton body, and everyday utility—finished in under three hours and worn like it came from a boutique.",
+        "image": IMAGES["denim"],
+        "read_time": "10 min read",
+        "date": "March 1, 2026",
+        "sections": None,
+        "body": JAPANESE_KNOT_BAG_BODY,
         "draft": False,
     },
 ]
