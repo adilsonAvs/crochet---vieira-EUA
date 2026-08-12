@@ -461,6 +461,96 @@ DENIM_UPCYCLE_BODY = [
 ]
 
 
+TISSUE_BOX_COVER_BODY = [
+    {
+        "id": "intro",
+        "heading": "A small object that quietly upgrades a room",
+        "paragraphs": [
+            "A cardboard tissue box is one of those objects nobody plans for in their decor. It sits on the coffee table in a hallway of gray plastic wrap, on the kitchen counter in mint green, on the nightstand in a wildly patterned floral that clashes with everything else. A crochet tissue box cover fixes all of that in one afternoon. Better still, a well-designed cover fits any standard box because you can pop the old empty one out and slip a fresh full one in without dismantling anything.",
+            "This guide walks through a beginner-friendly crochet tissue box cover pattern with side buttons instead of sewn seams. The buttons are the whole point: they let you unbutton one side, drop a new tissue box in, and re-button in about twenty seconds. No struggling to shove a fresh box through a fixed opening. No unpicking a seam every three weeks. Just a small, tidy accessory that behaves like real furniture across all 365 days of the year.",
+        ],
+    },
+    {
+        "id": "why-buttons",
+        "heading": "Why side buttons beat sewn seams",
+        "paragraphs": [
+            "Most crochet tissue box covers online use fully sewn side seams. They look tidy on day one and become a small daily annoyance the moment the first box runs out. The whole cover has to be lifted off, sometimes turned inside out, and wrestled back over the new box. Cotton stretches during that struggle, buttons of imagination pop, and after a few refills the whole cover looks tired.",
+            "A buttoned side is designed for real houses. Ten to twelve small buttons run along one seam. To refill, unbutton, slide the empty box out, drop the new box in, and re-button. It takes twenty seconds, it never stretches the fabric, and it turns into a small satisfying ritual instead of a chore. The buttons themselves become a design feature—a row of wooden or fabric-covered buttons in a coordinating color reads as intentional trim rather than construction.",
+        ],
+    },
+    {
+        "id": "materials",
+        "heading": "Materials and sizing",
+        "paragraphs": [
+            "This pattern fits a standard US cube tissue box measuring roughly 5 by 5 by 5 inches (the classic Kleenex Cube size). A rectangular version follows in a later section.",
+            "You will need worsted-weight cotton yarn, about 120 yards. Cotton is the right choice because it does not stretch out of shape on an object that is picked up ten times a day. Wool is soft but pills quickly on a well-used surface. Acrylic works if you want vivid colors on a budget, but expect a less refined finish over time.",
+            "You will also need a 4.0 mm (US G-6) crochet hook, a tapestry needle, sharp scissors, ten to twelve small buttons (about half an inch across), matching sewing thread, and a small hand-sewing needle for attaching buttons. If you are unsure which cotton to buy, our [[best-yarn-for-crochet|yarn buyer's guide]] compares brands, blends, and washability for home decor projects like this one.",
+        ],
+    },
+    {
+        "id": "buttons",
+        "heading": "Choosing buttons that hold up to daily use",
+        "paragraphs": [
+            "The button choice quietly determines whether the cover reads as \"crafty\" or \"designed.\" Skip plastic buttons—they scratch, they clash with cotton, and they age poorly. Wooden buttons are the classic honest choice: they feel warm to the touch, come in dozens of natural tones, and are inexpensive at any craft store.",
+            "For a slightly elevated look, use fabric-covered buttons in a color that echoes the cotton, or vintage mother-of-pearl buttons in cream. Whatever you pick, buy fifteen buttons even if you only need ten—one will inevitably vanish under the couch during the sewing step. Choose a button size close to half an inch across; smaller than that becomes fiddly to fasten daily.",
+        ],
+    },
+    {
+        "id": "pattern",
+        "heading": "The pattern, panel by panel",
+        "paragraphs": [
+            "This cover is worked in five flat panels—four sides and one top with a rectangular opening—then joined at three of the four side seams. The fourth seam becomes the buttoned side. All abbreviations are US crochet terms: ch (chain), sc (single crochet), hdc (half double crochet), dc (double crochet), sl st (slip stitch), st (stitch).",
+            "Side panels (make 4): Ch 21. Row 1: hdc in the third chain from hook and in each chain across. Ch 2, turn. Total: 20 hdc.",
+            "Rows 2–13: hdc in each stitch across. Ch 2, turn. This creates a 5-by-5-inch square panel with enough drape to sit cleanly against the box.",
+            "Row 14 (top edge): sc in each stitch across to firm the top edge. Fasten off, weave in ends.",
+            "Top panel with opening: Ch 21. Rows 1–4: hdc in each st, ch 2, turn. Row 5: hdc in the first 6 sts, ch 8, skip 8 sts, hdc in the last 6 sts (this creates the tissue opening). Rows 6–9: hdc in each st and each chain across. Row 10: sc in each st across.",
+            "Alternatively, work all 13 rows of hdc, then cut a rectangular opening in the center with sharp scissors and single-crochet around the raw edge to finish it. The scissor method is faster but requires care—cotton frays quickly.",
+        ],
+    },
+    {
+        "id": "joining",
+        "heading": "Joining panels and building the buttoned edge",
+        "paragraphs": [
+            "Lay the four side panels in a row on a flat surface. Whip-stitch panels 1-2, 2-3, and 3-4 together along their vertical edges using matching yarn. Do not sew panel 4 to panel 1 yet—that is the buttoned side.",
+            "Now attach the top panel. Whip-stitch its four edges to the top of each side panel, aligning the tissue opening with the center of the cover. Take care to keep the corners square as you sew; a wonky corner shows immediately on a rectangular object.",
+            "For the buttoned edge, work one row of sc along the vertical edge of panel 4 for stability. On panel 1, work one row of sc along its matching vertical edge, but this time create buttonholes: sc for 3 stitches, ch 2, skip 2 sc, sc for 3 stitches, ch 2, skip 2, and continue evenly for 10 to 12 buttonholes total. Sew the buttons onto panel 4 at positions that line up with the buttonholes on panel 1.",
+        ],
+    },
+    {
+        "id": "rectangular",
+        "heading": "Sizing for rectangular tissue boxes",
+        "paragraphs": [
+            "For a standard US rectangular tissue box (roughly 9 by 5 by 3 inches, the Kleenex Long size), scale the panels: two long panels at ch 37 and 8 rows tall, two short panels at ch 21 and 8 rows tall, and one top panel at ch 37 with a longer rectangular opening in the center.",
+            "The buttoned side goes on one of the long panels for easier daily access. Use 14 to 16 buttons instead of 10 to 12 to keep the seam even along the longer edge. Everything else follows the exact same construction as the cube version.",
+        ],
+    },
+    {
+        "id": "variations",
+        "heading": "Design variations by season and room",
+        "paragraphs": [
+            "For a spring bedroom, work the cover in soft sage green with cream wooden buttons. For a winter living room, use a warm oatmeal cotton with dark walnut buttons and add a single embroidered pine branch on one side. For a nursery, use a pale pink or yellow with matching fabric-covered buttons—babies chew on everything, so avoid small buttons here in favor of larger flat ones sewn extra securely.",
+            "For a modern minimalist kitchen, work the cover in solid black with matte black buttons; the monochrome reads like a designer object. If you have a bag of coordinating cotton scraps, granny-stripe versions look wonderful and are a great way to use up the small remnants in our [[scrap-yarn-projects|leftover yarn ideas guide]].",
+            "Consistent stitch height across all five panels is what makes the finished cover look boutique rather than homemade—revisit the fundamentals in [[even-crochet-stitches|our perfectly even stitches guide]] before starting if your tension tends to drift.",
+        ],
+    },
+    {
+        "id": "care",
+        "heading": "Care and everyday use",
+        "paragraphs": [
+            "To refill, unbutton the side, tip the empty box out through the bottom, drop the new box in the same way, and re-button. Whole process: about twenty seconds. Hand-wash the cover every few months in cool water with mild soap and lay flat to dry. Skip the dryer—heat can shrink cotton and warp the button placement.",
+            "A well-made buttoned tissue box cover will still look intentional five years from now, quietly upgrading whichever room it lives in through every season.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Small home accessories are how a room stops feeling generic and starts feeling like yours. A buttoned tissue box cover is one of the fastest, most rewarding examples—two hours of work, four dollars of materials, and a small object you interact with every day that is now unmistakably handmade. Start with one in your favorite everyday color. Make a second in a seasonal palette. And when a friend admires yours, make her one too—it is the small handmade gift that never goes unused.",
+        ],
+    },
+]
+
+
 GRANNY_SQUARE_FASHION_BODY = [
     {
         "id": "intro",
@@ -841,6 +931,18 @@ ARTICLES_SEED = [
         "date": "March 5, 2026",
         "sections": None,
         "body": GRANNY_SQUARE_FASHION_BODY,
+        "draft": False,
+    },
+    {
+        "slug": "crochet-tissue-box-cover-buttons",
+        "title": "Crochet Tissue Box Cover with Side Buttons: A Year-Round Home Accessory",
+        "category": "Patterns",
+        "excerpt": "A practical crochet tissue box cover pattern with side buttons instead of sewn seams—refills in twenty seconds, fits cube and rectangular boxes, and quietly upgrades every room of the house.",
+        "image": IMAGES["blanket"],
+        "read_time": "10 min read",
+        "date": "March 8, 2026",
+        "sections": None,
+        "body": TISSUE_BOX_COVER_BODY,
         "draft": False,
     },
 ]
