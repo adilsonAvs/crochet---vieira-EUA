@@ -461,6 +461,94 @@ DENIM_UPCYCLE_BODY = [
 ]
 
 
+LAMPSHADE_BODY = [
+    {
+        "id": "intro",
+        "heading": "The quietest way to change a room",
+        "paragraphs": [
+            "There is a specific kind of warmth that comes from lighting a room with something you made yourself. A crochet lampshade takes an ordinary lamp and turns it into the kind of object friends notice the moment they walk in. Add a small pendant lantern in the corner and suddenly the whole room reads as intentional, layered, and softly lit—the visual definition of cozy.",
+            "This guide walks through two beginner-friendly crochet projects that transform small spaces without renovating them: a simple lantern cover you can slip over an LED tea light or battery lantern, and a hanging pendant cover finished with small crocheted floral buttons. Both projects use less than a full skein of cotton, take under three hours from first stitch to hanging, and cost about four dollars in materials once you already own a hook.",
+            "Whether you are decorating a reading nook, a hallway, or a guest room that could use a little more personality, crochet lighting is the most affordable way to soften a room's edges.",
+        ],
+    },
+    {
+        "id": "why-lamps",
+        "heading": "Why crochet lamp covers deserve a spot on your project list",
+        "paragraphs": [
+            "Store-bought lampshades in the budget aisle are almost always plain fabric drums that add nothing to a room. A crochet cover, by contrast, casts patterned shadows across the walls when the light is on and reads as a textured sculpture when the light is off. It is decor that does two jobs at once.",
+            "Crochet covers are also endlessly customizable—swap the color to match a season, add flower embellishments for spring, work in metallic yarn for a holiday version, or overlay a plain shade for a completely new look every year. Small-space living especially benefits from this kind of flexibility because you cannot store dozens of holiday lamps in a studio apartment. One base lamp, a rotating collection of crochet covers, and you have a lighting library that fits in a shoebox.",
+        ],
+    },
+    {
+        "id": "safety",
+        "heading": "Safety first: which lamps work (and which don't)",
+        "paragraphs": [
+            "Before you crochet a single loop, know which lamps are safe to cover and which are not. Any lamp with an incandescent bulb (the old traditional kind that gets hot) or a halogen bulb should never be covered directly with yarn—the bulb generates enough heat to scorch cotton and start a fire. Safe options are LED bulbs, LED tea lights, battery-powered fairy lights, and modern battery lanterns. LEDs run cool to the touch even after hours of use, which makes them ideal for fabric covers.",
+            "For pendant lamps, keep the crochet cover at least one inch away from the bulb itself. Work a cage-style cover that sits below the bulb rather than wrapping it directly. If you have any doubts about your specific lamp, feel the bulb after ten minutes of use—if you can hold it comfortably, it is safe to add crochet. If it is even warm, stop and switch to an LED first. Better safe than sorry.",
+        ],
+    },
+    {
+        "id": "supplies",
+        "heading": "Supplies and yarn choices",
+        "paragraphs": [
+            "For both projects in this guide you will need worsted-weight cotton yarn (about 60–100 yards per cover, less than half a skein), a 4.0 mm (US G-6) crochet hook, a tapestry needle, and sharp scissors. Optional but recommended: fabric stiffener or a homemade 50/50 white glue and water mix if you want your finished cover to hold a specific sculptural shape.",
+            "For the lantern cover you also need one battery-powered LED lantern or a small LED pillar candle (available at any craft store for four to six dollars). For the pendant cover you need a plain paper or wire lampshade frame—the kind sold as \"DIY lampshade kits\"—plus one to three small buttons for the floral accents.",
+            "Cotton is non-negotiable in every case because it does not stretch out of shape and washes cleanly. If you want a deeper dive into fiber weights, blends, and washability, our [[best-yarn-for-crochet|full yarn buyer's guide]] breaks down every option before you spend anything.",
+        ],
+    },
+    {
+        "id": "lantern",
+        "heading": "Simple crochet lantern cover pattern",
+        "paragraphs": [
+            "This cover fits a standard four-inch LED tea light lantern (about six inches tall). Adjust the number of rounds up or down if your lantern is a different height.",
+            "1. Chain 40. Slip stitch to the first chain to form a ring, taking care not to twist.",
+            "2. Round 1: Ch 3 (counts as first dc). Work 1 dc in each chain around. Slip stitch to close. Total: 40 dc.",
+            "3. Rounds 2–6: Ch 3. In the same stitch, work a V-stitch (1 dc, ch 1, 1 dc). Skip the next stitch and work a V-stitch in the following stitch. Continue around. Slip stitch to close.",
+            "4. Round 7: Ch 1. Sc in each stitch around to firm up the top edge. Slip stitch to close.",
+            "5. Fasten off, weave in the tail with your tapestry needle.",
+            "Slip the finished cover over your battery lantern. The V-stitch pattern casts a lovely open lattice of shadows when the LED is on, and reads as a textured sculpture when off. Time from start to finish: about ninety minutes for a first attempt.",
+        ],
+    },
+    {
+        "id": "pendant",
+        "heading": "Hanging pendant cover with floral buttons",
+        "paragraphs": [
+            "This project uses a plain paper lampshade frame—the kind that clips onto a hanging pendant socket. Total yarn used: about one hundred yards of worsted cotton.",
+            "1. Measure the circumference of the widest part of the paper shade. Chain a multiple of 4 that comes close to that measurement (usually 48–64 chains).",
+            "2. Round 1: Slip stitch to form a ring, taking care not to twist. Ch 3, dc in each chain around. Slip stitch to close.",
+            "3. Rounds 2–8: Work a granny-stitch repeat—ch 3, then work 3 dc into each ch-1 space around, separated by ch 1. This creates an open granny-style mesh perfect for a soft light diffuser.",
+            "4. Round 9: Ch 1. Sc around the bottom edge to firm it up. Fasten off and weave in ends.",
+            "For the floral buttons: chain 6, slip stitch to form a small ring. Ch 3, work 5 dc into the ring, ch 3, sl st to the top of the ch-3—that is one petal. Repeat for four more petals. Fasten off. Make three or five flowers in accent colors, then sew them evenly around the widest part of the pendant cover using matching thread.",
+            "The flowers add sculptural texture and are the visual signature of the piece. If you already have scraps set aside for the accent colors, our [[scrap-yarn-projects|leftover yarn ideas guide]] has more small projects for the tiny remnants that were begging for a home.",
+        ],
+    },
+    {
+        "id": "small-spaces",
+        "heading": "Design ideas for small spaces",
+        "paragraphs": [
+            "A single crochet lantern cover changes an entire reading corner. A trio of small hanging lanterns above a dining nook adds height and softens a low ceiling. Group three floor lanterns of different heights in a corner to create a cozy vignette without buying furniture. In a bedroom, a crochet pendant cover in a warm neutral cream over a bed reads as a natural extension of any minimalist or Scandinavian style.",
+            "For rented apartments where you cannot change the ceiling fixtures, use a small plug-in pendant lamp with a swag hook—you get the pendant look without any wiring, and the crochet cover clips onto the shade in seconds. Layer warm and cool lighting: a warm pendant over the reading chair, a cool LED lantern on the shelf. The mix creates depth in a small room.",
+            "Small studio habits like these are worth revisiting in [[crochet-hacks|our crochet hacks guide]] for cross-project ideas that make the whole practice smoother.",
+        ],
+    },
+    {
+        "id": "care",
+        "heading": "Care and cleaning",
+        "paragraphs": [
+            "Crochet lamp covers gather dust over time. Once a month, take the cover off the lamp and gently vacuum it with the brush attachment on low suction. Every six months, hand-wash in cool water with a small drop of mild soap, press the excess water out in a clean towel, and lay flat to dry. Skip the dryer entirely—heat can shrink cotton.",
+            "If you used fabric stiffener during the initial finish, reapply after each wash if you want the sculptural hold to stay firm. A well-made crochet lamp cover will still look intentional a decade from now.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Crochet lighting is one of the fastest ways to change how a small space feels. A single afternoon of work turns a plain LED lantern or a bare pendant bulb into something intentional, layered, and unmistakably yours. Start with the simple lantern cover this weekend. Add the pendant with floral buttons next weekend. In two Saturdays you will have transformed a corner of your home—and the finished pieces cost less than a takeout dinner.",
+        ],
+    },
+]
+
+
 def _short(slug, title, category, excerpt, image_key, read_time):
     return {
         "slug": slug,
@@ -543,6 +631,18 @@ ARTICLES_SEED = [
         "date": "February 22, 2026",
         "sections": None,
         "body": MICRO_CROCHET_JEWELRY_BODY,
+        "draft": False,
+    },
+    {
+        "slug": "crochet-lampshades-cozy-lighting",
+        "title": "Crochet Lampshades and Lantern Covers: Cozy Lighting Ideas for Small Spaces",
+        "category": "Patterns",
+        "excerpt": "Two beginner-friendly crochet lighting projects—a simple LED lantern cover and a hanging pendant cover with floral buttons—that transform small spaces in a single weekend.",
+        "image": IMAGES["blanket"],
+        "read_time": "10 min read",
+        "date": "February 25, 2026",
+        "sections": None,
+        "body": LAMPSHADE_BODY,
         "draft": False,
     },
 ]
