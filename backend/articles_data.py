@@ -201,6 +201,93 @@ SCRAP_YARN_BODY = [
 ]
 
 
+PLACEMAT_BODY = [
+    {
+        "id": "why-placemat",
+        "heading": "Why this placemat is the perfect quick project",
+        "paragraphs": [
+            "Not every finished project takes weeks. A round crochet placemat—the kind that sits under a plate at a quiet dinner or a busy holiday table—comes off the hook in under two hours, uses stitches every beginner already knows, and instantly makes a meal feel a little more considered.",
+            "Placemats are also one of the most forgiving first patterns because they hide small tension inconsistencies inside the natural texture of double crochet. If your circle warps a bit, blocking fixes it. If your count is off by one, no one at the table will notice. That kind of low-stakes practice is exactly what builds confidence.",
+            "This guide walks through the exact pattern I use when I want a table full of matching placemats before dinner—materials, hook size, round-by-round instructions, a simple scalloped edge, and the two mistakes to look out for. If you have never worked in the round before, spend five minutes with [[crochet-for-absolute-beginners|our absolute beginners guide]] first, then come back here.",
+        ],
+    },
+    {
+        "id": "materials",
+        "heading": "What you'll need",
+        "paragraphs": [
+            "You do not need a specialty store to start. The materials for one placemat are simple and affordable.",
+            "Yarn: worsted-weight cotton or fine macramé cotton cord, about 100 to 120 yards per placemat. Look for skeins labeled \"worsted cotton\" or \"4/4 cotton.\" Cotton holds shape at the table, washes cleanly, and takes color beautifully.",
+            "Hook: a 3.5 mm (US E-4) hook for a firm, structured mat, or a 4.0 mm (US G-6) hook for a softer drape. If your yarn label suggests a different size, follow the label.",
+            "Notions: sharp scissors and a tapestry needle for weaving in ends. Optional but helpful: one stitch marker (or a scrap of contrast yarn) to keep track of the first stitch in each round.",
+        ],
+    },
+    {
+        "id": "yarn-choice",
+        "heading": "A note on yarn and hook choice",
+        "paragraphs": [
+            "If you are new to placemats, choose a light, solid color first—cream, natural, pale yellow, or dove gray. Light shades make it far easier to see individual stitches and count them correctly. Variegated or dark yarns look beautiful but hide stitch definition, which turns counting into a guessing game on your first project.",
+            "Cotton is non-negotiable for anything that touches food. It resists heat, does not pill under a plate, and machine-washes without shrinking to strange proportions. Acrylic can melt near a hot pan. Wool felts in the wash. Cotton is the honest friend here. If you want a deeper dive into fibers, weights, and washability, our [[best-yarn-for-crochet|complete yarn buyer's guide]] breaks down every trade-off before you spend a dollar.",
+        ],
+    },
+    {
+        "id": "abbreviations",
+        "heading": "US crochet abbreviations used in this pattern",
+        "paragraphs": [
+            "This pattern uses standard US crochet terms. Here are the four you'll need to know before we start.",
+            "ch — chain. dc — double crochet. sl st — slip stitch (closes each round). sc — single crochet (used only in the border). inc — increase, which means two double crochets worked into the same stitch.",
+            "We work in joined rounds. Every round begins with a chain-3 (which counts as your first dc) and ends by joining with a slip stitch into the top of that chain-3. If you remember only one rule from this pattern, remember that the ch-3 counts as a stitch—not as a filler chain—so you will only work eleven additional dc in round one, twenty-three in round two, and so on.",
+        ],
+    },
+    {
+        "id": "pattern",
+        "heading": "The pattern, round by round",
+        "paragraphs": [
+            "Round 1: Make a magic ring (or ch 4 and join with a sl st into the first chain to form a small loop). Ch 3—this counts as your first dc. Work 11 dc into the ring. Sl st to the top of the ch-3 to close. Total: 12 stitches.",
+            "Round 2 (all increases): Ch 3. Work 1 dc in the same base stitch—that's your first increase. Then work an inc (2 dc) into every dc around. Sl st to close. Total: 24 stitches.",
+            "Round 3: Ch 3. In the next stitch, work an inc. Continue in the pattern of one dc followed by one inc all the way around. Sl st to close. Total: 36 stitches.",
+            "Round 4: Ch 3, 1 dc in the next stitch. In the third stitch, work an inc. Continue with two dc followed by one inc around. Sl st to close. Total: 48 stitches.",
+            "Round 5: Continue the widening pattern—three dc followed by one inc, repeated around. Sl st to close. Total: 60 stitches.",
+            "Round 6: Four dc, one inc, repeated around. Sl st to close. Total: 72 stitches.",
+            "Round 7: Five dc, one inc, repeated around. Sl st to close. Total: 84 stitches.",
+            "If your circle stays flat, keep going. If it starts to ruffle or curl at the edges, pause here. Every crocheter's tension is a little different, and your placemat may be finished at 72 or 84 stitches. The number that matters is whether the fabric lies flat when you set it down on the table.",
+        ],
+    },
+    {
+        "id": "edging",
+        "heading": "The simple shell edging",
+        "paragraphs": [
+            "A small shell border turns a plain circle into something guest-ready in about fifteen minutes.",
+            "Border round: Ch 1, sc in the same stitch. Skip 1 stitch. In the next stitch, work 5 dc (this forms one shell). Skip 1 stitch. Sc in the next stitch. Continue the pattern of skip one, five dc in next, skip one, sc in next, all the way around. Sl st to the first sc to close. Cut the yarn, leaving a six-inch tail, and pull it through the last loop.",
+            "Weave in every tail with the tapestry needle by running it through at least four stitches in one direction and reversing back through two more. That's the whole thing—one placemat in under two hours.",
+        ],
+    },
+    {
+        "id": "care",
+        "heading": "Blocking, care, and gifting ideas",
+        "paragraphs": [
+            "Even if your circle looks slightly waved, a gentle blocking makes it lie perfectly flat. Wet the finished mat, gently press out the excess water in a clean towel, and pin it flat on a foam mat or clean carpet to dry overnight. Cotton takes to blocking beautifully—one round of blocking is often the entire difference between \"handmade\" and \"professional.\"",
+            "For everyday care, machine wash on cold and lay flat to dry. Skip the dryer for the first three washes to help the shape settle in. A set of four matching placemats in a warm neutral makes a thoughtful housewarming gift; a set in a friend's wedding colors is unforgettable at a bridal shower.",
+            "For consistent stitch height across all four mats, revisit the tension tips in [[even-crochet-stitches|our guide on perfectly even stitches]] before starting the second one—your future self will thank you.",
+        ],
+    },
+    {
+        "id": "mistakes",
+        "heading": "Common mistakes and how to fix them",
+        "paragraphs": [
+            "Almost every beginner makes one of two mistakes on a round placemat. The first is skipping the ch-3 join at the end of a round—this creates a small hole where the round closes. The second is forgetting that the ch-3 counts as a dc, which throws off every increase count that follows.",
+            "If your circle starts to warp into a bowl shape, you have too few increases; add one extra inc every few stitches on the next round to open the fabric. If the edge ruffles or waves, you have too many increases; stop increasing and work one straight round of dc to redistribute the fabric before continuing.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "A round placemat is the perfect gateway project—enough structure to feel finished, enough simplicity to enjoy the process. Make one this weekend. Make a matching set the weekend after. And when you are ready to try something a little more sculptural, our journal has small animal tutorials, blanket patterns, and clothing adjustments waiting for your hook.",
+        ],
+    },
+]
+
+
 DENIM_UPCYCLE_BODY = [
     {
         "id": "why-upcycle",
@@ -340,6 +427,18 @@ ARTICLES_SEED = [
         "date": "February 15, 2026",
         "sections": None,
         "body": DENIM_UPCYCLE_BODY,
+        "draft": False,
+    },
+    {
+        "slug": "easy-round-crochet-placemat",
+        "title": "How to Crochet an Easy Round Placemat in Under 2 Hours (Step-by-Step)",
+        "category": "Patterns",
+        "excerpt": "A beginner-friendly round crochet placemat pattern using US crochet terms, worsted cotton, and only three stitches — finished in under two hours with a soft shell edging.",
+        "image": IMAGES["blanket"],
+        "read_time": "9 min read",
+        "date": "February 18, 2026",
+        "sections": None,
+        "body": PLACEMAT_BODY,
         "draft": False,
     },
 ]
