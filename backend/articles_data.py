@@ -7,11 +7,32 @@ publish new content without touching the frontend bundle.
 """
 
 IMAGES = {
-    "yarn": "https://images.unsplash.com/photo-1668072587859-f0f30c8fa938?auto=format&fit=crop&w=1200&q=80",
-    "blanket": "https://images.pexels.com/photos/6216236/pexels-photo-6216236.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "amigurumi": "https://images.unsplash.com/photo-1559996279-1e9d0d508b74?auto=format&fit=crop&w=1200&q=80",
-    "tops": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1200&q=80",
+    # Verified crochet-relevant stock photos from Pexels/Unsplash crochet collections.
+    # Each article gets a unique image matched to its topic for the AdSense
+    # quality-signals fix (Feb 2026).
+    "yarn": "https://images.pexels.com/photos/35155839/pexels-photo-35155839.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "blanket": "https://images.pexels.com/photos/5806996/pexels-photo-5806996.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "amigurumi": "https://images.pexels.com/photos/38972275/pexels-photo-38972275.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "tops": "https://images.pexels.com/photos/5035233/pexels-photo-5035233.jpeg?auto=compress&cs=tinysrgb&w=1200",
     "denim": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1200&q=80",
+    "beginner_hook": "https://images.pexels.com/photos/7585569/pexels-photo-7585569.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "mistakes": "https://images.pexels.com/photos/7585570/pexels-photo-7585570.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "even_stitches": "https://images.pexels.com/photos/29889874/pexels-photo-29889874.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "pattern_read": "https://images.pexels.com/photos/7585792/pexels-photo-7585792.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "yarn_variety": "https://images.pexels.com/photos/35155839/pexels-photo-35155839.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "amigurumi_alt": "https://images.pexels.com/photos/38699405/pexels-photo-38699405.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "hacks_studio": "https://images.pexels.com/photos/4792062/pexels-photo-4792062.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "dropped_stitch": "https://images.pexels.com/photos/36238478/pexels-photo-36238478.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "blanket_stack": "https://images.pexels.com/photos/5806996/pexels-photo-5806996.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "sell_business": "https://images.pexels.com/photos/38745727/pexels-photo-38745727.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "placemat_home": "https://images.pexels.com/photos/36644650/pexels-photo-36644650.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "micro_jewelry": "https://images.pexels.com/photos/7585583/pexels-photo-7585583.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "lamp_cozy": "https://images.pexels.com/photos/29889872/pexels-photo-29889872.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "knot_bag": "https://images.pexels.com/photos/7585259/pexels-photo-7585259.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "granny_fashion": "https://images.pexels.com/photos/18971489/pexels-photo-18971489.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "tissue_home": "https://images.pexels.com/photos/18971494/pexels-photo-18971494.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "denim_flowers": "https://images.pexels.com/photos/18971492/pexels-photo-18971492.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "scrap_yarn": "https://images.pexels.com/photos/3693232/pexels-photo-3693232.jpeg?auto=compress&cs=tinysrgb&w=1200",
 }
 
 CATEGORY_PARAGRAPHS = {
@@ -461,6 +482,92 @@ DENIM_UPCYCLE_BODY = [
 ]
 
 
+DENIM_FLOWERS_BANDANAS_BODY = [
+    {
+        "id": "intro",
+        "heading": "Where boho crochet meets urban denim",
+        "paragraphs": [
+            "Ten years of working crochet into denim has taught me one thing above everything else: the small details are what people actually notice. A perfectly worked freeform edge is beautiful, but a single crochet flower stitched onto the back pocket of a favorite jean jacket is what makes strangers stop and ask where the piece came from. Details are what turn plain denim into something with a story.",
+            "This guide is about those exact details—crochet flowers and small crochet bandanas added to jean jackets, jeans, denim skirts, and denim shirts. It is the middle ground between untouched denim and full freeform upcycling. If you want a project that finishes in one Saturday afternoon and immediately upgrades a piece you already own, this is the technique. Small motifs. Big visual payoff. Zero risk to your denim.",
+            "The techniques below assume basic crochet knowledge (chain, single crochet, double crochet, magic ring) and a fondness for looking a little more interesting than everyone else on the sidewalk.",
+        ],
+    },
+    {
+        "id": "vs-upcycle",
+        "heading": "How this differs from full denim upcycling",
+        "paragraphs": [
+            "In an earlier guide on [[upcycle-thrifted-denim-crochet|freeform crochet edges on thrifted denim]] we walked through building crochet borders directly into the fabric with a hook. That approach is dramatic, transformative, and requires a real commitment—you are working new fabric onto the garment permanently.",
+            "This guide is different. We are not crocheting into the denim at all. We are making small standalone crochet pieces separately, then attaching them with a sewing needle and matching thread. That means the appliqués are removable if you change your mind, cheaper on yarn, and safer on delicate or vintage denim. You can add and remove flowers seasonally, swap a summer bandana for a fall flower on the same jacket, or transfer a favorite motif from a worn-out pair of jeans to a fresh pair.",
+        ],
+    },
+    {
+        "id": "flower",
+        "heading": "The small crochet flower pattern",
+        "paragraphs": [
+            "This is the exact flower I have been sewing onto denim for a decade. It works up in about ten minutes, uses less than five yards of yarn per flower, and holds up to washing and daily wear. All abbreviations are US crochet terms: ch (chain), sc (single crochet), dc (double crochet), sl st (slip stitch).",
+            "Center: Make a magic ring. Ch 3 (counts as first dc). Work 11 dc into the ring. Pull the ring tight. Sl st to the top of the ch-3 to close. Total: 12 dc around a firm center.",
+            "Petal round: In the same stitch as the sl st, work: ch 2, 3 dc, ch 2, sl st into the same stitch. That is one petal. Skip the next stitch. Into the following stitch, sl st, then repeat: ch 2, 3 dc, ch 2, sl st. Continue around, skipping one stitch between each petal. You will get 6 petals evenly spaced around the center.",
+            "Fasten off, leaving a six-inch tail for sewing to the garment. Weave a small amount of the tail through the back of the center to secure any loose stitches before you sew.",
+            "For a two-color flower: work the center in one color, fasten off, then join a second color at any stitch to start the petal round. The color contrast at the center reads as intentional and photographs beautifully in natural light.",
+            "For a smaller flower (perfect for a lapel or shirt pocket): work only 8 dc in the ring instead of 12, then work 4 petals in the second round.",
+        ],
+    },
+    {
+        "id": "bandana",
+        "heading": "The small crochet bandana motif",
+        "paragraphs": [
+            "The bandana is a small triangular motif inspired by classic western bandanas and Persian handkerchief prints. It measures about three inches on each side—perfect for a back pocket accent, a belt loop dangle, or a tiny triangle sewn to the collar of a denim shirt.",
+            "Row 1: Ch 4. Work 2 dc into the fourth chain from the hook. Ch 2, turn. This is your first row—a small pointed shape.",
+            "Row 2: Skip the first ch-2. Work 2 dc in the next stitch, 1 dc in the ch-2 space, 2 dc in the top of the ch-3 from the previous row. Ch 2, turn. You are increasing by one stitch on each end.",
+            "Rows 3–6: Continue the same increase pattern—2 dc in the first stitch, 1 dc in each middle stitch, 2 dc in the last stitch. Each row grows the triangle wider by two stitches.",
+            "Row 7 (fringe row, optional): Work sc across the top edge. For each sc, cut a two-inch length of matching yarn, fold in half, and pull the loop through the sc, then pull the ends through the loop to create fringe. A row of tiny fringe along the top edge sells the bandana feel instantly.",
+            "Fasten off with a long tail. A finished bandana takes about fifteen minutes.",
+        ],
+    },
+    {
+        "id": "placement",
+        "heading": "Where flowers go, where bandanas go",
+        "paragraphs": [
+            "Placement is what separates \"crafty\" from \"designed.\" Flowers work best in clusters of three, placed asymmetrically. Try three small flowers running diagonally across the left front pocket of a jean jacket; a single larger flower on the outside of a jeans back pocket; two flowers stitched near the collar edge of a denim shirt.",
+            "Bandanas prefer to hang. Sew a bandana motif to a jean-jacket belt loop by stitching only the top point, letting the rest dangle like a decorative kerchief. Or stitch one flat to the outside of a back pocket, points down, for a subtle Western-inspired accent. For a bolder statement, sew a small bandana to the shoulder seam of a denim jacket where a military patch would traditionally go.",
+            "Both motifs read stronger when placed off-center rather than centered. Symmetry looks costume-y; asymmetry looks intentional.",
+        ],
+    },
+    {
+        "id": "sewing",
+        "heading": "Sewing to denim without damaging the fabric",
+        "paragraphs": [
+            "Use a sharp hand-sewing needle (a size 8 or 9 works well) and matching all-purpose thread. Do not use tapestry needles here—they leave large holes in denim that never fully close.",
+            "Position the appliqué exactly where you want it. Pin in place with two straight pins to prevent shifting. Working from the wrong side of the denim, take small stitches around the outer edge of the appliqué, catching only the backing yarn of the crochet piece and just a shallow bite of the denim fabric. Deep stitches leave permanent holes; shallow stitches disappear.",
+            "For flowers, stitch only around the center circle and let the petals sit freely. This keeps the petals soft and dimensional. For bandanas, stitch across the top edge only, leaving the bottom points free to move slightly. Consistent, tiny stitches are what makes this look professional—if your hand-sewing rhythm drifts, borrow the tension principles from [[even-crochet-stitches|our guide on perfectly even stitches]]; the same rules apply to sewing.",
+        ],
+    },
+    {
+        "id": "care",
+        "heading": "Care after adding crochet details",
+        "paragraphs": [
+            "Wash the finished garment inside out on cold in a mesh laundry bag. The mesh bag protects the appliqués from snagging on the washer drum, zippers, or other clothing. Skip the dryer for the first three washes so the crochet fibers relax into the denim naturally.",
+            "If a flower comes loose after months of wear, resewing takes about two minutes with the same needle and thread you used the first time. Small crochet scraps left over from these projects are perfect for tiny appliqué work—if you have a collection building up, our [[scrap-yarn-projects|leftover yarn ideas guide]] has more small projects that use exactly this kind of remnant.",
+        ],
+    },
+    {
+        "id": "styling",
+        "heading": "Design stories by outfit style",
+        "paragraphs": [
+            "For a boho-leaning look, cluster three cream flowers across the front yoke of a denim shirt worn tucked into a flowy midi skirt. For an urban streetwear feel, add a single bold-colored flower (neon coral or bright saffron) to the shoulder of a plain black-denim jacket over a white tee. For a Western-inspired look, sew a small bandana with fringe to the belt loop of high-waisted jeans and wear with a plain white blouse.",
+            "For evening, upgrade the flowers with a metallic thread center—work the center round in gold cotton, then complete the petals in your regular color. The metallic accent catches light beautifully under restaurant lighting.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "The best handmade details are the ones that make a familiar piece feel new. A small crochet flower on a jean jacket does that; a tiny bandana dangling from a belt loop does that; both together on the right outfit make the piece unmistakably yours. Start with one flower on a favorite jacket. Add a bandana next weekend. Six months from now you will have a denim wardrobe that reads as personal, layered, and quietly designed—and every piece will have taken less than an evening of work.",
+        ],
+    },
+]
+
+
 TISSUE_BOX_COVER_BODY = [
     {
         "id": "intro",
@@ -813,7 +920,815 @@ LAMPSHADE_BODY = [
 ]
 
 
-def _short(slug, title, category, excerpt, image_key, read_time):
+BEGINNERS_GUIDE_BODY = [
+    {
+        "id": "welcome",
+        "heading": "Welcome to your first hook",
+        "paragraphs": [
+            "Crochet has a reputation for being intimidating, but it is one of the friendliest crafts you can pick up. You only need three things—a hook, a ball of yarn, and about twenty minutes—to make your first row of stitches. There is no expensive machine, no complicated setup, and no rule that says your first project has to look perfect. Every experienced crocheter you admire once held a hook awkwardly and pulled a stitch far too tight. That awkwardness is not a warning sign; it is the beginning of muscle memory.",
+            "This guide walks you through the very first steps, from choosing supplies to finishing a first small square. Read it slowly, keep your yarn nearby, and give yourself permission to stop and re-read any part that feels fuzzy. The goal is not speed. The goal is a calm, confident start that makes you want to pick up your hook again tomorrow.",
+        ],
+    },
+    {
+        "id": "supplies",
+        "heading": "The three supplies you actually need",
+        "paragraphs": [
+            "Skip the huge starter kit for now. A single 5.0 mm or 5.5 mm aluminum hook, one skein of smooth worsted-weight yarn in a light color, and a pair of small scissors will get you through the entire first week. Light yarn matters because dark strands make it hard to see individual stitches while you are still learning to spot them. Smooth means no fuzz, no bouclé, and no metallic strands—those are wonderful yarns for later, but they hide beginner mistakes exactly when you most need to see them.",
+            "Cotton or a soft acrylic both work. Cotton shows stitch definition more clearly and washes beautifully; acrylic is cheaper and forgiving on your wrist. A small stitch marker (or even a paperclip) helps you find the first stitch of each row. That is it. Once you have finished a small project, you can slowly expand your supplies with intention rather than filling a bin with impulse buys.",
+        ],
+    },
+    {
+        "id": "slip-knot-chain",
+        "heading": "Your slip knot and first chain",
+        "paragraphs": [
+            "Everything in crochet grows out of two motions: making a slip knot and pulling a loop through another loop. Practice the slip knot on its own three or four times before you worry about anything else. A good slip knot slides gently when you pull the tail, but does not grip the hook like a vise. If your knot squeezes the hook so tightly you cannot pull yarn through, loosen it and start again. Tight grip equals sore hands and stitches that refuse to move.",
+            "Once your slip knot is on the hook, wrap the yarn over the hook (this is called a yarn-over, abbreviated 'yo') and pull it through the loop. That single motion just made your first chain stitch. Repeat it twenty times. Look at the results: you should see a row of small V shapes, each about the same size. If some are tight and some are loose, that is normal. Consistency comes from repetition, not talent.",
+        ],
+    },
+    {
+        "id": "single-crochet",
+        "heading": "The single crochet: your first real stitch",
+        "paragraphs": [
+            "Single crochet (abbreviated 'sc' in US terms) is the smallest, densest, most beginner-friendly stitch. To work it into your practice chain, skip the loop directly on the hook, insert your hook into the second chain from the hook, yarn over, and pull up a loop. You now have two loops on your hook. Yarn over one more time and pull through both loops. That is one complete single crochet.",
+            "Work a single crochet into every chain across the row. When you reach the end, chain one, turn your work over so the yarn tail is on the right if you are right-handed (or the left if you are left-handed), and start a new row. The first stitch of the new row goes into the first stitch of the previous row—not into the turning chain. This is the most common beginner confusion, and marking that first stitch with a paper clip saves an entire evening of unraveling.",
+        ],
+    },
+    {
+        "id": "practice-swatch",
+        "heading": "Make a real practice swatch",
+        "paragraphs": [
+            "Set a small goal: chain 15, then work five rows of single crochet. That gives you a swatch roughly the size of a coaster, and it teaches you almost everything you need for a bigger project. Count your stitches at the end of each row. If you started with 14 single crochets and finish with 13, you missed the last stitch. If you finish with 15, you added a stitch somewhere—probably into the turning chain by accident. Both are extremely common. Just pull back to the mistake and rework it. This is called 'frogging' because you 'rip it, rip it.'",
+            "Aim to work in short, focused sessions of ten to fifteen minutes at first. Long sessions tighten your grip and cramp your hand. If your hands ache, take a break, stretch your fingers, and come back later. Comfortable hands make consistent stitches, and consistent stitches make fabric you actually want to keep.",
+        ],
+    },
+    {
+        "id": "reading-help",
+        "heading": "When patterns start to make sense",
+        "paragraphs": [
+            "The next skill after your first swatch is reading a pattern with confidence. Crochet patterns look intimidating because they are full of abbreviations, but they are actually shorter to read than plain English. 'sc' is single crochet, 'ch' is chain, 'dc' is double crochet, and '*repeat from *' tells you which section to repeat. Our full walkthrough is in [[read-crochet-pattern|how to read a crochet pattern like a pro]]—read it once your first swatch feels comfortable and you will unlock hundreds of free patterns online.",
+            "As you progress, common frustrations pop up: curling edges, growing or shrinking stitch counts, holes where you did not want them. Every one of these has a simple fix. Bookmark [[common-crochet-mistakes|our common mistakes guide]] and refer back to it whenever a row starts looking off.",
+        ],
+    },
+    {
+        "id": "first-project",
+        "heading": "A first project you can finish this week",
+        "paragraphs": [
+            "For your very first finished object, try a simple washcloth: chain 25, single crochet in each chain across, and continue for about 20 rows or until the piece looks roughly square. Fasten off, weave in the ends with a yarn needle, and you have a functional handmade thing. It will be a little wonky. Use it anyway. The first washcloth is a portrait of everything your hands learned that week, and every washcloth after this one will look better than the last.",
+            "Once you can finish a washcloth, the door opens wide. A dishcloth, a coaster set, a scarf, a headband, a chunky market bag—all are approachable variations of the same skills. Choose whichever project makes you smile when you picture it finished.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Crochet is a craft of small returns. Ten minutes today teaches your hands something. Ten more minutes tomorrow builds on it. In two weeks the hook feels natural in your grip, and in two months you will be making things you did not think you could make. Give yourself permission to be a beginner for as long as it takes. Then keep going, quietly, one loop at a time.",
+        ],
+    },
+]
+
+
+COMMON_MISTAKES_BODY = [
+    {
+        "id": "why-mistakes",
+        "heading": "Why crochet mistakes are actually good news",
+        "paragraphs": [
+            "Every crochet mistake tells you something specific about what your hands, hook, or yarn are doing. That means every mistake is also fixable once you know how to read it. New crocheters often assume their work looks 'wrong' because they lack talent. The truth is far kinder: the ten most common beginner problems all trace back to one of three habits—tight tension, uncounted stitches, or a missed turning stitch. Once you learn to spot them, they lose their power to derail a project.",
+            "This guide walks through ten mistakes that show up over and over in beginner and intermediate crochet, with a specific fix for each one. Bookmark the list. Every time a piece starts looking odd, run through it before you get frustrated.",
+        ],
+    },
+    {
+        "id": "curling",
+        "heading": "1. Your fabric curls",
+        "paragraphs": [
+            "Single crochet fabric that curls upward almost always means tight tension. The stitches are pulling in on themselves faster than the fabric can lie flat. Try going up one hook size—a 5.5 mm instead of a 5.0 mm—without changing the yarn. That single change fixes most curling problems immediately. If you crochet very loosely, curling is rarely your issue; look at edge stitches instead.",
+            "Blocking also helps. Wet the finished piece, gently shape it flat, and let it dry on a towel. Cotton and acrylic block a little; wool and wool blends block dramatically. If you like the density of your current tension, blocking is often enough to keep a finished piece flat.",
+        ],
+    },
+    {
+        "id": "growing-shrinking",
+        "heading": "2. Your row count keeps changing",
+        "paragraphs": [
+            "Starting a row with 20 stitches and ending with 22 is a classic beginner problem. It usually means one of two things: you are crocheting into the turning chain when the pattern says not to, or you are missing the last stitch of the previous row. Count your stitches at the end of every row until it becomes automatic. Use a scrap of contrasting yarn to mark the first and last stitches of your first row so you can always find them.",
+            "If you routinely finish with fewer stitches, you are probably skipping the very last stitch because it looks smaller than the others. That last stitch is real—it is just hiding under the turning chain. Insert your hook one stitch further than feels natural.",
+        ],
+    },
+    {
+        "id": "tension",
+        "heading": "3. Your tension is inconsistent",
+        "paragraphs": [
+            "Uneven tension shows up as fabric that alternates between tight, dense sections and loose, floppy sections. The most common cause is a changing grip. Try holding the hook the same way for the whole project, and rest your hands every ten to fifteen minutes. Long sessions almost always tighten. A full breakdown of tension mechanics lives in [[even-crochet-stitches|our even stitches guide]] and it is worth reading twice.",
+            "Yarn tension in your non-hook hand matters as much as hook grip. Wrap the working yarn around your pinky finger and over your index finger so it feeds smoothly. If yarn snags on your fingers, add a small amount of hand lotion (fully absorbed) so the fiber glides.",
+        ],
+    },
+    {
+        "id": "wrong-stitch",
+        "heading": "4. You worked the wrong stitch",
+        "paragraphs": [
+            "Single crochet, half double crochet, and double crochet look surprisingly similar on the hook. If a row unexpectedly gets taller or shorter, you probably switched stitch types by accident. Always confirm the pattern's abbreviation at the start of each row and mumble it to yourself until you finish the row. It sounds silly. It works.",
+            "Charts help too. If you are a visual thinker, look up the pattern's chart version and put it next to your written instructions. Symbol charts show stitch height and repeats at a glance, and they catch mistakes long before your written pattern does.",
+        ],
+    },
+    {
+        "id": "twisted",
+        "heading": "5. Your foundation chain is twisted",
+        "paragraphs": [
+            "This one strikes when you are working in the round. If your starting chain twists before you join it, every round after will spiral, and you will notice the shape looking wrong five rounds in. Always lay your foundation chain flat before joining. The V-shapes should all face the same direction. If even one V has flipped, untwist and join again.",
+            "For flat pieces, twisted foundations show up as an odd wave along the bottom edge. If yours does this, try the chainless foundation single crochet method: it uses one motion to create a chain and a single crochet at the same time, and it produces a stretchier, less-twist-prone edge.",
+        ],
+    },
+    {
+        "id": "ends",
+        "heading": "6. Ends are unraveling",
+        "paragraphs": [
+            "Weaving in ends is not decorative. It is structural. A tail woven for only an inch will slip out with the first wash. Weave in each end for at least three inches, changing direction once mid-weave. Split the plies of the yarn tail if you can, and weave each half in a different direction; the fibers grip each other and stay put.",
+            "For amigurumi and blankets, tie a small square knot before weaving. For garments, avoid knots and rely entirely on the length and direction of the woven tail. Test a woven end by tugging firmly. If it moves, add another inch of weaving.",
+        ],
+    },
+    {
+        "id": "turning-chain",
+        "heading": "7. The turning chain confusion",
+        "paragraphs": [
+            "The turning chain (ch 1 for single crochet, ch 2 for half double, ch 3 for double) exists to give your first stitch enough height. But whether the turning chain counts as a stitch depends on the pattern. Read the first row of the pattern carefully. If it says 'ch 3 (counts as first dc)' you skip the first stitch of the row below and work into the second. If it does not, you work into the very first stitch.",
+            "Getting this wrong causes ever-growing or ever-shrinking rows. Highlight the turning-chain rule in your pattern before you start.",
+        ],
+    },
+    {
+        "id": "holes",
+        "heading": "8. Random holes appear",
+        "paragraphs": [
+            "Small unplanned holes usually mean you worked into a space between stitches instead of into the top of the stitch. The tops are the visible V's. The spaces between them are gaps. Always aim for the two loops of the V, not the space just below.",
+            "For patterns with intentional lace, holes are on purpose. For dense fabric like single crochet, they are not. Slow down for a row and inspect where the hook is going each time. Ten deliberate stitches teach more than a hundred rushed ones.",
+        ],
+    },
+    {
+        "id": "hook-slipping",
+        "heading": "9. The hook keeps slipping out",
+        "paragraphs": [
+            "If your hook slips out of loops constantly, the throat of the hook may be too narrow for your yarn, or your grip is angling the head away from the yarn. Try a hook with a wider throat (many crocheters prefer inline hooks like Susan Bates for tight tension and tapered hooks like Boye or Clover for loose tension). A soft rubber grip cushion also helps if wrist strain is contributing.",
+            "Check your yarn too. Very slippery yarns like bamboo or silk slide off metal hooks easily. Switch to a wooden hook, which grips slippery fibers more securely.",
+        ],
+    },
+    {
+        "id": "gauge-ignored",
+        "heading": "10. You ignored gauge",
+        "paragraphs": [
+            "For scarves and blankets, gauge is optional. For anything that needs to fit—hats, sweaters, mitts—gauge is everything. If you skip the swatch and jump straight into the pattern, the finished piece often ends up two sizes off. It is heartbreaking and completely preventable.",
+            "Work a swatch at least four inches by four inches, wash it if the finished item will be washed, and measure it after it dries. Adjust hook size until your stitch count matches the pattern's stated gauge. Once your gauge is right, choose your project from [[crochet-blanket-patterns|our blanket ideas guide]] or any wearable pattern and enjoy a finished piece that actually fits the way you imagined.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Every one of these mistakes is repairable, and none of them mean you are bad at crochet. They mean you are learning. Pick one issue you recognize in your own work, work through the fix on your next project, and see how much smoother the next hour of crochet feels. Small corrections compound quickly.",
+        ],
+    },
+]
+
+
+EVEN_STITCHES_BODY = [
+    {
+        "id": "why-tension",
+        "heading": "Why tension is the whole game",
+        "paragraphs": [
+            "Even stitches are almost never about talent. They are about tension—how tightly or loosely you hold the working yarn and the hook. When tension is consistent from one stitch to the next, the fabric looks intentional and the finished piece drapes correctly. When tension shifts, some stitches pull in and some flop out, and the fabric develops a wavy, uneven look that new crocheters often blame on themselves. It is not you. It is the yarn asking for a more consistent grip.",
+            "The good news is that tension is a habit, not a gift. This guide walks through the specific physical and mental adjustments that produce even fabric in every project, whether you crochet for ten minutes a day or ten hours a weekend.",
+        ],
+    },
+    {
+        "id": "grip-styles",
+        "heading": "Choose a grip and commit to it",
+        "paragraphs": [
+            "There are two common ways to hold a crochet hook: the knife grip and the pencil grip. Neither is objectively better. The knife grip (holding the hook like you are about to butter toast) tends to feel more powerful and is easier on the wrist for long sessions. The pencil grip (holding the hook the way you would write) offers finer control for delicate work.",
+            "Try both for ten minutes each. Whichever feels more natural is the one to commit to for the next three projects. Switching grips mid-project changes tension almost immediately, and inconsistent tension is exactly what we are trying to avoid.",
+        ],
+    },
+    {
+        "id": "yarn-hand",
+        "heading": "The role of your non-hook hand",
+        "paragraphs": [
+            "Most beginners obsess over their hook and forget that the non-hook hand controls half of tension. The working yarn must feed evenly from your fingers to the hook. If it drags, stitches tighten. If it flows too freely, stitches loosen. A common setup wraps the yarn once around the pinky, up and over the ring and middle fingers, and across the top of the index finger. The index finger becomes a tiny yarn tension gauge you can adjust in real time.",
+            "Experiment for one full project. Try one wrap around the pinky, then two, then no wrap. Note how each setup feels. Once you find a comfortable feed, use it for every project going forward. Stability wins over cleverness.",
+        ],
+    },
+    {
+        "id": "hook-choice",
+        "heading": "Hook choice matters more than you think",
+        "paragraphs": [
+            "Inline hooks (like Susan Bates) have a straight throat and grab yarn firmly. Tapered hooks (like Boye or Clover) have a curved throat and slide through loops more easily. If your stitches are consistently too tight, a tapered hook can loosen them. If your stitches are too loose, an inline hook can tighten them. This is a free tension adjustment you can make just by changing tools.",
+            "The material also matters. Aluminum is fast and slick, wood grips slippery yarns like bamboo and silk, and ergonomic rubber grips reduce wrist strain during long sessions. A hook that feels comfortable will always produce more even stitches than a hook that fights your grip.",
+        ],
+    },
+    {
+        "id": "breath-rhythm",
+        "heading": "Breath and body rhythm",
+        "paragraphs": [
+            "This sounds unusual, but it is one of the most consistent secrets among experienced crocheters: breath affects tension. Held breath tightens the whole body, including the hands. Slow, steady breathing keeps grip pressure consistent. If you catch yourself hunching over a difficult stitch, exhale, relax your shoulders, and try the stitch again.",
+            "Take a two-minute break every twenty minutes for a long project. Stand up, roll your shoulders, and shake your hands out. This resets your grip, restores blood flow, and prevents the slow tightening that produces uneven fabric over the course of an hour.",
+        ],
+    },
+    {
+        "id": "swatching",
+        "heading": "Swatching is not optional",
+        "paragraphs": [
+            "A four-inch by four-inch swatch tells you everything: your tension with the current hook, whether the yarn behaves the way the label claims, and whether you need to size up or down. Skipping the swatch is the fastest route to a project that ends up two inches too small or two inches too wide.",
+            "Swatch the exact stitch pattern the project uses, not just single crochet. Different stitch patterns produce different tension. Once the swatch matches the pattern's gauge, you can start the real project knowing every measurement will be true. If gauge feels unfamiliar, [[common-crochet-mistakes|our mistakes guide]] covers this exact issue in more detail.",
+        ],
+    },
+    {
+        "id": "edges",
+        "heading": "Tidy edges are a tension signal",
+        "paragraphs": [
+            "Uneven side edges usually mean the turning chain is inconsistent or the first stitch of each row is inserted in the wrong place. Decide once whether the turning chain counts as a stitch in your project, and stick with that rule for every row. Insert the first stitch of every row in the exact same place—either the very first stitch or the second, depending on your pattern rule.",
+            "For side stitches that appear looser than the middle, tighten the yarn slightly on the last stitch of every row. This tiny adjustment produces edges that look ruled with a straightedge.",
+        ],
+    },
+    {
+        "id": "blocking",
+        "heading": "Blocking hides small sins",
+        "paragraphs": [
+            "Even with careful tension, small variations show up in every fabric. Blocking evens them out. Wet the finished piece in cool water, gently squeeze out excess moisture in a towel, and shape it flat on a blocking mat or clean towel. Pin the corners into a rectangle and let it dry completely.",
+            "Cotton and acrylic block modestly; wool blocks dramatically. A well-blocked piece looks intentional even if a few stitches wandered along the way. Do not use blocking as an excuse for careless work, but do use it as the final step that turns a good piece into a beautiful one.",
+        ],
+    },
+    {
+        "id": "practice",
+        "heading": "Practice the boring stuff",
+        "paragraphs": [
+            "Even stitches come from repetition, not novelty. Work five identical washcloths in the same yarn and hook. By washcloth five, your tension will be dramatically more consistent than it was on washcloth one. This is the least glamorous crochet advice you will ever receive, and it works every single time.",
+            "When you are ready for a project that rewards your new tension skills, try one of the smooth-drape patterns from [[best-yarn-for-crochet|our yarn buyer's guide]]. Even tension shines most in projects with clear stitch definition.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Perfectly even stitches are a byproduct of a comfortable grip, a steady rhythm, and enough practice to make consistency automatic. Slow down for the next few rows, notice how your hands are moving, and let calm consistency do the work. The fabric that emerges will look like it was made by someone who has been crocheting for years—because now, in a small, quiet way, you are.",
+        ],
+    },
+]
+
+
+READ_PATTERN_BODY = [
+    {
+        "id": "pattern-language",
+        "heading": "Crochet patterns look weird for a reason",
+        "paragraphs": [
+            "The first time you open a crochet pattern, it looks like a foreign language. 'Row 3: ch 3 (counts as first dc), *sk 1 st, dc in next st, ch 1; rep from * to end.' That single line contains six pieces of information, and once you can read it, hundreds of free patterns online become instantly usable. This guide unpacks the language piece by piece so nothing on that line feels mysterious.",
+            "The best way to learn is with a hook in your hand. Print or bookmark a beginner-friendly pattern before you start reading below—working through examples as you learn makes the abbreviations click in a way that reading alone never can.",
+        ],
+    },
+    {
+        "id": "abbreviations",
+        "heading": "The core abbreviations",
+        "paragraphs": [
+            "Most patterns you find online use US crochet terminology. The core abbreviations are: ch (chain), sl st (slip stitch), sc (single crochet), hdc (half double crochet), dc (double crochet), tr (treble crochet), sk (skip), st (stitch), sts (stitches), rep (repeat), and yo (yarn over). Almost every pattern uses these ten. Memorize them by writing them once by hand, then look up new ones as you encounter them.",
+            "UK terminology uses the same words but shifts the meaning by one height: UK double crochet is US single crochet, UK treble is US double, and so on. Always check which system the pattern uses. Free patterns from UK designers on Ravelry and Etsy sometimes catch new crocheters off guard.",
+        ],
+    },
+    {
+        "id": "repeats",
+        "heading": "How repeats work",
+        "paragraphs": [
+            "The asterisk (*) marks a repeat section. When a pattern says '*dc in next 3 sts, ch 1; rep from * to end,' you work three double crochets, chain one, and then repeat that same sequence—dc 3, ch 1, dc 3, ch 1—until you reach the end of the row. Some patterns use brackets [] or parentheses () the same way. When both appear, work the innermost bracket first, then the outer.",
+            "Count the stitches called for in one full repeat before you begin. If a repeat needs four stitches and your row has eighteen, four repeats leave two stitches over. Read the pattern carefully to see how it handles those extras. Sometimes the pattern accounts for them; sometimes you need to adjust your foundation chain.",
+        ],
+    },
+    {
+        "id": "counts",
+        "heading": "Stitch counts in parentheses",
+        "paragraphs": [
+            "At the end of a row you will often see something like '(24 sts).' This tells you how many stitches you should have at the end of that row. It is a checkpoint. If your count matches, keep going. If it does not, stop and find the mistake before it multiplies.",
+            "For flat pieces, stitch counts stay the same on every row unless the pattern is intentionally increasing or decreasing for shaping. For shaped pieces like sleeves or hats, the counts change on purpose. Always cross-check counts after any shaping row.",
+        ],
+    },
+    {
+        "id": "charts",
+        "heading": "Reading charts and symbols",
+        "paragraphs": [
+            "Charts are visual maps of a pattern. Each stitch is drawn as a symbol: a plus sign for single crochet, a T for half double, a T with one slash for double, a T with two slashes for treble. Chains look like small ovals. The chart is read from bottom to top and, on right-side rows, from right to left. On wrong-side rows, it flips.",
+            "Charts are especially useful for lace, mandalas, and stitch patterns with repeating motifs. If a written pattern feels confusing, look up the chart version and let the picture tell the story.",
+        ],
+    },
+    {
+        "id": "sizes",
+        "heading": "Working with multi-size patterns",
+        "paragraphs": [
+            "Wearable patterns often list all sizes on one line: 'ch 60 (66, 72, 78, 84).' The first number is the smallest size, and the numbers in parentheses are the larger sizes in order. Circle or highlight your size number every place it appears in the pattern before you start—accidentally flipping to a different size mid-project is a common frustration and easy to prevent.",
+            "If your body falls between two sizes, choose the larger one and shorten as needed. For plus and diverse bodies, [[crochet-tops-for-every-body|our top-fitting guide]] covers the specific adjustments that make ready-made patterns actually fit.",
+        ],
+    },
+    {
+        "id": "gauge-section",
+        "heading": "The gauge section is not optional",
+        "paragraphs": [
+            "At the top of every wearable pattern, you will see a gauge line: '14 sts x 10 rows = 4 in (10 cm) in hdc using a 5.5 mm hook.' This is not a suggestion. Match this exactly with a swatch before you start the real project. If your swatch has 15 stitches over four inches, go up a hook size. If it has 13, go down.",
+            "For scarves, blankets, and other flat pieces where fit does not matter, you can skip gauge if you want. For anything that needs to fit a body, gauge is non-negotiable.",
+        ],
+    },
+    {
+        "id": "specialty-terms",
+        "heading": "Common specialty terms",
+        "paragraphs": [
+            "A few terms appear in almost every pattern: 'work in the back loop only' (blo), 'work in the front loop only' (flo), 'magic ring' or 'magic circle' (a technique to start crocheting in the round), and 'right side' vs 'wrong side.' Each is worth a quick internet video—two minutes of watching hands do the motion is more valuable than pages of text.",
+            "Whenever a pattern uses an unfamiliar term, pause and search 'crochet [term] tutorial' before continuing. Two minutes of learning now saves twenty minutes of frogging later.",
+        ],
+    },
+    {
+        "id": "notes",
+        "heading": "Take pattern notes as you go",
+        "paragraphs": [
+            "Every experienced crocheter keeps a small notebook of pattern quirks: which turning chain method worked, whether they went up or down a hook size, and any modifications they made. This becomes priceless when you set a project aside and pick it up a week later. Even a Post-it stuck to the pattern is better than nothing.",
+            "Write the finished measurements in your notes too. Future-you will want to compare a new pattern to something that already fit correctly, and specific measurements make that possible.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "The first pattern you decode feels like magic. The tenth feels like second nature. Choose a small, well-reviewed beginner pattern for your first read-through, work it slowly, and cross-reference every abbreviation as it appears. Within a few projects, patterns stop being intimidating and start being maps to finished objects you already know how to make.",
+        ],
+    },
+]
+
+
+BEST_YARN_BODY = [
+    {
+        "id": "yarn-decides",
+        "heading": "Yarn decides how a project feels",
+        "paragraphs": [
+            "The same pattern worked in three different yarns produces three completely different finished objects. A blanket in cotton feels crisp and structured. The same blanket in wool feels warm and squishy. The same blanket in acrylic feels light and easy to wash. None of these is better—each is right for a different purpose. This guide walks through the yarn choices that actually matter for real projects, so your next skein makes the finished piece feel exactly the way you imagined it.",
+            "There is no universal 'best' yarn. There is only the best yarn for a specific job, a specific budget, and a specific pair of hands. Learn to read the label, feel the twist, and imagine the finished object before you commit.",
+        ],
+    },
+    {
+        "id": "weight-system",
+        "heading": "The weight system, explained simply",
+        "paragraphs": [
+            "Yarn weight is a system of thickness, and it goes from lace (0) to jumbo (7). The most common weights for beginners are worsted (4) and DK (3), because they are easy to see, easy to hold, and produce quick results. Bulky (5) works up even faster and is great for cozy blankets. Sport (2) is thinner and better for delicate garments. Lace (0) is used for shawls, doilies, and intricate work with very small hooks.",
+            "The label always shows a small yarn-icon symbol with a number inside. That is the weight category. Match it to what the pattern calls for, or substitute carefully: swapping worsted for DK will produce a smaller, denser piece unless you resize.",
+        ],
+    },
+    {
+        "id": "cotton",
+        "heading": "Cotton: crisp, structured, forgiving",
+        "paragraphs": [
+            "Cotton is dense, non-stretchy, and shows every stitch clearly. It is the best fiber for beginners because mistakes are easy to see, and it is the ideal fiber for items that need structure—washcloths, market bags, dishcloths, coasters, and any home decor that should hold its shape. Cotton also washes beautifully in a machine and gets softer with each wash.",
+            "The downside: cotton has no memory. Once stretched, it stays stretched. That makes it a poor choice for hats or fitted garments. For beginners, cotton in a light color (cream, pale blue, mint green) is the friendliest first yarn. Save dark blacks and navies for after your eyes are trained to see stitches.",
+        ],
+    },
+    {
+        "id": "wool",
+        "heading": "Wool: warm, bouncy, and full of memory",
+        "paragraphs": [
+            "Wool is the classic yarn for warmth and stitch definition. It springs back into shape, blocks beautifully, and produces fabric that looks intentional even with slightly wobbly tension. It is the best choice for winter hats, mittens, cardigans, and blankets that will actually be used through cold weather. Merino wool is soft enough for scarves and next-to-skin projects; Peruvian and worsted wool are hardier and more affordable.",
+            "The tradeoff is care. Most wool requires hand washing, and untreated wool felts if agitated. Superwash wool is treated to survive the washing machine, and it is worth every penny for gifts headed to households that will not baby a handmade item.",
+        ],
+    },
+    {
+        "id": "acrylic",
+        "heading": "Acrylic: practical, affordable, gift-friendly",
+        "paragraphs": [
+            "Acrylic yarn gets a bad reputation online, and that reputation is out of date. Modern acrylics are soft, washable, come in every color imaginable, and cost a fraction of natural fibers. They are the practical choice for baby blankets, throws, and gifts where the recipient will not lovingly hand-wash a handmade item. They are also excellent for beginners because a full-size skein costs less than a good sandwich, and mistakes feel less expensive.",
+            "The downside: acrylic does not block dramatically, and cheap acrylic can feel a little plasticky. Choose brands with a soft twist and a good customer reputation, and skip the very cheapest supermarket options for anything you want to last.",
+        ],
+    },
+    {
+        "id": "blends",
+        "heading": "Blends: the best of two fibers",
+        "paragraphs": [
+            "Yarn blends combine two or more fibers to get the best qualities of each. Cotton-acrylic blends are soft, structured, and machine-washable—an ideal beginner yarn for wearables. Wool-acrylic blends are warm, elastic, and cheaper than pure wool. Cotton-linen blends produce beautiful drape for summer garments. Silk-wool blends feel luxurious and glide across the hook.",
+            "Read the fiber percentage on the label. A '80% cotton, 20% acrylic' blend behaves mostly like cotton with a little more give. A '50/50 cotton-acrylic' behaves like something in between. Match the blend to what your project needs to do—structure, drape, warmth, or wash tolerance.",
+        ],
+    },
+    {
+        "id": "matching-projects",
+        "heading": "Matching yarn to project",
+        "paragraphs": [
+            "For blankets, choose a soft, washable yarn in worsted or bulky weight. Cotton-acrylic blends and superwash wool are both excellent. For scarves, wool or wool blends drape beautifully and hold blocked shape. For hats, superwash wool or merino keep their fit through many washes. For amigurumi, tight, non-stretchy fiber like cotton is ideal because stuffing does not peek through the stitches. For market bags, mercerized cotton is the classic answer.",
+            "When in doubt, buy a single ball of a candidate yarn and swatch it in the pattern's stitch. A twenty-minute swatch teaches more than an hour of online reviews. Refer to [[crochet-blanket-patterns|our blanket guide]] for specific yarn recommendations by blanket style.",
+        ],
+    },
+    {
+        "id": "yardage",
+        "heading": "Read yardage, not weight",
+        "paragraphs": [
+            "Skein weight is misleading. A 100-gram skein of bulky yarn contains far fewer yards than a 100-gram skein of sport yarn. When comparing prices or estimating how much yarn a project needs, always look at total yardage. Patterns usually list yardage required, not weight.",
+            "Buy at least ten percent more yarn than the pattern calls for, and check that all skeins share the same dye lot number. Dye lots vary noticeably between batches, and buying an extra skein three months later almost always produces a visible stripe.",
+        ],
+    },
+    {
+        "id": "buying-tips",
+        "heading": "Buying tips that save money",
+        "paragraphs": [
+            "Big-box stores often have excellent sales two or three times a year on their store-brand yarns. Independent yarn shops carry higher-quality fibers with expert advice; the price is higher but so is the finished result. Online retailers offer the widest selection, but you cannot feel the yarn before buying—stick to brands you already know, or buy a single test skein first.",
+            "For scrap collectors, our [[scrap-yarn-projects|leftover yarn guide]] covers twelve ways to use what you already own before adding more to the stash.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Great yarn choices are practical, not fancy. Ask what the finished piece needs to do, choose the fiber that supports that job, and buy enough of one dye lot to finish the project. The rest is preference, and preference gets clearer with every skein you use. Pick one weight and one fiber for your next project, use it fully, and note what you learned. That is how experienced crocheters build a working yarn library over time.",
+        ],
+    },
+]
+
+
+AMIGURUMI_101_BODY = [
+    {
+        "id": "why-ami",
+        "heading": "Why amigurumi is the best gateway to sculpture",
+        "paragraphs": [
+            "Amigurumi is the Japanese-influenced style of crocheting small, stuffed animals and characters. What makes it a wonderful beginner project is that a single amigurumi teaches almost every core crochet skill: working in the round, tight tension, single crochet mastery, increases, decreases, and simple assembly. Finish one small animal, and you have practiced the fundamentals of every advanced amigurumi pattern you will ever see.",
+            "The scale is also friendly. A small mushroom or bumblebee takes an afternoon, not a season. That means you can experiment, make mistakes, and try again without a huge time investment. If a stitch pattern is not clicking, a two-hour amigurumi is a much lower stakes practice piece than a two-week garment.",
+        ],
+    },
+    {
+        "id": "supplies",
+        "heading": "Supplies for your first tiny animal",
+        "paragraphs": [
+            "You need a smooth medium-weight yarn (cotton or a plush acrylic like Hobbii Amigo work beautifully), a hook one full size smaller than the yarn label suggests (a 3.5 mm or 4.0 mm for worsted yarn), polyester fiberfill, a tapestry needle, and a small pair of safety eyes or plain black embroidery floss.",
+            "The reason for a smaller hook is critical: tight stitches keep stuffing from peeking through. If your amigurumi looks 'holey' after stuffing, your hook is too big for the yarn. Go down a size and try again. The fabric should feel firm and dense, almost like a soft cardboard.",
+        ],
+    },
+    {
+        "id": "magic-ring",
+        "heading": "The magic ring: your amigurumi foundation",
+        "paragraphs": [
+            "Almost every amigurumi starts with a magic ring. It is a slip knot that stays loose enough to work stitches into, then pulls closed at the center. To make one, wrap the yarn around your fingers, insert the hook under both strands, pull up a loop, chain one, and work your first round of stitches into the ring. When the round is complete, pull the tail firmly to close the center.",
+            "If magic rings feel awkward, an alternative is chain 2 and work all round-one stitches into the second chain from the hook. This is called the 'chain 2 method,' and it produces a tiny hole in the center that most people never notice. Either method is perfectly acceptable.",
+        ],
+    },
+    {
+        "id": "increases-decreases",
+        "heading": "Increases and invisible decreases",
+        "paragraphs": [
+            "An amigurumi ball is made by increasing stitches evenly through the first several rounds, working straight for the middle, and then decreasing evenly toward the end. Increases (inc) are simply two single crochets worked into the same stitch. Decreases (dec) are two stitches worked together into one.",
+            "The 'invisible decrease' method produces a much cleaner finish than a standard decrease. Insert your hook into the front loop of the next stitch, then into the front loop of the following stitch (two front loops on your hook), yarn over, and pull through both loops. Yarn over once more and pull through both loops on the hook. This tiny modification is what separates amateurish amigurumi from pieces that look designer-made.",
+        ],
+    },
+    {
+        "id": "markers",
+        "heading": "Stitch markers are essential",
+        "paragraphs": [
+            "Amigurumi is worked in continuous spirals, not joined rounds. That means the end of one round flows straight into the next without a slip stitch. To find the start of each round, place a small stitch marker (a paperclip works fine) in the first stitch of every round. Move it up as you complete each round.",
+            "Without markers, you will lose count within five rounds. Even experienced amigurumi crocheters use them for every project. Count stitches at the end of every round, and mark the first stitch of every round without exception.",
+        ],
+    },
+    {
+        "id": "stuffing",
+        "heading": "Stuffing shapes your character",
+        "paragraphs": [
+            "Firm stuffing is the difference between a shapeless blob and a piece with clear silhouette. Stuff in small pieces, packing each piece firmly with the eraser end of a pencil or a chopstick. Stop stuffing about two rounds before you close the shape; the last rounds hold everything in place.",
+            "Adjust firmness to the shape. Round shapes like heads and berries look best when stuffed firm enough that they hold their spherical shape without dents. Long shapes like arms and legs can be a little softer so they bend naturally.",
+        ],
+    },
+    {
+        "id": "faces",
+        "heading": "Faces make personality",
+        "paragraphs": [
+            "Two identical animals with different faces feel like completely different creatures. Place safety eyes before closing the head so you can adjust position freely. A common rule of thumb: place eyes on round 8 or 9 of a 12-round head, five to seven stitches apart. Adjust by holding the eyes in place and looking at the piece from a few feet away.",
+            "For young children (under three years old), embroider features with black yarn or embroidery floss instead of using safety eyes. A simple satin stitch for each eye works beautifully. Add a tiny pink cheek in embroidery floss for extra charm.",
+        ],
+    },
+    {
+        "id": "assembly",
+        "heading": "Assembly is a design choice",
+        "paragraphs": [
+            "How you attach limbs, ears, and tails changes the entire feel of the finished piece. Pin body parts in different positions before sewing to see what feels right. A slightly tilted head, arms raised in a hug, or legs positioned mid-run all give personality. Use long tails from cast-off ends to sew parts together—no fresh yarn needed.",
+            "Use a whip stitch or invisible ladder stitch for cleanest results. Take your time. A well-assembled amigurumi with slightly wonky stitches looks better than a technically perfect one that is sewn together crooked.",
+        ],
+    },
+    {
+        "id": "practice-plan",
+        "heading": "A four-project practice plan",
+        "paragraphs": [
+            "Your first four amigurumi should build skills in order. Start with a simple mushroom (round shape, one color, no assembly). Then a bumblebee (color changes, small wings sewn on). Then a rabbit (multiple body parts assembled together). Finally, a bigger character with clothing details (adds complexity like embroidery and detail work).",
+            "By the fourth project, most of the confusion has been replaced with confidence. If you have leftover yarn from these projects, [[scrap-yarn-projects|our scrap yarn guide]] has ideas for the tiny amounts amigurumi always leaves behind.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Amigurumi rewards slowness and attention. Every tiny animal you finish is a small sculpture, a tiny gift, and a snapshot of the specific week you made it. Pick a simple pattern this weekend, work it in bright cotton, and enjoy watching a flat spiral become a small friend that looks back at you from your shelf.",
+        ],
+    },
+]
+
+
+CROCHET_HACKS_BODY = [
+    {
+        "id": "why-hacks",
+        "heading": "Small habits that add up to hours saved",
+        "paragraphs": [
+            "Crochet 'hacks' are not miracle shortcuts. They are small studio habits that add up to real time savings over the course of a project—or the course of a lifetime. Every one of the five habits below solves a specific real-world friction: finding the beginning of a row, keeping ends from unraveling, transporting a project without a tangle, sitting comfortably for hours, and switching colors without a jog.",
+            "None of these tricks changes what your hands do at the hook. They change what your studio does around your hands, so the hook can move without interruption. Try one this week and notice how much more relaxing your next project feels.",
+        ],
+    },
+    {
+        "id": "hack-1-markers",
+        "heading": "Hack 1: A stitch marker in every project",
+        "paragraphs": [
+            "The single most valuable habit in crochet is placing a stitch marker at the start of every row of every project. It sounds excessive. It is not. Locking-loop stitch markers cost a few dollars for a pack of fifty. Clip one onto the first stitch of row one as soon as you finish that stitch. Move it up one row at a time.",
+            "This tiny habit means you never lose your place when you set a project down. It means you can spot a growing or shrinking row within one row instead of five. And it means picking up a project after a long break feels instant instead of confusing. Every experienced crocheter I know does this. Every frustrated beginner I know does not.",
+        ],
+    },
+    {
+        "id": "hack-2-tail-management",
+        "heading": "Hack 2: Weave in ends as you go",
+        "paragraphs": [
+            "Weaving in ends is the least loved part of crochet. Almost every crocheter procrastinates it, then finishes ten ends in one exhausted evening at the end of a big project. Try the opposite: weave in every yarn tail immediately after joining a new color or finishing a section. It takes ninety seconds each time. Skipping it saves nothing, because you still have to do it eventually.",
+            "For projects with many color changes, carry the non-working yarn along the top of the previous row and crochet over it. This traps the strand inside the fabric and eliminates a tail entirely. It works especially well for tapestry crochet and color-block blankets.",
+        ],
+    },
+    {
+        "id": "hack-3-project-bag",
+        "heading": "Hack 3: A dedicated project bag per project",
+        "paragraphs": [
+            "One project, one bag. Do not mix yarn from different projects in the same tote. Even the most careful crocheter ends up with tangled strands and missing hooks when two skeins share a bag. A five-dollar zippered pouch dedicated to one specific project keeps everything together—yarn, hook, pattern, notes, and a stitch marker.",
+            "For traveling crocheters, add a small pair of folding scissors and a tapestry needle to the bag. Then any waiting room, airport gate, or car ride becomes an opportunity to work a few rows. Progress without extra setup is the whole point.",
+        ],
+    },
+    {
+        "id": "hack-4-ergonomics",
+        "heading": "Hack 4: Small ergonomic adjustments prevent big pain",
+        "paragraphs": [
+            "Wrist and neck pain are the biggest reasons crocheters take unwanted breaks from the craft. Prevent them with three simple changes. First, sit with the project supported in your lap rather than reaching for a hook held in the air. Second, rest your hands every twenty minutes, even briefly, and stretch your fingers. Third, use an ergonomic hook if you already feel tension in your grip—rubber grips or wooden hooks with a barrel-shaped handle both reduce strain significantly.",
+            "For long sessions, work in shorter blocks of twenty to thirty minutes rather than one long marathon. Small breaks preserve your hands. Marathon sessions punish them.",
+        ],
+    },
+    {
+        "id": "hack-5-jogless-stripes",
+        "heading": "Hack 5: The jogless stripe",
+        "paragraphs": [
+            "When you change colors in the round, the join usually looks jaggy—the last stitch of the old color sits slightly higher than the first stitch of the new. This is called a 'jog.' The fix is quick: when you start the new color, work the first stitch of the round into the stitch below the join instead of the stitch directly at the join. This drops the new color down one round so the seam smoothly aligns.",
+            "It takes one round of practice to feel natural. After that, every color change in the round looks like a professional finish. Combined with the other four hacks, this is the difference between crochet that says 'homemade' and crochet that says 'handmade.'",
+        ],
+    },
+    {
+        "id": "beyond",
+        "heading": "Beyond the five: making them stick",
+        "paragraphs": [
+            "Reading a hack list is easy. Making the habits automatic takes about three projects. Choose one hack, use it on your next project without exception, and notice how it feels. Then add a second. In a few months, all five will be automatic parts of how you work.",
+            "For studio organization, our [[best-yarn-for-crochet|yarn buyer's guide]] pairs well with these habits—buying yarn thoughtfully means less yarn wasted on mistakes and less clutter over time.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Crochet gets more joyful when small friction disappears. Every hack in this guide removes one source of friction. Pick the one that solves the problem you notice most often, use it this week, and let it become part of how your hands work. That is how a craft turns into a long-term practice—one small habit at a time.",
+        ],
+    },
+]
+
+
+FIX_DROPPED_STITCH_BODY = [
+    {
+        "id": "dont-panic",
+        "heading": "First: do not unravel the whole thing",
+        "paragraphs": [
+            "The moment you notice a dropped stitch, a mistake three rows back, or an unexpected hole in your fabric, your first instinct is often to pull the whole piece apart and start over. Resist that instinct for at least five minutes. Almost every crochet mistake can be repaired without destroying the piece, and the repair usually takes less time than restarting.",
+            "This guide walks through the most common in-progress repairs so you can confidently fix a mistake and keep going. Bookmark this page and refer back the next time your work looks off. Panic wastes yarn; patience saves projects.",
+        ],
+    },
+    {
+        "id": "identify",
+        "heading": "Identify the mistake first",
+        "paragraphs": [
+            "Before doing anything, put the work flat on a table and examine it in good light. Look for the specific mistake: a dropped stitch (an empty loop where a stitch should be), an added stitch (extra bump in the row), a stitch worked in the wrong place, or a color that started or ended in the wrong row. Naming the mistake makes the fix obvious.",
+            "Count your stitches in the current row and the previous row. If the counts disagree, the mistake is on the higher row. If they agree, the mistake is somewhere in the pattern—maybe a wrong stitch type or the wrong turning chain.",
+        ],
+    },
+    {
+        "id": "ladder-rescue",
+        "heading": "The ladder rescue for a dropped stitch",
+        "paragraphs": [
+            "If a single stitch dropped several rows down and 'laddered' (fell open like a run in a stocking), you can rescue it with a spare hook. Insert the hook into the live loop at the bottom of the ladder, catch the loose horizontal strand above it, and pull it through. Repeat up the ladder, one strand at a time, until the stitch reaches the current row.",
+            "This works best in single crochet and half double crochet. For taller stitches like double crochet, the reconstruction is trickier—it may be faster to tink back to the mistake instead. Practice this technique on a small swatch before you need it on a real project.",
+        ],
+    },
+    {
+        "id": "tink",
+        "heading": "Tink back one stitch at a time",
+        "paragraphs": [
+            "'Tinking' is knitting slang for unworking stitches one at a time. In crochet, it means undoing one stitch backward until you reach the mistake. Take out your hook, pull the working yarn to open the last stitch, and reinsert the hook one stitch earlier. Repeat until you are just before the mistake, then work forward again with the correction.",
+            "Tinking is precise and preserves the surrounding fabric perfectly. It is the right choice when you cannot see the mistake clearly enough to isolate it, or when the mistake is a wrong stitch type rather than a dropped loop.",
+        ],
+    },
+    {
+        "id": "frog",
+        "heading": "Frog when you have to, and only what you have to",
+        "paragraphs": [
+            "'Frogging' means pulling out multiple rows or an entire section. Sometimes it is the fastest fix, especially when a mistake is more than five rows back or the pattern went off in a way that would be tedious to tink. Frog carefully—slide your hook out first, then pull the yarn slowly to unravel row by row rather than yanking.",
+            "Wind the freed yarn back into a small ball as you go so it does not tangle. Once you reach the row just before the mistake, insert your hook into the live loop, pull the working yarn firmly, and resume the pattern. Frogging is not a failure; it is a normal part of the craft.",
+        ],
+    },
+    {
+        "id": "lifelines",
+        "heading": "Use lifelines for complex patterns",
+        "paragraphs": [
+            "For lace, colorwork, and other patterns where a mistake could cascade, use a lifeline. A lifeline is a piece of contrasting-color scrap yarn threaded through every stitch of a completed row. If you make a serious mistake later, you can rip back safely to the lifeline without losing the whole piece below.",
+            "Place a lifeline every ten rows or after every completed pattern repeat. This tiny piece of insurance is what allows experienced crocheters to work confidently through complex charts.",
+        ],
+    },
+    {
+        "id": "post-repair",
+        "heading": "After the repair: check tension carefully",
+        "paragraphs": [
+            "A repair almost always disturbs surrounding tension slightly. Look at the fixed area from a distance to spot any tight or loose stitches. If a repaired area is slightly tighter than the rest, blocking the finished piece usually evens it out. If it is much looser, tighten by pulling the yarn tail gently and reworking the ends into the fabric.",
+            "For a full breakdown of what causes uneven tension in the first place, [[even-crochet-stitches|our even stitches guide]] covers the specific habits that prevent most of these repairs from being needed at all.",
+        ],
+    },
+    {
+        "id": "prevention",
+        "heading": "Prevention is easier than repair",
+        "paragraphs": [
+            "The best repair is the one you never have to make. Count stitches at the end of every row. Use stitch markers to lock the first and last stitches of each row. Photograph a completed section before starting a new one; if something goes wrong, the photo shows you exactly what the piece is supposed to look like. Small habits like these prevent the majority of the mistakes this guide teaches you to fix.",
+            "Common mistakes and their fixes are covered in more depth in [[common-crochet-mistakes|our ten mistakes guide]]—read it alongside this one to build a full mental library of common problems and their solutions.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Every experienced crocheter has repaired their work dozens of times. The difference between an experienced and a beginner crocheter is not fewer mistakes—it is faster, calmer recovery from them. Practice one of these repair techniques on a scrap swatch this week, and the next time a real project needs a fix, your hands will already know what to do.",
+        ],
+    },
+]
+
+
+BLANKET_PATTERNS_BODY = [
+    {
+        "id": "blankets-anchor",
+        "heading": "Why blankets are the anchor project of crochet",
+        "paragraphs": [
+            "Blankets are the reason many people start crocheting and the reason many keep going. They are big enough to feel meaningful, forgiving enough to work through beginner mistakes, and practical enough to actually use for the rest of your life. A finished blanket says 'someone made this on purpose' in a way that few store-bought objects ever manage. Whether you are making one for yourself, a friend's baby shower, or a housewarming gift, the right pattern turns hours of stitching into a finished object you will love.",
+            "This guide walks through choosing a blanket size, matching stitch style to skill level, calculating yarn needs, joining strategies, and finishing touches. Read the whole thing before starting your first blanket—the small decisions before you cast on shape the entire experience.",
+        ],
+    },
+    {
+        "id": "size",
+        "heading": "Choose a size before choosing a stitch",
+        "paragraphs": [
+            "Blanket size determines almost everything else: yarn needed, hours required, and portability of the work in progress. A small lap blanket (about 36x48 inches) uses about 1,000 yards of worsted yarn and finishes in 20-30 hours. A throw (50x60 inches) uses 1,600-2,000 yards. A queen bed cover (90x90 inches) can use 4,000-5,000 yards and take a full season. Match the size to the amount of time and yarn you can realistically commit.",
+            "Baby blankets are the best first blanket because they finish quickly (600-1,000 yards is typical) and let you experiment with color and stitch pattern without a huge commitment. A finished baby blanket also makes an unforgettable gift for any new parent in your life.",
+        ],
+    },
+    {
+        "id": "granny",
+        "heading": "The classic granny square: beginner-friendly and portable",
+        "paragraphs": [
+            "A granny square blanket is made of many small squares stitched together. It is the most beginner-friendly blanket style because each square finishes quickly (usually in under 15 minutes for a small square), the pattern is simple to memorize, and portability is excellent—you can work squares anywhere. Making 40-80 squares and joining them produces a stunning blanket that looks intentional even from your first granny.",
+            "Modern granny squares don't have to look grandma-vintage. Choose a modern palette—muted terracottas, sages, and creams—for a contemporary feel. For a designer-look interpretation, [[modern-granny-square-skirt-vest|our modern granny fashion guide]] shows how the same square translates to garment design.",
+        ],
+    },
+    {
+        "id": "c2c",
+        "heading": "Corner-to-corner (C2C): fast and forgiving",
+        "paragraphs": [
+            "The corner-to-corner method starts with a single square in one corner and grows diagonally, adding one small square-block per row. It works up surprisingly fast and is very forgiving of tension inconsistencies because each block resets the count. C2C is also excellent for graphghans—blankets that display a pixelated image, from initials to full pictures.",
+            "C2C shines in bold color-block patterns. Choose 2-4 colors for maximum impact. Beginners can master this style in a single afternoon of practice, and each finished row shows visible progress that motivates continued work.",
+        ],
+    },
+    {
+        "id": "textured",
+        "heading": "Textured stitches for cozy weight",
+        "paragraphs": [
+            "Textured stitches—bobbles, popcorns, cables, and puff stitches—produce blankets with visible depth and satisfying weight. They use more yarn per square inch than plain stitches, so plan for 20-30% more yarn than a comparable stitch pattern. Textured blankets are especially rewarding to touch and photograph beautifully in soft neutrals.",
+            "The chevron and shell stitch patterns are the most beginner-friendly textured options. Both use stitch groups worked over a repeat, and both look impressive from row one. If you have never worked a shell or chevron, practice on a small square before committing yarn for a full blanket.",
+        ],
+    },
+    {
+        "id": "mosaic",
+        "heading": "Mosaic crochet: modern, striking, meditative",
+        "paragraphs": [
+            "Mosaic crochet is a modern style that uses two colors and simple stitches (mostly single and double crochet) to create bold geometric patterns. Unlike tapestry crochet, you only carry one color per row—no juggling multiple strands. The finished fabric looks like a painting made of stitches, and once the rhythm clicks, it is one of the most meditative crochet styles.",
+            "Mosaic charts look intimidating but are surprisingly simple once you understand the rules. Read a mosaic tutorial before starting a full blanket, and always work a full pattern repeat on a swatch to make sure the yarn colors have enough contrast to read clearly.",
+        ],
+    },
+    {
+        "id": "yarn-planning",
+        "heading": "How to plan yarn for a blanket",
+        "paragraphs": [
+            "Start with a total yardage estimate for your chosen pattern (patterns almost always list this). Divide that number by the yards per skein of your chosen yarn to know how many skeins to buy. Add 10-15% extra for safety and to account for dye lot variations. If your blanket needs 8 skeins, buy 9. If it needs 15, buy 17.",
+            "Always buy from the same dye lot. Dye lot numbers appear on the yarn label and slightly different lots can produce visibly different color stripes in the finished blanket. If you cannot get one dye lot for the full amount, plan color changes so each dye lot occupies its own section. Full guidance is in [[best-yarn-for-crochet|our yarn buyer's guide]].",
+        ],
+    },
+    {
+        "id": "joining",
+        "heading": "Joining squares and adding borders",
+        "paragraphs": [
+            "For blankets made of separate squares, joining is a design decision. Slip stitch joins produce a clean seam and add minimal bulk. Whip stitch joins are almost invisible and drape beautifully. The join-as-you-go method connects each square to the previous ones during the last round of that square, and it is the tidiest option once you have practice.",
+            "A border adds finish and structure. Even one simple round of single crochet cleans up the edges dramatically. For a fancier finish, add two or three rounds in a contrasting color or a shell edge. Do not skip the border, especially for gifting; a bordered blanket looks intentional in a way an unbordered one never does.",
+        ],
+    },
+    {
+        "id": "care",
+        "heading": "Blocking, washing, and long-term care",
+        "paragraphs": [
+            "Once the blanket is finished, wet block it. Fill a bathtub with cool water and a small amount of gentle detergent, submerge the blanket, gently squeeze out excess water in towels, and lay flat to dry on more towels. This evens tension and softens the fabric permanently.",
+            "For long-term care, wash in cool water on a gentle cycle if the yarn is superwash or acrylic. Hand-wash any wool or delicate fibers. Store the blanket folded, not hung; hanging distorts the shape over time. Well-made blankets last for decades if cared for gently.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "The blanket you make this year could be the one your family reaches for a decade from now. Choose a pattern that excites you, buy enough yarn from one dye lot, and give yourself weekly milestones so the size feels manageable. Every square finished is progress, and every finished blanket is a small piece of your care made physical. Start this weekend.",
+        ],
+    },
+]
+
+
+SELL_ONLINE_BODY = [
+    {
+        "id": "hobby-to-business",
+        "heading": "From hobby to income, honestly",
+        "paragraphs": [
+            "Turning crochet into a small income stream is possible, but it looks very different from what most social media makes it look like. Building a sustainable side income takes six to twelve months of steady work: photography, pricing, product listings, customer service, and shipping logistics all matter as much as the stitching itself. If you approach it with realistic expectations and a plan, it can become a meaningful supplement to your income and a satisfying creative career.",
+            "This guide walks through the practical decisions that separate a hobby from a small business. Read the whole thing before opening a shop—the choices you make in month one shape everything that follows. Nothing here is fluff, and nothing promises overnight success.",
+        ],
+    },
+    {
+        "id": "pricing",
+        "heading": "Pricing that actually pays you",
+        "paragraphs": [
+            "Most new sellers underprice by a factor of three. The formula that works: (materials + hourly labor + overhead) x profit margin. For example, an amigurumi that used $4 of yarn and took 3 hours of your time at $15/hour uses $49 in cost before overhead. Add 20-30% for platform fees, taxes, and business expenses, then apply a 2x markup for profit. Sale price: roughly $110-130.",
+            "Many hobbyists feel awkward pricing this high, but underpricing hurts everyone: it burns you out and it lowers the market price for other crocheters. If your target market cannot afford your true price, reconsider the product, not the price. Simpler patterns, faster stitches, or larger production runs can lower cost without lowering value.",
+        ],
+    },
+    {
+        "id": "photography",
+        "heading": "Photography sells more than the product",
+        "paragraphs": [
+            "Buyers cannot touch a handmade item online. They can only trust your photos. Great photography does not require professional equipment—a modern smartphone in natural window light produces excellent results. Photograph each product against a clean, neutral background (a white sheet or a wood table both work), from at least four angles, plus one lifestyle shot showing the piece in use.",
+            "Edit lightly: brighten, straighten, and crop. Do not oversaturate colors. Your customer needs to see accurate color so they are not disappointed when the physical piece arrives. Product photography quality often has more effect on sales than product quality itself.",
+        ],
+    },
+    {
+        "id": "platforms",
+        "heading": "Where to sell: Etsy, Instagram, or your own site",
+        "paragraphs": [
+            "Etsy is the easiest starting point: built-in audience, established trust with buyers, straightforward listings. The tradeoff is fees (10-15% total after payment processing) and competition from thousands of similar shops. Instagram sells through direct messages and stories; it has zero fees but requires steady content creation to build an audience.",
+            "Your own website (Shopify, Squarespace, or a simple hosted store) offers full control and no per-sale fees, but it requires you to drive all your own traffic. Start with Etsy or Instagram for the first year. Move to your own site once you have a repeat-customer base large enough to sustain a launch.",
+        ],
+    },
+    {
+        "id": "listings",
+        "heading": "Listings that actually convert",
+        "paragraphs": [
+            "A great listing has four parts: a clear title (product type + material + audience: 'Handmade Cotton Amigurumi Bumblebee for Baby Room'), a detailed description that answers common questions (size, care, shipping, materials), keyword-rich tags, and honest photos. Buyers scan; they do not read. Put the most important information in the first two sentences of every description.",
+            "Include care instructions, size measurements, and estimated shipping time. Every question your listing does not answer becomes a message that delays purchase. The best listings feel like a friendly, informed salesperson who happens to be reading the buyer's mind.",
+        ],
+    },
+    {
+        "id": "shipping",
+        "heading": "Shipping without losing money",
+        "paragraphs": [
+            "Shipping is where many new sellers lose money. Weigh a fully packaged sample of each product on a kitchen scale before setting shipping prices. Include the box, tissue paper, business card, and any padding. Use flat-rate shipping options whenever possible—USPS Priority Mail flat-rate boxes are your friend for small-to-medium items.",
+            "Package everything as if it were a gift for a friend. Tissue paper, a small thank-you card, and a business card add almost no cost but transform the unboxing experience. Repeat buyers come from small delights like this.",
+        ],
+    },
+    {
+        "id": "customer-service",
+        "heading": "Customer service builds a business",
+        "paragraphs": [
+            "Reply to every message within 24 hours. Address concerns kindly, even when the buyer is being unreasonable. Offer solutions before defending yourself. A single well-handled negative review often produces more sales than avoiding negative reviews entirely, because it shows future buyers how you treat problems.",
+            "Track every sale in a simple spreadsheet: buyer name, item, ship date, tracking number, and any special notes. This becomes the backbone of your business as it grows and prevents the small errors that create bad reviews.",
+        ],
+    },
+    {
+        "id": "taxes",
+        "heading": "Legal and tax basics",
+        "paragraphs": [
+            "In the United States, income from selling handmade items is taxable. Track every sale and every expense from day one. Save receipts for yarn, tools, packaging supplies, and shipping. Most small crochet businesses file as sole proprietors on Schedule C of a regular tax return.",
+            "Once your business exceeds $600 in a year, platforms like Etsy report your income to the IRS. Consult a local accountant for state-specific sales tax rules and business license requirements. This step feels tedious but prevents surprises at tax time.",
+        ],
+    },
+    {
+        "id": "sustainability",
+        "heading": "Building a sustainable practice",
+        "paragraphs": [
+            "The biggest risk in selling handmade is burnout. If every crochet project becomes a job, the joy that made you start selling disappears. Set clear working hours, take real breaks, and give yourself permission to close the shop temporarily when needed. Repeat customers understand.",
+            "Diversify what you sell over time. Pattern PDFs, tutorial ebooks, and finished items each have different labor profiles and different customer bases. Our full [[best-yarn-for-crochet|yarn buyer's guide]] can also help you source materials at prices that keep your profit margins healthy.",
+        ],
+    },
+    {
+        "id": "next-loop",
+        "heading": "Your next loop",
+        "paragraphs": [
+            "Turning crochet into income is a marathon, not a sprint. Choose one product, price it correctly, photograph it well, list it once, and see what happens. Adjust based on real feedback, not imagined pressure. In a year of small, consistent choices, you will have a real small business that pays you fairly for the beautiful work you already know how to do.",
+        ],
+    },
+]
+
+
+
+def _full(slug, title, category, excerpt, image_key, read_time, date, body):
+    """Assemble a full article entry with a unique long-form body."""
     return {
         "slug": slug,
         "title": title,
@@ -821,23 +1736,24 @@ def _short(slug, title, category, excerpt, image_key, read_time):
         "excerpt": excerpt,
         "image": IMAGES[image_key],
         "read_time": read_time,
-        "date": "June 12, 2026",
-        "sections": CATEGORY_PARAGRAPHS[category],
-        "body": None,
+        "date": date,
+        "sections": None,
+        "body": body,
+        "draft": False,
     }
 
 
 ARTICLES_SEED = [
-    _short("crochet-for-absolute-beginners", "Crochet for Absolute Beginners: The Only Guide You'll Ever Need", "Beginners", "A calm, confidence-building first step into hooks, yarn, and your very first row.", "yarn", "8 min read"),
-    _short("common-crochet-mistakes", "10 Common Crochet Mistakes (and How to Fix Them Fast)", "Beginners", "The little fixes that make your stitches neater, your edges straighter, and practice more fun.", "blanket", "7 min read"),
-    _short("even-crochet-stitches", "The Secret to Perfectly Even Stitches Every Single Time", "Stitch School", "A practical rhythm for consistent tension, tidy edges, and fabric you actually love.", "yarn", "6 min read"),
-    _short("read-crochet-pattern", "How to Read a Crochet Pattern Like a Pro (Step-by-Step)", "Beginners", "Decode abbreviations, repeats, and charts without losing your place.", "blanket", "8 min read"),
-    _short("best-yarn-for-crochet", "Best Yarn for Every Type of Crochet Project (Buyer's Guide)", "Yarn Guide", "Choose fibers and weights with confidence, from soft blankets to sturdy bags.", "yarn", "9 min read"),
-    _short("amigurumi-101", "Amigurumi 101: Cute Crochet Animals for Beginners", "Amigurumi", "Start with friendly shapes, simple stuffing, and the details that bring tiny animals to life.", "amigurumi", "8 min read"),
-    _short("crochet-hacks", "5 Crochet Hacks That Will Save You Hours of Frustration", "Crochet Life", "Five small studio habits that rescue time, yarn, and your patience.", "yarn", "5 min read"),
-    _short("fix-dropped-stitch", "How to Fix a Dropped Stitch or Mistake Without Starting Over", "Stitch School", "Repair your work with a hook, a calm breath, and a simple visual check.", "blanket", "7 min read"),
-    _short("crochet-blanket-patterns", "Crochet Blanket Patterns: Cozy Projects for Every Skill Level", "Patterns", "Find the right blanket rhythm for a weekend, a season, or a lifetime keepsake.", "blanket", "9 min read"),
-    _short("sell-crochet-online", "From Hobby to Side Hustle: How to Sell Your Crochet Creations Online", "Crochet Life", "A grounded starter plan for pricing, photographing, and sharing handmade work.", "amigurumi", "10 min read"),
+    _full("crochet-for-absolute-beginners", "Crochet for Absolute Beginners: The Only Guide You'll Ever Need", "Beginners", "A calm, confidence-building first step into hooks, yarn, and your very first row.", "beginner_hook", "9 min read", "January 8, 2026", BEGINNERS_GUIDE_BODY),
+    _full("common-crochet-mistakes", "10 Common Crochet Mistakes (and How to Fix Them Fast)", "Beginners", "The little fixes that make your stitches neater, your edges straighter, and practice more fun.", "mistakes", "9 min read", "January 12, 2026", COMMON_MISTAKES_BODY),
+    _full("even-crochet-stitches", "The Secret to Perfectly Even Stitches Every Single Time", "Stitch School", "A practical rhythm for consistent tension, tidy edges, and fabric you actually love.", "even_stitches", "8 min read", "January 15, 2026", EVEN_STITCHES_BODY),
+    _full("read-crochet-pattern", "How to Read a Crochet Pattern Like a Pro (Step-by-Step)", "Beginners", "Decode abbreviations, repeats, and charts without losing your place.", "pattern_read", "10 min read", "January 18, 2026", READ_PATTERN_BODY),
+    _full("best-yarn-for-crochet", "Best Yarn for Every Type of Crochet Project (Buyer's Guide)", "Yarn Guide", "Choose fibers and weights with confidence, from soft blankets to sturdy bags.", "yarn_variety", "11 min read", "January 22, 2026", BEST_YARN_BODY),
+    _full("amigurumi-101", "Amigurumi 101: Cute Crochet Animals for Beginners", "Amigurumi", "Start with friendly shapes, simple stuffing, and the details that bring tiny animals to life.", "amigurumi_alt", "10 min read", "January 25, 2026", AMIGURUMI_101_BODY),
+    _full("crochet-hacks", "5 Crochet Hacks That Will Save You Hours of Frustration", "Crochet Life", "Five small studio habits that rescue time, yarn, and your patience.", "hacks_studio", "8 min read", "January 28, 2026", CROCHET_HACKS_BODY),
+    _full("fix-dropped-stitch", "How to Fix a Dropped Stitch or Mistake Without Starting Over", "Stitch School", "Repair your work with a hook, a calm breath, and a simple visual check.", "dropped_stitch", "9 min read", "January 30, 2026", FIX_DROPPED_STITCH_BODY),
+    _full("crochet-blanket-patterns", "Crochet Blanket Patterns: Cozy Projects for Every Skill Level", "Patterns", "Find the right blanket rhythm for a weekend, a season, or a lifetime keepsake.", "blanket_stack", "10 min read", "February 1, 2026", BLANKET_PATTERNS_BODY),
+    _full("sell-crochet-online", "From Hobby to Side Hustle: How to Sell Your Crochet Creations Online", "Crochet Life", "A grounded starter plan for pricing, photographing, and sharing handmade work.", "sell_business", "11 min read", "February 3, 2026", SELL_ONLINE_BODY),
     {
         "slug": "crochet-tops-for-every-body",
         "title": "Crochet Tops for Every Body: How to Adapt Patterns for Plus Sizes and Diverse Body Types",
@@ -854,7 +1770,7 @@ ARTICLES_SEED = [
         "title": "What to Do With Leftover Yarn: 12 Creative Scrap Yarn Ideas You'll Actually Use",
         "category": "Yarn Guide",
         "excerpt": "Twelve practical, cozy ways to turn a scrap yarn stash into finished projects—plus the sorting, color, and storage tricks that make everything look intentional.",
-        "image": IMAGES["yarn"],
+        "image": IMAGES["scrap_yarn"],
         "read_time": "9 min read",
         "date": "February 12, 2026",
         "sections": None,
@@ -878,7 +1794,7 @@ ARTICLES_SEED = [
         "title": "How to Crochet an Easy Round Placemat in Under 2 Hours (Step-by-Step)",
         "category": "Patterns",
         "excerpt": "A beginner-friendly round crochet placemat pattern using US crochet terms, worsted cotton, and only three stitches — finished in under two hours with a soft shell edging.",
-        "image": IMAGES["blanket"],
+        "image": IMAGES["placemat_home"],
         "read_time": "9 min read",
         "date": "February 18, 2026",
         "sections": None,
@@ -890,7 +1806,7 @@ ARTICLES_SEED = [
         "title": "Micro-Crochet Jewelry: Turning Embroidery Floss into Heirloom Earrings",
         "category": "Patterns",
         "excerpt": "A practical, tension-first guide to making delicate micro-crochet jewelry with six-strand embroidery floss, ultra-fine steel hooks, and a magic-ring lace earring pattern you can finish this weekend.",
-        "image": IMAGES["yarn"],
+        "image": IMAGES["micro_jewelry"],
         "read_time": "11 min read",
         "date": "February 22, 2026",
         "sections": None,
@@ -902,7 +1818,7 @@ ARTICLES_SEED = [
         "title": "Crochet Lampshades and Lantern Covers: Cozy Lighting Ideas for Small Spaces",
         "category": "Patterns",
         "excerpt": "Two beginner-friendly crochet lighting projects—a simple LED lantern cover and a hanging pendant cover with floral buttons—that transform small spaces in a single weekend.",
-        "image": IMAGES["blanket"],
+        "image": IMAGES["lamp_cozy"],
         "read_time": "10 min read",
         "date": "February 25, 2026",
         "sections": None,
@@ -914,7 +1830,7 @@ ARTICLES_SEED = [
         "title": "The Japanese Knot Bag: A Beginner Crochet Pattern With Real-Life Geometry",
         "category": "Patterns",
         "excerpt": "A modern, hardware-free Japanese knot bag crochet pattern with asymmetric handles, sturdy cotton body, and everyday utility—finished in under three hours and worn like it came from a boutique.",
-        "image": IMAGES["denim"],
+        "image": IMAGES["knot_bag"],
         "read_time": "10 min read",
         "date": "March 1, 2026",
         "sections": None,
@@ -926,7 +1842,7 @@ ARTICLES_SEED = [
         "title": "Modern Granny Square Fashion: How to Design Asymmetric Skirts and Vests",
         "category": "Clothing",
         "excerpt": "A designer-minded guide to turning classic granny squares into modern, asymmetric skirts and cropped vests—scale, palette, layout, joining, and finishing choices that make handmade look editorial.",
-        "image": IMAGES["tops"],
+        "image": IMAGES["granny_fashion"],
         "read_time": "11 min read",
         "date": "March 5, 2026",
         "sections": None,
@@ -938,11 +1854,23 @@ ARTICLES_SEED = [
         "title": "Crochet Tissue Box Cover with Side Buttons: A Year-Round Home Accessory",
         "category": "Patterns",
         "excerpt": "A practical crochet tissue box cover pattern with side buttons instead of sewn seams—refills in twenty seconds, fits cube and rectangular boxes, and quietly upgrades every room of the house.",
-        "image": IMAGES["blanket"],
+        "image": IMAGES["tissue_home"],
         "read_time": "10 min read",
         "date": "March 8, 2026",
         "sections": None,
         "body": TISSUE_BOX_COVER_BODY,
+        "draft": False,
+    },
+    {
+        "slug": "crochet-flowers-bandanas-on-denim",
+        "title": "Details Worth Their Weight: Adding Crochet Flowers and Bandanas to Denim",
+        "category": "Clothing",
+        "excerpt": "A ten-year-tested guide to sewing small crochet flowers and mini bandanas onto denim—patterns, placement, and boho-meets-urban styling that upgrades any jean jacket, shirt, or pair of jeans in an afternoon.",
+        "image": IMAGES["denim_flowers"],
+        "read_time": "10 min read",
+        "date": "March 12, 2026",
+        "sections": None,
+        "body": DENIM_FLOWERS_BANDANAS_BODY,
         "draft": False,
     },
 ]

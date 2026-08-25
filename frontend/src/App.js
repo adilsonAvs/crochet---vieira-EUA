@@ -13,7 +13,7 @@ const GSC_VERIFICATION = process.env.REACT_APP_GOOGLE_SITE_VERIFICATION || "";
 const GA4_ID = process.env.REACT_APP_GA4_MEASUREMENT_ID || "";
 const PINTEREST_VERIFY = process.env.REACT_APP_PINTEREST_VERIFY || "";
 const AUTHOR = "Claire Lawson";
-const SITE = "Cozy Loop Crochet";
+const SITE = "Cozy Crochet Trail";
 const DEFAULT_OG_IMAGE = "https://images.unsplash.com/photo-1668072587859-f0f30c8fa938?auto=format&fit=crop&w=1200&q=80";
 
 const CATEGORY_DESCRIPTIONS = {
@@ -137,7 +137,7 @@ function AdSlot({ slot = "auto", format = "auto", testId = "article-ad-placehold
     ref.current = true;
     try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) { /* noop */ }
   }, []);
-  if (!ADSENSE_CLIENT) return <div className="ad-slot" data-testid={testId}><span>Advertisement</span></div>;
+  if (!ADSENSE_CLIENT) return null;
   return (
     <ins className="adsbygoogle ad-slot" style={{ display: "block" }}
       data-ad-client={ADSENSE_CLIENT} data-ad-slot={slot}
@@ -165,8 +165,8 @@ function Header() {
     <header className="site-header">
       <div className="nav-wrap">
         <Link data-testid="site-logo-link" className="logo" to="/">
-          <span className="logo-mark">CL</span>
-          <span>Cozy Loop<small>CROCHET</small></span>
+          <span className="logo-mark">CT</span>
+          <span>Cozy Crochet<small>TRAIL</small></span>
         </Link>
         <button data-testid="mobile-menu-button" className="icon-btn mobile-only" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X /> : <Menu />}
@@ -188,7 +188,7 @@ function Footer() {
     <footer>
       <div className="footer-grid">
         <div>
-          <div className="logo footer-logo"><span className="logo-mark">CL</span><span>Cozy Loop<small>CROCHET</small></span></div>
+          <div className="logo footer-logo"><span className="logo-mark">CT</span><span>Cozy Crochet<small>TRAIL</small></span></div>
           <p className="footer-copy">Practical crochet wisdom for a slower, more creative life.</p>
         </div>
         <div>
@@ -368,7 +368,7 @@ function Home() {
       <section className="section intro">
         <div><span className="eyebrow">Welcome in</span><h2>For the curious,<br />not the perfect.</h2></div>
         <div className="intro-text">
-          <p>Cozy Loop Crochet is your friendly corner of the internet for making things with your hands. No gatekeeping, no intimidating jargon—just useful guidance from the first loop to the finished piece.</p>
+          <p>Cozy Crochet Trail is your friendly corner of the internet for making things with your hands. No gatekeeping, no intimidating jargon—just useful guidance from the first loop to the finished piece.</p>
           <Link data-testid="intro-about-link" className="underlined-link" to="/about">Meet the maker <ArrowRight size={15} /></Link>
         </div>
       </section>
@@ -577,7 +577,7 @@ function Contact() {
   };
   return (
     <>
-      <Meta title={`Contact ${SITE}`} description="Have a crochet question? Send Cozy Loop Crochet a note." />
+      <Meta title={`Contact ${SITE}`} description="Have a crochet question? Send Cozy Crochet Trail a note." />
       <section className="page-head compact">
         <span className="eyebrow">Come say hello</span>
         <h1>Let's talk<br /><em>crochet.</em></h1>
@@ -690,13 +690,13 @@ const TERMS_SECTIONS = [
   {
     heading: "Intellectual property",
     paragraphs: [
-      "All original words, photographs, illustrations, and patterns on Cozy Loop Crochet are the copyrighted work of Cozy Loop Crochet unless otherwise credited. The Cozy Loop Crochet name, logo, and brand marks are trademarks of the site owner.",
+      "All original words, photographs, illustrations, and patterns on Cozy Crochet Trail are the copyrighted work of Cozy Crochet Trail unless otherwise credited. The Cozy Crochet Trail name, logo, and brand marks are trademarks of the site owner.",
     ],
   },
   {
     heading: "Reader comments and submissions",
     paragraphs: [
-      "By posting a comment or emailing us a note, you grant Cozy Loop Crochet a non-exclusive license to display and moderate your submission on the site. Only submit content you have the right to share. We moderate every comment before it appears; we may remove comments that are spam, defamatory, off-topic, promotional, or otherwise inappropriate at our discretion.",
+      "By posting a comment or emailing us a note, you grant Cozy Crochet Trail a non-exclusive license to display and moderate your submission on the site. Only submit content you have the right to share. We moderate every comment before it appears; we may remove comments that are spam, defamatory, off-topic, promotional, or otherwise inappropriate at our discretion.",
     ],
   },
   {
@@ -714,7 +714,7 @@ const TERMS_SECTIONS = [
   {
     heading: "Limitation of liability",
     paragraphs: [
-      "To the maximum extent permitted by law, Cozy Loop Crochet and its team are not liable for any direct, indirect, incidental, or consequential damages arising from your use of the site, the techniques described, or any materials you purchase based on our recommendations.",
+      "To the maximum extent permitted by law, Cozy Crochet Trail and its team are not liable for any direct, indirect, incidental, or consequential damages arising from your use of the site, the techniques described, or any materials you purchase based on our recommendations.",
     ],
   },
   {
@@ -750,8 +750,8 @@ function InfoPage({ type }) {
     <>
       <Meta title={`${privacy ? "Privacy Policy" : "Terms of Use"} | ${SITE}`}
         description={privacy
-          ? "How Cozy Loop Crochet handles your information, cookies, Google Analytics, Google AdSense, and your privacy rights."
-          : "Simple, clear terms for using Cozy Loop Crochet articles, patterns, and community features."} />
+          ? "How Cozy Crochet Trail handles your information, cookies, Google Analytics, Google AdSense, and your privacy rights."
+          : "Simple, clear terms for using Cozy Crochet Trail articles, patterns, and community features."} />
       <section className="page-head compact">
         <span className="eyebrow">Good to know</span>
         <h1>{privacy ? <>Privacy<br /><em>policy.</em></> : <>Terms of<br /><em>use.</em></>}</h1>
@@ -760,8 +760,8 @@ function InfoPage({ type }) {
         <p className="lead">Last updated: February 18, 2026</p>
         <h2>{privacy ? "Your privacy matters" : "Welcome to Cozy Loop"}</h2>
         <p>{privacy
-          ? "Cozy Loop Crochet respects your privacy. This page explains what information we collect, why we use it, the third parties involved (including Google Analytics and Google AdSense), and the choices available to you."
-          : "These terms keep Cozy Loop Crochet useful, respectful, and clear for everyone who visits. By using this site you agree to the terms below."}</p>
+          ? "Cozy Crochet Trail respects your privacy. This page explains what information we collect, why we use it, the third parties involved (including Google Analytics and Google AdSense), and the choices available to you."
+          : "These terms keep Cozy Crochet Trail useful, respectful, and clear for everyone who visits. By using this site you agree to the terms below."}</p>
         {sections.map((s, i) => (
           <div key={s.heading} data-testid={`legal-section-${i + 1}`}>
             <h2>{i + 1}. {s.heading}</h2>
@@ -776,14 +776,14 @@ function InfoPage({ type }) {
 function About() {
   return (
     <>
-      <Meta title={`About ${SITE}`} description="Meet the maker behind Cozy Loop Crochet." />
+      <Meta title={`About ${SITE}`} description="Meet the maker behind Cozy Crochet Trail." />
       <section className="page-head compact"><span className="eyebrow">Our story</span><h1>Made slowly.<br /><em>Shared openly.</em></h1></section>
       <section className="about-layout section">
         <img src="https://images.pexels.com/photos/6216236/pexels-photo-6216236.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="A handmade crochet blanket ready for a cozy afternoon" />
         <div>
           <span className="eyebrow">Hello, I'm Claire</span>
           <h2>There is always<br />room for one more loop.</h2>
-          <p>Cozy Loop Crochet grew out of a little kitchen table in Portland, Oregon, and a belief that craft should feel welcoming. I started this journal to share the practical things I wish someone had told me sooner: how to read a pattern, rescue a wonky edge, and choose yarn without second-guessing every skein.</p>
+          <p>Cozy Crochet Trail grew out of a little kitchen table in Portland, Oregon, and a belief that craft should feel welcoming. I started this journal to share the practical things I wish someone had told me sooner: how to read a pattern, rescue a wonky edge, and choose yarn without second-guessing every skein.</p>
           <p>Today, it is a growing collection of honest guides for makers across the US. Come as you are, make at your own pace, and know that the occasional tangled stitch is part of the story.</p>
           <Link data-testid="about-blog-link" className="button" to="/blog">Read the journal <ArrowRight size={16} /></Link>
           <Link data-testid="about-author-link" className="underlined-link" style={{ marginLeft: 20 }} to="/author/claire">Read Claire's full bio <ArrowRight size={15} /></Link>
@@ -916,7 +916,7 @@ function AuthorPage() {
   };
   return (
     <>
-      <Meta title={`Meet Claire Lawson | ${SITE}`} description="Meet Claire Lawson—self-taught crocheter, educator, and founder of Cozy Loop Crochet. Read every article she has written, from beginner basics to plus-size top adjustments." />
+      <Meta title={`Meet Claire Lawson | ${SITE}`} description="Meet Claire Lawson—self-taught crocheter, educator, and founder of Cozy Crochet Trail. Read every article she has written, from beginner basics to plus-size top adjustments." />
       <JsonLd id="author-schema" data={personSchema} />
       <section className="page-head compact">
         <span className="eyebrow">About the author</span>
@@ -925,9 +925,9 @@ function AuthorPage() {
       <section className="section author-hero">
         <img data-testid="author-avatar" src={personSchema.image} alt="Claire Lawson working at a wooden table with a crochet hook and yarn" />
         <div>
-          <span className="eyebrow">Editor · Cozy Loop Crochet</span>
+          <span className="eyebrow">Editor · Cozy Crochet Trail</span>
           <h2>A decade of quiet<br />practice, shared openly.</h2>
-          <p>I taught myself crochet at a kitchen table in Portland, Oregon after a friend handed me a hook and a leftover ball of cotton. Ten years later, that same table is where I write, swatch, and photograph everything you read on Cozy Loop Crochet.</p>
+          <p>I taught myself crochet at a kitchen table in Portland, Oregon after a friend handed me a hook and a leftover ball of cotton. Ten years later, that same table is where I write, swatch, and photograph everything you read on Cozy Crochet Trail.</p>
           <p>I believe good craft writing does two things: it removes the mystery and it keeps the joy. Every guide on this site is tested by me first, rewritten in plain English, and reviewed for accuracy before it ever goes live. If something on the site is wrong, I want to hear about it—email me directly and I will fix it.</p>
           <p>Outside of the site, I teach small-group crochet workshops at community centers around the Pacific Northwest, mentor a handful of new fiber-business owners each year, and hoard cotton scraps like they are currency.</p>
           <div className="author-meta">
