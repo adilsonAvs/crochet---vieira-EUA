@@ -9,6 +9,7 @@ from typing import Optional, List, Dict, Any
 import os, uuid, logging, hashlib, hmac, xml.sax.saxutils as _xml
 
 from articles_data import ARTICLES_SEED, CATEGORIES
+from crochet_beginners_article import CROCHET_BEGINNERS_ARTICLE
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -320,15 +321,16 @@ async def seed_articles():
     """Populate the articles collection on first boot; keeps existing docs in sync
     for slugs that already exist so editing the seed file is enough to refresh
     content without dropping the collection."""
+    all_articles = ARTICLES_SEED + [CROCHET_BEGINNERS_ARTICLE]
     existing_slugs = {d["slug"] async for d in db.articles.find({}, {"slug": 1})}
-    for i, article in enumerate(ARTICLES_SEED):
+    for i, article in enumerate(all_articles):
         doc = {**article, "order": i}
         if article["slug"] in existing_slugs:
             await db.articles.update_one({"slug": article["slug"]}, {"$set": doc})
         else:
             doc["id"] = str(uuid.uuid4())
             await db.articles.insert_one(doc)
-    logging.info("Articles seed applied: %s items", len(ARTICLES_SEED))
+    logging.info("Articles seed applied: %s items", len(all_articles))
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
