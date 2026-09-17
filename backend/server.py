@@ -109,6 +109,17 @@ async def list_articles(x_admin_token: Optional[str] = Header(default=None)):
     is_admin = await _is_admin(x_admin_token)
     query = {} if is_admin else {"draft": {"$ne": True}}
     docs = await db.articles.find(query, {"_id": 0}).sort("order", 1).to_list(length=200)
+    
+    if not any(d.get("slug") == "crochet-for-beginners-complete-guide" for d in docs):
+        from crochet_beginners_article import CROCHET_BEGINNERS_ARTICLE
+        import copy
+        new_doc = copy.deepcopy(CROCHET_BEGINNERS_ARTICLE)
+        new_doc["id"] = str(uuid.uuid4())
+        new_doc["order"] = -1
+        await db.articles.insert_one(new_doc)
+        new_doc.pop("_id", None)
+        docs.insert(0, new_doc)
+        
     return {"articles": docs, "categories": CATEGORIES, "admin": is_admin}
 
 @api_router.get("/articles/{slug}")
@@ -119,6 +130,9 @@ async def get_article(slug: str, x_admin_token: Optional[str] = Header(default=N
         query["draft"] = {"$ne": True}
     doc = await db.articles.find_one(query, {"_id": 0})
     if not doc:
+        if slug == "crochet-for-beginners-complete-guide":
+            from crochet_beginners_article import CROCHET_BEGINNERS_ARTICLE
+            return CROCHET_BEGINNERS_ARTICLE
         raise HTTPException(status_code=404, detail="Article not found")
     return doc
 
@@ -322,7 +336,7 @@ async def seed_articles():
     for slugs that already exist so editing the seed file is enough to refresh
     content without dropping the collection."""
     all_articles = ARTICLES_SEED + [CROCHET_BEGINNERS_ARTICLE]
-    existing_slugs = {d["slug"] async for d in db.articles.find({}, {"slug": 1})}
+    existing_slugs = {d.get("slug") async for d in db.articles.find({}, {"slug": 1}) if d.get("slug")}
     for i, article in enumerate(all_articles):
         doc = {**article, "order": i}
         if article["slug"] in existing_slugs:
